@@ -1,5 +1,6 @@
 <script setup>
 import {IconBrandFacebook, IconBrandTwitter} from '@tabler/icons-vue'
+import {items} from "~/composables/menuItemsGet";
 
 const links = [
   {name: 'Accueil', url: '/', id: 1},
@@ -29,7 +30,7 @@ const events = [
       <div>
         <h3 class="text-2xl mb-2">Liens</h3>
         <ul class="block ml-4">
-          <li v-for="link in links" :key="link.id" class="py-3 lg:py-1">
+          <li v-for="link in items" :key="link.id" class="py-3 lg:py-1">
             <a :href="link.url">{{ link.name }}</a>
           </li>
         </ul>
