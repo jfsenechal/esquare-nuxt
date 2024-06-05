@@ -7,6 +7,7 @@ export const items = [
     {name: 'INFOS PRATIQUES', link: '#', icon: '', color: '', id: 6},
     {name: 'CONTACT', link: '#', icon: '', color: '', id: 7},
 ]
+//https://picsum.photos/1200/800?6
 export const news = [
     {
         name: 'Edite votre livre pour pas un balle (ou presque)',
