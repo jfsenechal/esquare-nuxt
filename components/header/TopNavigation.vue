@@ -13,9 +13,6 @@ const {mobileMenu = false} = defineProps(['mobileMenu'])
              :classCss="`animateText flex flex-col lg:block items-center justify-center w-full lg:w-auto p-4 lg:p-0 hover:text-blue-default border-t-2 lg:border-0 border-grey-lighter`">
       {{ item.name }}
     </AppLink>
-    <NuxtLink to="/" class="w-6 space-x-6 lg:mr-4">
-      <IconLogin alt="login"/>
-    </NuxtLink>
   </nav>
 </template>
 <style>

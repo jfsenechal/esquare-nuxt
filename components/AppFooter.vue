@@ -63,20 +63,21 @@ const events = [
       </div>
 
       <div class="self-center lg:self-start text-center">
-        <h3 class="text-2xl mb-2 font-pathway-semi-bold">Contacter Cap</h3>
+        <h3 class="text-2xl mb-2 font-pathway-semi-bold">L'E-SQUARE A.S.B.L</h3>
         <div class="flex flex-col items-center text-center">
-        <span>Amélie Vetcour<br/>
-        CAP sur Marche ASBL<br/>
-        Avenue de France, 126<br/>
-        6900 Marche-en-Famenne<br/>
-        <a href="mailto:cap@marche.be">cap@marche.be</a><br/>
-        </span>
-          <div class="flex gap-2 items-center mt-2">
+          <div>
+            Rue Victor-Libert 36 J<br/>
+            6900 Marche-en-Famenne<br/>
+            <a href="mailto:info@esquare.be">info@esquare.be</a><br/>
+            <strong>Tél:</strong> +32 (0) 491 96 33 65<br/>
+            <strong>Tva:</strong> BE 0699.826.888<br/>
+          </div>
+          <div class="flex flex-col gap-2 items-center mt-2">
             <a href="/">
               <img src="/images/esquareLogo.jpg" alt="marche.be" class="h-16">
             </a>
             <a href="/">
-              <img src="/images/esquareLogo.jpg" alt="adl" class="h-16">
+              <img src="/images/Marche-logo.png" alt="adl" class="h-16">
             </a>
           </div>
         </div>
