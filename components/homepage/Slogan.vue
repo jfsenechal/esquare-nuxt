@@ -2,9 +2,9 @@
 </script>
 <template>
   <section
-      class="flex flex-col items-center pr2ose lg:pros2e-xl bg-gradient-to-r from-amber-200 to-yellow-400 w-full p-10">
+      class="flex flex-col items-center pr2ose lg:pros2e-xl bg-gradient-to-r from-esquare-yellow to-esquare-blue w-full p-10">
     <div class="prose lg:prose-xl">
-      <h2 class="text-3xl font-semibold text-green-light">
+      <h2 class="text-3xl font-semibold text-esquare-blue">
         " SE REUNIR EST UN DEBUT, RESTER ENSEMBLE EST UN PROGRES, TRAVAILLER ENSEMBLE EST LA CLÉ DE LA REUSSITE
         "
       </h2>

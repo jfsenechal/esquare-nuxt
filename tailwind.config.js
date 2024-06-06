@@ -9,8 +9,17 @@ export default {
     ],
     theme: {
         extend: {
-            fontFamily: {},
+            fontFamily: {
+                roboto: ['Roboto', 'serif'],
+                sacramento: ['Sacramento', 'sans-serif'],
+                lato: [100, 300],
+            },
             colors: {
+                esquare: {
+                    black: '#001823',
+                    yellow: '#f3c30c',
+                    blue: '#0067a1'
+                },
                 blue: {
                     default: '#608BA4',
                     light: '#608ba4',
@@ -37,6 +46,10 @@ export default {
                     white: '#fefefc',
                     tt: '#f5fafce8',
                     xx: '#f3f4f1ff'
+                },
+                yellow: {
+                    default: '#facc15',
+                    hard: '#b59411',
                 },
             }
         },

@@ -5,12 +5,12 @@
 @layer base {
 
     html {
-        @apply scroll-pt-3 scroll-smooth text-base;
+        @apply scroll-pt-3 scroll-smooth text-base font-roboto;
         /* see https://www.getrevue.co/profile/shrutibalasa/issues/did-you-know-about-scroll-padding-easy-solution-to-fixed-header-problem-1325973 */
     }
 
     body {
-        @apply antialiased text-grey-dark;
+        @apply antialiased text-esquare-black;
     }
 
     * {

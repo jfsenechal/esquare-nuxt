@@ -10,12 +10,12 @@ const mobileMenu = ref(false)
       </svg>
     </a>
     <NuxtLink to="/" class="mr-auto lg:self-center">
-      <img src="/images/esquareLogo.jpg" alt="logo"
-           class="transition-all	duration-500	ease-in-out	animate-bouncejf	"/>
+      <img src="/images/EsquareLogoBlackWhite.png" alt="logo"
+           class="transition-all duration-500	ease-in-out	animate-bouncejf w-80	"/>
     </NuxtLink>
     <div class="flex flex-col gap-2 items-end mt-2">
       <HeaderTopNavigation :mobileMenu="mobileMenu"/>
-      <FooterSocialIconsLigth/>
+      <HeaderSocialIconsSmall/>
     </div>
   </header>
 </template>

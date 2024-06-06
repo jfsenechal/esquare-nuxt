@@ -1,6 +1,7 @@
 <script setup>
 import {IconBrandFacebook, IconBrandTwitter} from '@tabler/icons-vue'
 import {items} from "~/composables/menuItemsGet";
+import {news} from "~/composables/menuItemsGet";
 
 const links = [
   {name: 'Accueil', url: '/', id: 1},
@@ -17,52 +18,28 @@ const articles = [
   {name: 'Histoire de goût, une fromagerie pour tous les ... goûts !', url: '/', id: 3},
   {name: 'NOVEWAY, votre partenaire énergétique', url: '/', id: 4}
 ]
-const events = [
-  {name: 'Nouveau commerce à vendre à Marche !', url: '/', id: 1},
-  {name: 'Découvrez la vidéo Arrêt sur Immo de Julie !', url: '/', id: 2},
-  {name: 'Tendances printanières', url: '/', id: 3}
-]
 </script>
 
 <template>
-  <footer class="w-full min-h-[20rem] text-white xl:pb-5 ">
-    <div class="bg-grey-dark p-5 pb-20 flex flex-col justify-between xl:grid xl:grid-cols-4">
-      <div>
-        <h3 class="text-2xl mb-2">Liens</h3>
+  <footer class="w-full min-h-[20rem] text-white ">
+    <section class="bg-grey-dark p-5 pb-20 grid grid-cols-1 xl:grid-cols-3 items-start justify-around">
+      <div class="flex flex-col items-center gap-3">
+        <h3 class="text-2xl mb-2 font-pathway-semi-bold">Menu</h3>
         <ul class="block ml-4">
           <li v-for="link in items" :key="link.id" class="py-3 lg:py-1">
             <a :href="link.url">{{ link.name }}</a>
           </li>
         </ul>
       </div>
-
-      <div>
-        <h3 class="text-2xl mb-2">Posts récents</h3>
+      <div class="flex flex-col items-center gap-3">
+        <h3 class="text-2xl mb-2 font-pathway-semi-bold">Events</h3>
         <ul class="block ml-4">
-          <li v-for="article in articles" :key="article.id" class="py-3 lg:py-1">
-            <a :href="article.url">{{ article.name }}</a>
+          <li v-for="event in news" :key="event.id" class="py-1">
+            <a :href="event.link">{{ event.name }}</a>
           </li>
         </ul>
       </div>
-
-      <div>
-        <h3 class="text-2xl mb-2">Évènements</h3>
-        <ul class="block ml-4">
-          <li v-for="event in events" :key="event.id" class="py-4">
-            <a :href="event.url">{{ event.name }}</a>
-          </li>
-        </ul>
-        <div class="flex gap-2 items-center ml-4">
-          <a href="/" class="bg-green-default flex items-end justify-center h-10 w-10">
-            <IconBrandFacebook alt="facebook" class="block h-8  object-none"/>
-          </a>
-          <a href="/" class="bg-green-default flex items-end justify-center h-10 w-10">
-            <IconBrandTwitter alt="twitter" class="h-8 object-none"/>
-          </a>
-        </div>
-      </div>
-
-      <div class="self-center lg:self-start text-center">
+      <div class="flex flex-col items-center gap-3">
         <h3 class="text-2xl mb-2 font-pathway-semi-bold">L'E-SQUARE A.S.B.L</h3>
         <div class="flex flex-col items-center text-center">
           <div>
@@ -72,18 +49,17 @@ const events = [
             <strong>Tél:</strong> +32 (0) 491 96 33 65<br/>
             <strong>Tva:</strong> BE 0699.826.888<br/>
           </div>
-          <div class="flex flex-col gap-2 items-center mt-2">
-            <a href="/">
-              <img src="/images/esquareLogo.jpg" alt="marche.be" class="h-16">
+          <div class="flex flex-col gap-2 items-center mt-3">
+            <a href="/" class="animate">
+              <img src="/images/EsquareLogoWhiteBlack.png" alt="marche.be" class="h-8">
             </a>
-            <a href="/">
+            <a href="https://www.marche.be/" target="_blank" class="animate">
               <img src="/images/Marche-logo.png" alt="adl" class="h-16">
             </a>
           </div>
         </div>
       </div>
-    </div>
-
+    </section>
     <FooterCopyright/>
   </footer>
 </template>

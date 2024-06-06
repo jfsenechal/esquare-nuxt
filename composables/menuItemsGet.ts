@@ -4,8 +4,7 @@ export const items = [
     {name: 'EPN', link: '#', icon: '', color: '', id: 3},
     {name: 'FABLAB', link: '#', icon: '', color: '', id: 4},
     {name: 'SALLES DE REUNION', link: '#', icon: '', color: '', id: 5},
-    {name: 'INFOS PRATIQUES', link: '#', icon: '', color: '', id: 6},
-    {name: 'CONTACT', link: '#', icon: '', color: '', id: 7},
+    {name: 'CONTACT', link: '#', icon: '', color: '', id: 6},
 ]
 //https://picsum.photos/1200/800?6
 export const news = [

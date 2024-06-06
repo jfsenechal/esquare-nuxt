@@ -2,7 +2,7 @@
 //https://play.tailwindcss.com/0MGqLZKhTK
 import {news} from "~/composables/menuItemsGet";
 
-const tagSelected = ref(null)
+const tagSelected = ref('Tout')
 const newsRef = ref(news)
 
 watch(tagSelected, (newTag) => {
@@ -15,9 +15,11 @@ watch(tagSelected, (newTag) => {
 })
 </script>
 <template>
-  <section class="container mx-auto ">
-    <h2 class="text-3xl text-green-light font-semibold my-2 px-2">Actualités</h2>
-    <HomepageTags v-model:tag-selected="tagSelected"/>
+  <section class="container mx-auto">
+    <h2 class="text-4xl text-esquare-yellow font-semibold my-2 px-2 uppercase">Actualités</h2>
+    <div class=" flex flex-col items-center">
+      <HomepageTags v-model:tag-selected="tagSelected"/>
+    </div>
     <Transition name="slide-fade" appear mode="out-in">
       <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-8 p-8" :key="tagSelected">
         <NuxtLink :to="item.link" v-for="item in newsRef" :key="item.id"
@@ -47,9 +49,11 @@ watch(tagSelected, (newTag) => {
 .bounce-enter-active {
   animation: bounce-in 0.5s;
 }
+
 .bounce-leave-active {
   animation: bounce-in 0.5s reverse;
 }
+
 .slide-fade-enter-active {
   transition: all 0.3s ease-out;
 }
@@ -63,6 +67,7 @@ watch(tagSelected, (newTag) => {
   transform: translateX(20px);
   opacity: 0;
 }
+
 @keyframes bounce-in {
   0% {
     transform: scale(0);
