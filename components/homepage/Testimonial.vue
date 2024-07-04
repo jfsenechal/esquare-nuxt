@@ -1,3 +1,9 @@
+<script setup lang="ts">
+//https://codepen.io/thirus/pen/abyzaKN?editors=1100
+//https://tympanus.net/Development/HoverEffectIdeas/index.html
+//https://codepen.io/shadeed/pen/NWzrjVR/83da07fda0c07756629e660b1bc7e69f?editors=1100
+//https://play.tailwindcss.com/SvBc6xaRWJ
+</script>
 <template>
   <div class="mx-auto mt-2 sm:mt-5 sm:px-6 lg:px-0">
     <div

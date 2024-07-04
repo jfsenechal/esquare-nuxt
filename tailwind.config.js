@@ -10,13 +10,13 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                roboto: ['Roboto', 'serif'],
-                sacramento: ['Sacramento', 'sans-serif'],
+                roboto: ['Roboto', 'sans-serif'],
+                montserrat: ['Montserrat', 'sans-serif'],
                 lato: [100, 300],
             },
             colors: {
                 esquare: {
-                    black: '#001823',
+                    black: '#37352f',
                     yellow: '#f3c30c',
                     blue: '#0067a1'
                 },
@@ -57,6 +57,7 @@ export default {
             'top-center': 'top center',
             'center-center': 'center center',
             'bottom-center': 'bottom center',
+            'center-50': 'center 50%',
             'bottom-left': 'bottom left'
         },
         keyframes: {
@@ -93,11 +94,39 @@ export default {
                     transform: "translateY(0)",
                 },
             },
+            "bounce-in-top": {
+                    "0%": {
+                        transform: "translateY(-500px)",
+                        "animation-timing-function": "ease-in",
+                        opacity: "0"
+                    },
+                    "38%": {
+                        transform: "translateY(0)",
+                        "animation-timing-function": "ease-out",
+                        opacity: "1"
+                    },
+                    "55%": {
+                        transform: "translateY(-65px)",
+                        "animation-timing-function": "ease-in"
+                    },
+                    "72%,90%,to": {
+                        transform: "translateY(0)",
+                        "animation-timing-function": "ease-out"
+                    },
+                    "81%": {
+                        transform: "translateY(-28px)"
+                    },
+                    "95%": {
+                        transform: "translateY(-8px)",
+                        "animation-timing-function": "ease-in"
+                    }
+                }
         },
         animation: {
             shimmer: "6s infinite shimmer ease-in-out",
             bouncejf: "bouncejf linear 2s",
             leftjf: "leftjf linear 2s",
+            "bounce-in-top": "bounce-in-top 2s ease both" //https://tail-animista.vercel.app/
         },
     },
     plugins: [

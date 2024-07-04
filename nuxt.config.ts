@@ -4,7 +4,8 @@ export default defineNuxtConfig({
 
   modules: ["@nuxtjs/tailwindcss", ["@nuxtjs/google-fonts", {
       families: {
-          Roboto: true
+          Roboto: true,
+          Montserrat: true,
       }
   }
   ]],

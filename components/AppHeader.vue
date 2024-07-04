@@ -15,7 +15,7 @@ const mobileMenu = ref(false)
     </NuxtLink>
     <div class="flex flex-col gap-2 items-end mt-2">
       <HeaderTopNavigation :mobileMenu="mobileMenu"/>
-      <HeaderSocialIconsSmall/>
+      <HeaderSocialIconsLight/>
     </div>
   </header>
 </template>

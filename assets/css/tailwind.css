@@ -5,7 +5,7 @@
 @layer base {
 
     html {
-        @apply scroll-pt-3 scroll-smooth text-base font-roboto;
+        @apply scroll-pt-3 scroll-smooth text-base font-montserrat;
         /* see https://www.getrevue.co/profile/shrutibalasa/issues/did-you-know-about-scroll-padding-easy-solution-to-fixed-header-problem-1325973 */
     }
 

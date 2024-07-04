@@ -4,7 +4,7 @@ import {socialIcons} from "~/composables/menuItemsGet";
 </script>
 <template>
   <div class="flex flex-wrap items-center justify-center gap-2">
-    <!-- X -->
+    <!-- Items -->
     <button type="button" v-for="icon in socialIcons" :key="icon.id"
             class="group relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl bg-[#0f1419] text-white transition duration-150 hover:ring-4 hover:ring-[#0f1419]/25 active:ring-0"
             :class="`${icon.colorBg} ${icon.ringColor}`">
@@ -14,7 +14,7 @@ import {socialIcons} from "~/composables/menuItemsGet";
           class="absolute inset-0 flex items-center justify-center transition duration-150 ease-in group-hover:-translate-y-full group-hover:opacity-0"
           v-html=icon.svg>
       </div>
-      <FooterSocialiconShare/>
+      <HeaderSocialIconShareSvg/>
     </button>
   </div>
 </template>

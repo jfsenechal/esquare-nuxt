@@ -12,8 +12,13 @@ res.json().then((images) => {
 <template>
   <section>
     <hr class="border-2 border-amber-600 w-full m-4">
+    {{state.images}}
     <ul>
       <li v-for="(items,index) in state.images" :key="index" class="border border-gray-300 m-2">
+         <div v-for="(item,key) in items.Media.files" class="m-1">
+          <span>{{ item }}</span>
+        </div>
+
         <h5 v-for="(item,key) in items.Name.title" class="m-1">
           <span :style="`color:${item.annotations.color}`">{{ item.text.content }}</span>
         </h5>
