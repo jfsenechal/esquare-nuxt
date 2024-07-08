@@ -4,7 +4,6 @@ import {Client} from "@notionhq/client";
 const notion = new Client({auth: process.env.NOTION_API_KEY});
 const image_database_id = process.env.NOTION_DATABASE_ID;
 
-console.log(image_database_id)
 let payload = [];
 
 async function getImages() {

@@ -5,7 +5,6 @@ definePageMeta({
 const cookiesOpen = useCookie('cookiesOpen', {
   default: () => ({score: true}),
 })
-console.log(cookiesOpen.value.score)
 </script>
 <template>
   <section class="" style="background-image: url('/images/beams-home.jpg')">
