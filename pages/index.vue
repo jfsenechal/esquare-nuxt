@@ -13,6 +13,7 @@ console.log(cookiesOpen.value.score)
     <HomepageTestimonial/>
     <HomepageDepartments/>
     <HomepageALaUne/>
+    <WidgetsWave/>
     <HomepageNews/>
     <HomepageSlogan/>
   </section>

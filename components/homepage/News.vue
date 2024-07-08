@@ -16,8 +16,7 @@ watch(tagSelected, (newTag) => {
 </script>
 <template>
   <section class="container mx-auto">
-    <WidgetsTitle>Actu</WidgetsTitle>
-    <h2 class="text-4xl text-esquare-yellow font-semibold my-2 px-2 uppercase">Actualités</h2>
+    <WidgetsTitle>Actualités</WidgetsTitle>
     <div class=" flex flex-col items-center">
       <HomepageTags v-model:tag-selected="tagSelected"/>
     </div>
