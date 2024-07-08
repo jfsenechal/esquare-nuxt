@@ -7,7 +7,7 @@
 <template>
   <div class="mx-auto mt-2 sm:mt-5 sm:px-6 lg:px-0">
     <div
-        class="relative overflow-hidden bg-esquare-yellow px-6 py-20 shadow-xl sm:rounded-3xl sm:px-10 sm:py-24 md:px-12 lg:px-20">
+        class="relative overflow-hidden bg-esquare-yellow px-6 py-20 shadow-xl sm:px-10 sm:py-24 md:px-12 lg:px-20">
       <img class="absolute inset-0 h-full w-full object-cover object-center-center brightness-150 saturate-0"
            src="/public/images/batimentaerien.jpg"
            alt="">
@@ -25,10 +25,10 @@
         <h3 class="block h-12 w-auto text-5xl text-white uppercase font-bold">E-square</h3>
         <figure>
           <blockquote class="mt-6 text-lg font-semibold text-white sm:text-2xl sm:leading-8">
-            <p>“
+            <p>"
               C’est par la rencontre et l’échange de points de vue que les idées fleurissent ;
               et c’est par l’échange de capacités et de compétences qu’elles se réalisent.
-              Si vous avez envie d’entreprendre, de créer ou de co-créer, vous êtes au bon endroit.”</p>
+              Si vous avez envie d’entreprendre, de créer ou de co-créer, vous êtes au bon endroit."</p>
           </blockquote>
           <figcaption class="mt-6 text-base text-white">
             <div class="font-semibold">Marche-en-Famenne</div>
