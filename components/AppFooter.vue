@@ -1,25 +1,7 @@
 <script setup>
-import {IconBrandFacebook, IconBrandTwitter} from '@tabler/icons-vue'
 import {items} from "~/composables/menuItemsGet";
 import {news} from "~/composables/menuItemsGet";
-
-const links = [
-  {name: 'Accueil', url: '/', id: 1},
-  {name: 'Commerces', url: '/', id: 2},
-  {name: 'Événements', url: '/', id: 3},
-  {name: 'À propos', url: '/', id: 4},
-  {name: 'Contact', url: '/', id: 5},
-  {name: 'Accès membre', url: '/', id: 6},
-  {name: 'Devenir membre', url: '/', id: 7},
-]
-const articles = [
-  {name: 'Où se garer à Marche-en-famenne ?', url: '/', id: 1},
-  {name: '"Ma ville, mes commerçants" : Campagne de promotion du commerce local !', url: '/', id: 2},
-  {name: 'Histoire de goût, une fromagerie pour tous les ... goûts !', url: '/', id: 3},
-  {name: 'NOVEWAY, votre partenaire énergétique', url: '/', id: 4}
-]
 </script>
-
 <template>
   <footer class="w-full min-h-[20rem] text-white ">
     <section class="bg-grey-dark p-5 pb-20 grid grid-cols-1 xl:grid-cols-3 items-start justify-around">
@@ -57,6 +39,7 @@ const articles = [
               <img src="/images/Marche-logo.png" alt="adl" class="h-16">
             </a>
           </div>
+          <HeaderSocialIconsLight color-fill="#FFFFFF" :svg-fill="false"/>
         </div>
       </div>
     </section>
