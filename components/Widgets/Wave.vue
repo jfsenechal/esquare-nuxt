@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-esquare-yellow w-full h-96 relative ">
+  <div class="bg-esquare-brown w-full h-96 relative ">
     <div class="flex flex-col prose-xl uppercase p-6">
       <span class="text-white font-bold text-2xl">
         "SE REUNIR EST UN DEBUT,<br/> RESTER ENSEMBLE EST UN PROGRES,<br/> TRAVAILLER ENSEMBLE EST LA CLÉ DE LA REUSSITE"
