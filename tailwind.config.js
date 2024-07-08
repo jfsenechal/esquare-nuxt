@@ -18,7 +18,11 @@ export default {
                 esquare: {
                     black: '#37352f',
                     yellow: '#f3c30c',
-                    blue: '#0067a1'
+                    blue: '#0067a1',
+                    'green-light': '#A2BE63',
+                    'green-dark': '#94af4d',
+                    'grey-dark': '#707070',
+                    'grey-lighter': '#ededec',
                 },
                 blue: {
                     default: '#608BA4',
@@ -95,32 +99,32 @@ export default {
                 },
             },
             "bounce-in-top": {
-                    "0%": {
-                        transform: "translateY(-500px)",
-                        "animation-timing-function": "ease-in",
-                        opacity: "0"
-                    },
-                    "38%": {
-                        transform: "translateY(0)",
-                        "animation-timing-function": "ease-out",
-                        opacity: "1"
-                    },
-                    "55%": {
-                        transform: "translateY(-65px)",
-                        "animation-timing-function": "ease-in"
-                    },
-                    "72%,90%,to": {
-                        transform: "translateY(0)",
-                        "animation-timing-function": "ease-out"
-                    },
-                    "81%": {
-                        transform: "translateY(-28px)"
-                    },
-                    "95%": {
-                        transform: "translateY(-8px)",
-                        "animation-timing-function": "ease-in"
-                    }
+                "0%": {
+                    transform: "translateY(-500px)",
+                    "animation-timing-function": "ease-in",
+                    opacity: "0"
+                },
+                "38%": {
+                    transform: "translateY(0)",
+                    "animation-timing-function": "ease-out",
+                    opacity: "1"
+                },
+                "55%": {
+                    transform: "translateY(-65px)",
+                    "animation-timing-function": "ease-in"
+                },
+                "72%,90%,to": {
+                    transform: "translateY(0)",
+                    "animation-timing-function": "ease-out"
+                },
+                "81%": {
+                    transform: "translateY(-28px)"
+                },
+                "95%": {
+                    transform: "translateY(-8px)",
+                    "animation-timing-function": "ease-in"
                 }
+            }
         },
         animation: {
             shimmer: "6s infinite shimmer ease-in-out",
