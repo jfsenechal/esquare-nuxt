@@ -54,7 +54,8 @@ const departments = [
 </script>
 <template>
   <section class="container mx-auto ">
-    <h2 class="text-4xl font-semibold text-esquare-yellow y-3 m-3 uppercase">Nos espaces</h2>
+    <WidgetsTitle>Nos espaces</WidgetsTitle>
+    <h2 class="text-4xl font-semibold text-esquare-yellow y-3 m-3 uppercase"></h2>
     <ul class="grid grid-cols-3 gap-4">
       <li v-for="department in departments" :key="department.id" class="flex flex-col items-center">
         <component :is="department.icon" class="h-12 w-12" :class="department.color"></component>
