@@ -15,3 +15,10 @@
         class="h-0.5 grow rounded bg-gray-200 dark:bg-gray-700/75"></span>
   </h3>
 </template>
+<style>
+h3 {
+  font-family: roboto, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+</style>

@@ -22,7 +22,7 @@ watch(tagSelected, (newTag) => {
     </div>
     <Transition name="slide-fade" appear mode="out-in">
       <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-8 p-8" :key="tagSelected">
-        <NuxtLink :to="item.link" v-for="item in newsRef" :key="item.id"
+        <NuxtLink :to="`article-${item.tag}`" v-for="item in newsRef" :key="item.id"
                   class="group relative mx-auto block w-full max-w-sm overflow-hidden rounded-lg ring-8 ring-white/50 transition duration-150 ease-out active:scale-105 active:opacity-75 md:max-w-full">
           <div class="rounded-lg">
             <div

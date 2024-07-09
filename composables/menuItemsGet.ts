@@ -3,7 +3,7 @@ export const items = [
     {name: 'E-CUBE', link: '#', icon: '', color: '', id: 2},
     {name: 'EPN', link: '#', icon: '', color: '', id: 3},
     {name: 'FABLAB', link: '#', icon: '', color: '', id: 4},
-    {name: 'SALLES DE REUNION', link: '#', icon: '', color: '', id: 5},
+    {name: 'SALLES DE REUNION', link: '/salles-a-louer', icon: '', color: '', id: 5},
     {name: 'CONTACT', link: '#', icon: '', color: '', id: 6},
 ]
 //https://picsum.photos/1200/800?6
