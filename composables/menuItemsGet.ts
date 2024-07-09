@@ -1,8 +1,8 @@
 export const items = [
-    {name: 'CO-WORKING', link: '#', icon: '', color: '', id: 1},
+    {name: 'CO-WORKING', link: '/espace/co-working', icon: '', color: '', id: 1},
     {name: 'E-CUBE', link: '#', icon: '', color: '', id: 2},
-    {name: 'EPN', link: '#', icon: '', color: '', id: 3},
-    {name: 'FABLAB', link: '#', icon: '', color: '', id: 4},
+    {name: 'EPN', link: '/espace/espace-publique-numerique', icon: '', color: '', id: 3},
+    {name: 'FABLAB', link: '/espace/fablab', icon: '', color: '', id: 4},
     {name: 'SALLES DE REUNION', link: '/salles-a-louer', icon: '', color: '', id: 5},
     {name: 'CONTACT', link: '#', icon: '', color: '', id: 6},
 ]

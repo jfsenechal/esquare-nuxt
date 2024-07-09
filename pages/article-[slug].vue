@@ -1,4 +1,13 @@
 <script setup>
+useHead({
+  script: [
+    {
+      src: 'https://unpkg.com/tailwindcss-intersect@2.0.1/dist/observer.min.js',
+      tagPosition: 'head',
+      defer: true
+    }
+  ]
+})
 const route = useRoute()
 const slug = route.params.slug
 const path = []
