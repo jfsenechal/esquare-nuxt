@@ -1,5 +1,5 @@
 <script setup>
-useHead({
+/*useHead({
   script: [
     {
       src: 'https://unpkg.com/tailwindcss-intersect@2.0.1/dist/observer.min.js',
@@ -7,7 +7,7 @@ useHead({
       defer: true
     }
   ]
-})
+})*/
 const state = reactive({
   rooms: [],
 });
@@ -17,7 +17,7 @@ res.json().then((data) => {
 });
 </script>
 <template>
-  <article class="flex flex-col relative mb-4">
+  <article class="flex flex-col relative mb-4 overflow-clip">
     <WidgetsMacaroon
         icon="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f468-1f3ff-200d-1f4bc.svg"
         bgimage="https://e-square.marche.be/wp-content/uploads/2020/02/20200211_092215-1-scaled.jpg"/>
@@ -45,8 +45,6 @@ res.json().then((data) => {
           </div>
         </div>
       </div>
-
     </section>
-
   </article>
 </template>
