@@ -9,7 +9,7 @@ const mobileMenu = ref(false)
         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
       </svg>
     </a>
-    <NuxtLink to="/" class="mt-4">
+    <NuxtLink to="/" class="ml-4 mt-4">
       <img src="/images/EsquareLogoBlackWhite.png" alt="logo"
            class="transition-all duration-500	ease-in-out	animate-bouncejf h-12 md:w-80	"/>
     </NuxtLink>

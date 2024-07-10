@@ -38,6 +38,6 @@
     </svg>
   </a><!--]--></div>
   <div class="bg-esquare-yellow">
-    <div class="bg-esquare-brown"></div>
+    <div class="bg-esquare-brown hover:text-esquare-green-dark"></div>
   </div>
 </template>
