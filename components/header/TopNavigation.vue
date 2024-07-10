@@ -1,6 +1,5 @@
 <script setup>
 import {items} from "~/composables/menuItemsGet";
-
 const {mobileMenu = false} = defineProps(['mobileMenu'])
 </script>
 <template>
