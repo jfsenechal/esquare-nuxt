@@ -31,7 +31,7 @@ function svg(icon: { type: Object }) {
 }
 </script>
 <template>
-  <div class="flex flex-wrap items-center justify-center gap-2">
+  <div class="flex flex-wrap items-center justify-center gap-4">
     <a
         :class="`[&>svg]:h-4 [&>svg]:w-4 [&>svg]:fill-[${fill(icon)}]`"
         :href="icon.link"
