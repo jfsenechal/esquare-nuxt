@@ -3,7 +3,7 @@
 //https://codepen.io/shadeed/pen/yLpWBmP
 </script>
 <template>
-  <h3 class="text-esquare-yellow my-8 px-2 uppercase flex items-center">
+  <h3 class="text-esquare-yellow font-roboto font-bold my-8 px-2 uppercase flex items-center">
   <span
       aria-hidden="true"
       class="h-0.5 grow rounded bg-gray-200 dark:bg-gray-700/75"></span>
@@ -15,10 +15,3 @@
         class="h-0.5 grow rounded bg-gray-200 dark:bg-gray-700/75"></span>
   </h3>
 </template>
-<style>
-h3 {
-  font-family: roboto, sans-serif;
-  font-style: normal;
-  font-weight: 700;
-}
-</style>
