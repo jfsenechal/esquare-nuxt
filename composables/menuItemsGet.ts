@@ -1,10 +1,12 @@
+import {IconBadge3d, IconBuildingFortress, IconCube, IconDevices2, IconUsersGroup, IconYoga} from "@tabler/icons-vue";
+
 export const items = [
     {name: 'CO-WORKING', link: '/espace/co-working', icon: '', color: '', id: 1},
-    {name: 'E-CUBE', link: '#', icon: '', color: '', id: 2},
+    {name: 'E-CUBE', link: '/espace/ecube', icon: '', color: '', id: 2},
     {name: 'EPN', link: '/espace/espace-publique-numerique', icon: '', color: '', id: 3},
     {name: 'FABLAB', link: '/espace/fablab', icon: '', color: '', id: 4},
     {name: 'SALLES DE REUNION', link: '/salles-a-louer', icon: '', color: '', id: 5},
-    {name: 'CONTACT', link: '#', icon: '', color: '', id: 6},
+    {name: 'CONTACT', link: '/contact', icon: '', color: '', id: 6},
 ]
 //https://picsum.photos/1200/800?6
 export const news = [
@@ -136,5 +138,68 @@ export const socialIcons = [
         ringColor: 'hover:ring-[#0a66c2]/25',
         link: '#',
         id: 5
+    },
+]
+
+export const departments = [
+    {
+        name: 'CO-WORKING',
+        description: 'Notre espace de coworking est l\'endroit idéal pour lancer et développer votre activité.N\'hésitez pas à venir tester !',
+        link: '/espace/co-working',
+        slug: 'co-working',
+        icon: IconUsersGroup,
+        color: 'text-green-500',
+        image: 'https://e-square.marche.be/wp-content/uploads/2024/07/301144664_1279736142430422_1166191486178030421_n.jpg',
+        id: 1
+    },
+    {
+        name: 'E-CUBE',
+        description: '"E-cube", un programme conçu spécialement pour accompagner les porteurs de projets, les starters et les entreprises dans leur parcours entrepreneurial et d\'innovation',
+        link: '/espace/ecube',
+        slug: 'ecube',
+        icon: IconCube,
+        color: 'text-pink-500',
+        image: 'https://e-square.marche.be/wp-content/uploads/2024/07/245147697_1086988088371896_6787924823663219651_n.jpg',
+        id: 2
+    },
+    {
+        name: 'EPN',
+        description: 'L’espace public numérique. Accès aux ordinateurs ou connexion au wi-fi. Scanner et impressions. ',
+        link: '/espace/espace-publique-numerique',
+        slug: 'espace-publique-numerique',
+        icon: IconDevices2,
+        color: 'text-blue-500',
+        image: 'https://e-square.marche.be/wp-content/uploads/2024/07/epn.jpg',
+        id: 3
+    },
+    {
+        name: 'FABLAB',
+        description: 'Venez donner vie à vos projets dans cet atelier partagé disposant de nombreux outils à commande numérique.Accessible à toutes et à tous !',
+        link: '/espace/fablab',
+        slug: 'fablab',
+        icon: IconBadge3d,
+        color: 'text-red-500',
+        image: 'https://e-square.marche.be/wp-content/uploads/2024/07/404456887_18001792097485303_7109058707732543650_n.jpg',
+        id: 4
+    },
+    {
+        name: 'SALLES DE REUNION',
+        description: 'Vous cherchez un endroit parfaitement équipé pour vos réunions, formations, conférences ? Nous vous proposons un vaste choix à l\'e-Square.',
+        link: '/espace/salles-a-louer',
+        slug: 'salles-a-louer',
+        icon: IconYoga,
+        color: 'text-yellow-500',
+        image: 'https://e-square.marche.be/wp-content/uploads/2024/07/382988248_616413873992013_5907336049758704853_n.jpg',
+        id: 5
+    },
+    {
+        name: 'SERVICES DE LA VILLE',
+        description: 'Plan de cohésion sociale, prévention, transition écologique, Agence de développement local sont parmis nous',
+        link: '/espace/services-ville',
+        slug: 'services-ville',
+        icon: IconBuildingFortress,
+        color: 'text-purple-500',
+        image: 'https://e-square.marche.be/wp-content/uploads/2024/07/378713924_609300171370050_6618675896686105680_n.jpg',
+        id: 6
     },
 ]

@@ -1,56 +1,5 @@
 <script setup lang="ts">
-import {IconCube, IconBadge3d, IconUsersGroup, IconDevices2, IconYoga, IconBuildingFortress} from '@tabler/icons-vue'
-
-const departments = [
-  {
-    name: 'CO-WORKING',
-    description: 'Notre espace de coworking est l\'endroit idéal pour lancer et développer votre activité.N\'hésitez pas à venir tester !',
-    link: '/espace/coworking',
-    icon: IconUsersGroup,
-    color: 'text-green-500',
-    id: 1
-  },
-  {
-    name: 'E-CUBE',
-    description: '"E-cube", un programme conçu spécialement pour accompagner les porteurs de projets, les starters et les entreprises dans leur parcours entrepreneurial et d\'innovation',
-    link: '/espace/ecube',
-    icon: IconCube,
-    color: 'text-pink-500',
-    id: 2
-  },
-  {
-    name: 'EPN',
-    description: 'L’espace public numérique. Accès aux ordinateurs ou connexion au wi-fi. Scanner et impressions. ',
-    link: '/espace/epn',
-    icon: IconDevices2,
-    color: 'text-blue-500',
-    id: 3
-  },
-  {
-    name: 'FABLAB',
-    description: 'Venez donner vie à vos projets dans cet atelier partagé disposant de nombreux outils à commande numérique.Accessible à toutes et à tous !',
-    link: '/espace/fablab',
-    icon: IconBadge3d,
-    color: 'text-red-500',
-    id: 4
-  },
-  {
-    name: 'SALLES DE REUNION',
-    description: 'Vous cherchez un endroit parfaitement équipé pour vos réunions, formations, conférences ? Nous vous proposons un vaste choix à l\'e-Square.',
-    link: '/espace/salles',
-    icon: IconYoga,
-    color: 'text-yellow-500',
-    id: 5
-  },
-  {
-    name: 'SERVICES DE LA VILLE',
-    description: 'Plan de cohésion sociale, prévention, transition écologique, Agence de développement local sont parmis nous',
-    link: '/espace/services-ville',
-    icon: IconBuildingFortress,
-    color: 'text-purple-500',
-    id: 6
-  },
-]
+import {departments} from "~/composables/menuItemsGet";
 </script>
 <template>
   <section class="container mx-auto ">
