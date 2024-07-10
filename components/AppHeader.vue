@@ -2,18 +2,18 @@
 const mobileMenu = ref(false)
 </script>
 <template>
-  <header class="w-full flex flex-row justify-center lg:justify-end items-center px-3 bg-white shadow-md h-28 lg:h-32">
-    <a href="#" @click.prevent="mobileMenu = !mobileMenu" class="flex self-start pt-3 lg:hidden mr-auto ">
+  <header class="w-full grid grid-cols-[auto_fr] grid-rows-2 gap-0 h-24 lg:h-32 items-center">
+    <a href="#" @click.prevent="mobileMenu = !mobileMenu" class="mt-2">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-           class="w-8 h-8">
+           class="w-12 h-12">
         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
       </svg>
     </a>
-    <NuxtLink to="/" class="mr-auto lg:self-center">
+    <NuxtLink to="/" class="mt-3">
       <img src="/images/EsquareLogoBlackWhite.png" alt="logo"
-           class="transition-all duration-500	ease-in-out	animate-bouncejf w-80	"/>
+           class="transition-all duration-500	ease-in-out	animate-bouncejf h-12 md:w-80	"/>
     </NuxtLink>
-    <div class="flex flex-col gap-2 items-end mt-2">
+    <div class="col-span-2 justify-self-end self-end mr-4">
       <HeaderTopNavigation :mobileMenu="mobileMenu"/>
       <HeaderSocialIconsLight svg-fill/>
     </div>
