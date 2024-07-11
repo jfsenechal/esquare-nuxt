@@ -8,7 +8,7 @@ const department = departments.find(obj => obj.slug === slug)
 </script>
 <template>
   <article class="flex flex-col relative">
-    <WidgetsMacaroon icon="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f3ae.svg"
+    <ArticleHeader icon="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f3ae.svg"
                      :bgimage="department.image"/>
     <section class="container flex flex-col gap-2 mx-auto ms-2 md:ms-24 mt-14 min-h-80">
       <WidgetsBreadcrumb :breadcrumbs="breadcrumbs"/>

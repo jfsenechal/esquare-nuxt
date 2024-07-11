@@ -9,7 +9,7 @@ res.json().then((data) => {
 </script>
 <template>
   <article class="flex flex-col relative mb-4">
-    <WidgetsMacaroon
+    <ArticleHeader
         icon="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f468-1f3ff-200d-1f4bc.svg"
         bgimage="https://e-square.marche.be/wp-content/uploads/2020/02/20200211_092215-1-scaled.jpg"/>
     <section class="container flex flex-col gap-2 mx-auto ms-24 mt-14 min-h-80">

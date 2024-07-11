@@ -6,7 +6,7 @@ const post = {title: 'Détails salle', link: '/', icon: ''}
 </script>
 <template>
   <article class="flex flex-col relative">
-    <WidgetsMacaroon :icon="post.icon"
+    <ArticleHeader :icon="post.icon"
                      :bgimage="post.image"/>
     <section class="container flex flex-col gap-2 mx-auto ms-2 md:ms-24 mt-14 min-h-80">
       <WidgetsBreadcrumb :breadcrumbs="path"/>
