@@ -163,7 +163,7 @@ export const departments = [
         id: 2
     },
     {
-        name: 'EPN',
+        name: 'Espace Publique Numérique',
         description: 'L’espace public numérique. Accès aux ordinateurs ou connexion au wi-fi. Scanner et impressions. ',
         link: '/espace/espace-publique-numerique',
         slug: 'espace-publique-numerique',

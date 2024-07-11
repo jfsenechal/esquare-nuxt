@@ -9,8 +9,6 @@
   ]
 })*/
 const route = useRoute()
-const slug = route.params.slug
-const path = []
 const post = {
   title: 'Tournoi Super Smash Bros',
   link: '/',
@@ -23,7 +21,7 @@ const post = {
     <ArticleHeader :icon="post.icon"
                    :bgimage="post.image"/>
     <section class="container flex flex-col gap-2 mx-auto ms-2 md:ms-24 mt-14 min-h-80">
-      <WidgetsBreadcrumb :breadcrumbs="path"/>
+      <WidgetsBreadcrumb />
       <ArticleTitle>{{ post.title }}</ArticleTitle>
       <WidgetsShareBox/>
       <div class="mt-6 min-h-svh p-4 prose lg:prose-xl">
@@ -50,6 +48,10 @@ const post = {
         1er: 40€ 2ème: 25€ 3ème: 15€<br/>
         N'oublie pas d'apporter ta switch, ta manette, ton dock, ton alim, et ton cable hdmi.<br/>
         <br/>
+
+        <div class="translate-x-1/3 intersect:translate-x-0 transition ease-out duration-500">
+            <img src="https://picsum.photos/600/400?random=1" class="w-full h-80 object-cover bg-slate-300 rounded">
+        </div>
 
         <iframe width="860" height="715" src="https://www.youtube.com/embed/dgi5D4uf7JA?si=tF3zFGuc76FXnDHC"
                 class="aspect-video"

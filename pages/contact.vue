@@ -1,14 +1,16 @@
 <script setup>
-const route = useRoute()
-const slug = route.params.slug
-const breadcrumbs = []
+const path = [
+  {
+    name: "Accueil", link: "/", id: 1
+  },
+]
 </script>
 <template>
   <article class="flex flex-col relative h-[100vh]">
-    <ArticleHeader icon="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f3ae.svg"
-                     bgimage="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=6000"/>
+    <ArticleHeader icon="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f4ec.svg"
+                   bgimage="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=6000"/>
     <section class="container flex flex-col gap-2 mx-auto ms-24 mt-14 min-h-80">
-      <WidgetsBreadcrumb :breadcrumbs="breadcrumbs"/>
+      <WidgetsBreadcrumb :path/>
       <ArticleTitle>Contactez-nous</ArticleTitle>
       <div class="flex flex-row justify-end">
         <div class="flex flex-col items-center gap-2">
@@ -17,7 +19,7 @@ const breadcrumbs = []
         </div>
       </div>
       <div class="mt-6 min-h-svh p-4 prose lg:prose-xl">
-        Infos pratiques
+        Formulaire contact
 
         <h4 class="text-xl p-8">Plans, téléphones par secteur, ...</h4>
       </div>

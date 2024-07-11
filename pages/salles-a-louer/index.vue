@@ -11,6 +11,7 @@
 const state = reactive({
   rooms: [],
 });
+const path = [{name: "Accueil", link: "/", id: 1}]
 const res = await fetch("http://localhost:3000/api/rooms");
 res.json().then((data) => {
   state.rooms = data;
@@ -22,6 +23,7 @@ res.json().then((data) => {
         icon="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f468-1f3ff-200d-1f4bc.svg"
         bgimage="https://e-square.marche.be/wp-content/uploads/2020/02/20200211_092215-1-scaled.jpg"/>
     <section class="container flex flex-col gap-2 mx-auto ms-2 md:ms-24 mt-14 min-h-80">
+      <WidgetsBreadcrumb :path/>
       <ArticleTitle>Nos salles à louer</ArticleTitle>
       <WidgetsShareBox/>
       <div class="mt-6 min-h-svh p-4 prose lg:prose-xl">

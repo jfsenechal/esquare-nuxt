@@ -11,7 +11,7 @@ const mobileMenu = ref(false)
     </a>
     <NuxtLink to="/" class="ml-4 mt-4">
       <NuxtImg src="/images/EsquareLogoBlackWhite.png"  alt="logo"
-           class="transition-all duration-500	ease-in-out	animate-bouncejf h-16"/>
+           class="transition-all duration-500	ease-in-out	animate-bouncejf h-12 md:h-16"/>
     </NuxtLink>
     <div class="col-span-2 md:col-span-1 justify-self-end mr-4 flex flex-col items-end justify-around space-y-4">
       <HeaderTopNavigation :mobileMenu="mobileMenu"/>
