@@ -25,7 +25,7 @@ const post = {
     <section class="container flex flex-col gap-2 mx-auto ms-2 md:ms-24 mt-14 min-h-80">
       <WidgetsBreadcrumb :breadcrumbs="path"/>
       <ArticleTitle>{{ post.title }}</ArticleTitle>
-      <div class="flex flex-col md:flex-row  justify-end items-center gap-2">
+      <div class="flex flex-col md:flex-row justify-end items-center gap-2 ms-auto mr-4">
         <h4 class="text-esquare-blue">Partager sur</h4>
         <HeaderSocialIconsSmall/>
       </div>

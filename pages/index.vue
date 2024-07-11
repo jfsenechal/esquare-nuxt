@@ -9,9 +9,10 @@ const cookiesOpen = useCookie('cookiesOpen', {
 <template>
   <section class="" style="background-image: url('/images/beams-home.jpg')">
     <WidgetsCookies v-model:cookies-open="cookiesOpen" v-if="cookiesOpen"/>
-    <HomepageTestimonial/>
+    <HomepageTestimonial2/>
     <HomepageDepartments/>
     <HomepageALaUne/>
+    <HomepageTestimonial/>
     <WidgetsWave/>
     <HomepageNews/>
     <HomepageSlogan/>
