@@ -6,8 +6,7 @@ export default defineNuxtConfig({
             Roboto: true,
             Montserrat: true,
         }
-    }]
-    ],
+    }], "@nuxt/image"],
     app: {
         rootId: 'app',
         pageTransition: {name: 'page', mode: 'out-in'}

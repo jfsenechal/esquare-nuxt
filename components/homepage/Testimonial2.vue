@@ -14,7 +14,7 @@
           </blockquote>
         </div>
       </div>
-      <img class="absolute inset-0 w-full h-full object-cover max-w-full" src="/public/images/batimentaerien.jpg" alt=""/>
+      <NuxtImg class="absolute inset-0 w-full h-full object-cover max-w-full" src="/images/batimentaerien.jpg" alt=""/>
     </div>
   </section>
 </template>

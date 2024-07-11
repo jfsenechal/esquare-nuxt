@@ -27,7 +27,7 @@ watch(tagSelected, (newTag) => {
           <div class="rounded-lg">
             <div
                 class="aspect-h-3 aspect-w-4 transition duration-300 ease-out will-change-transform group-hover:scale-110">
-              <img :src="item.image" alt="" class="w-full h-48 object-cover rounded-t-lg"/>
+              <NuxtImg :src="item.image" alt="" class="w-full h-48 object-cover rounded-t-lg"/>
             </div>
             <div
                 class="absolute inset-0 flex flex-col justify-center gap-1.5 bg-zinc-800/60 bg-am2ber-700/75 p-4 text-center text-white opacity-0 duration-150 ease-out group-hover:opacity-100 md:p-8">
