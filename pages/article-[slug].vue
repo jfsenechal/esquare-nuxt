@@ -25,10 +25,7 @@ const post = {
     <section class="container flex flex-col gap-2 mx-auto ms-2 md:ms-24 mt-14 min-h-80">
       <WidgetsBreadcrumb :breadcrumbs="path"/>
       <ArticleTitle>{{ post.title }}</ArticleTitle>
-      <div class="flex flex-col md:flex-row justify-end items-center gap-2 ms-auto mr-4">
-        <h4 class="text-esquare-blue">Partager sur</h4>
-        <HeaderSocialIconsSmall/>
-      </div>
+      <WidgetsShareBox/>
       <div class="mt-6 min-h-svh p-4 prose lg:prose-xl">
         Première édition du tournoi Eternal dans la province du Luxembourg !<br/><br/>
         Le tournoi Eternal aura lieu pour la première fois le 3 août 2024 à l'Esquare, situé au 36 Rue Victor Libert,
