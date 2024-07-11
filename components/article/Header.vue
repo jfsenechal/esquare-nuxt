@@ -14,7 +14,7 @@ const props = defineProps({
 </script>
 <template>
   <header class="bg-gray-200" style="height: 30vh">
-    <NuxtImg class="w-full object-center-50 block translate-x-2/3 intersect:translate-x-0 transition"
+    <NuxtImg class="w-full object-center-50 block"
          style="height: 30vh;"
          :src="bgimage"
          alt="" />
