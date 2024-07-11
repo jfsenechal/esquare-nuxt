@@ -7,14 +7,14 @@
       <div class="hero__content">
         <h2 class="hero__headline font-ro2boto">E-square - Tiers lieu</h2>
         <div class="flow">
-          <blockquote class="mt-6 text-lg  font-montserr2at font-semibold text-white sm:text-2xl sm:leading-8">
+          <blockquote class="mt-6 text-lg font-montserr2at font-semibold text-white sm:text-2xl sm:leading-8">
             "C’est par la rencontre et l’échange de points de vue que les idées fleurissent ;
               et c’est par l’échange de capacités et de compétences qu’elles se réalisent.
               Si vous avez envie d’entreprendre, de créer ou de co-créer, vous êtes au bon endroit."
           </blockquote>
         </div>
       </div>
-      <img class="absolute top w-full h-full object-cover max-w-full" src="/public/images/batimentaerien.jpg" alt=""/>
+      <img class="absolute inset-0 w-full h-full object-cover max-w-full" src="/public/images/batimentaerien.jpg" alt=""/>
     </div>
   </section>
 </template>
