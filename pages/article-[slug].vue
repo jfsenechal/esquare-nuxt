@@ -1,5 +1,5 @@
 <script setup>
-useHead({
+/*useHead({
   script: [
     {
       src: 'https://unpkg.com/tailwindcss-intersect@2.0.1/dist/observer.min.js',
@@ -7,7 +7,7 @@ useHead({
       defer: true
     }
   ]
-})
+})*/
 const route = useRoute()
 const slug = route.params.slug
 const path = []
@@ -22,7 +22,7 @@ const post = {
   <article class="flex flex-col relative">
     <WidgetsMacaroon :icon="post.icon"
                      :bgimage="post.image"/>
-    <section class="container flex flex-col gap-2 mx-auto ms-8 md:ms-24 mt-14 min-h-80">
+    <section class="container flex flex-col gap-2 mx-auto ms-2 md:ms-24 mt-14 min-h-80">
       <WidgetsBreadcrumb :breadcrumbs="path"/>
       <ArticleTitle>{{ post.title }}</ArticleTitle>
       <div class="flex flex-col md:flex-row  justify-end items-center gap-2">
