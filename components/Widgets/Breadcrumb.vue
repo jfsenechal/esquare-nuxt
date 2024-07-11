@@ -19,26 +19,43 @@ defineProps({
 })
 </script>
 <template>
-  <div class="flex items-center py-4 overflow-x-auto whitespace-nowrap">
-    <a href="/" class="text-gray-600 dark:text-gray-200">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-        <path
-            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
-      </svg>
-    </a>
-
-    <template v-for="item in path" :key="item.id">
-    <span class="mx-5 text-gray-500 dark:text-gray-300 rtl:-scale-x-100">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+  <nav class="flex" aria-label="Breadcrumb">
+    <ol role="list" class="flex items-center space-x-4">
+      <li class="flex items-center" title="Retour à l'accueil">
+        <NuxtLink to="/" class="text-gray-400 hover:text-gray-500">
+          <svg class="h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd"
-                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z"
                   clip-rule="evenodd"/>
+          </svg>
+          <span class="sr-only">Home</span>
+        </NuxtLink>
+      </li>
+     <li class="flex md:hidden items-center">
+        <svg class="h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd"
+                d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                clip-rule="evenodd"/>
         </svg>
-    </span>
-      <NuxtLink :to="item.link" class="text-gray-600 dark:text-gray-200 hover:underline">
-        {{ item.name }}
-      </NuxtLink>
-    </template>
-
-  </div>
+        <span class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">
+          ...
+        </span>
+      </li>
+      <li class="hidden md:flex items-center" v-for="item in path" :key="item.id">
+        <svg class="h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd"
+                d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                clip-rule="evenodd"/>
+        </svg>
+        <NuxtLink :to="item.link" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">
+          {{ item.name }}
+        </NuxtLink>
+      </li>
+    </ol>
+  </nav>
 </template>
+<style>
+  ol li:last-child {
+    display: flex;
+  }
+</style>
