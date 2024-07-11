@@ -22,14 +22,12 @@ const post = {
   <article class="flex flex-col relative">
     <WidgetsMacaroon :icon="post.icon"
                      :bgimage="post.image"/>
-    <section class="container flex flex-col gap-2 mx-auto ms-24 mt-14 min-h-80">
+    <section class="container flex flex-col gap-2 mx-auto ms-8 md:ms-24 mt-14 min-h-80">
       <WidgetsBreadcrumb :breadcrumbs="path"/>
       <ArticleTitle>{{ post.title }}</ArticleTitle>
-      <div class="flex flex-row justify-end">
-        <div class="flex flex-col items-center gap-2">
-          <h4 class="text-esquare-blue">Partager sur</h4>
-          <HeaderSocialIconsSmall/>
-        </div>
+      <div class="flex flex-col md:flex-row  justify-end items-center gap-2">
+        <h4 class="text-esquare-blue">Partager sur</h4>
+        <HeaderSocialIconsSmall/>
       </div>
       <div class="mt-6 min-h-svh p-4 prose lg:prose-xl">
         Première édition du tournoi Eternal dans la province du Luxembourg !<br/><br/>
