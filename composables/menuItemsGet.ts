@@ -96,7 +96,7 @@ export const socialIcons = [
         color: '#0f1419',
         colorBg: 'bg-[#0f1419]',
         ringColor: 'hover:ring-[#0f1419]/25',
-        link: '#',
+        link: 'https://x.com/lesquaremarche',
         id: 1
     },
     {
@@ -106,7 +106,7 @@ export const socialIcons = [
         color: '#1877f2',
         colorBg: 'bg-[#1877f2]',
         ringColor: 'hover:ring-[#1877f2]/25',
-        link: '#',
+        link: 'https://www.facebook.com/LeSquareMarche/',
         id: 2
     },
     {
@@ -116,7 +116,7 @@ export const socialIcons = [
         color: '#e1306c',
         colorBg: 'bg-[#e1306c]',
         ringColor: 'hover:ring-[#e1306c]/25',
-        link: '#',
+        link: 'https://www.instagram.com/fablab_lesquare/',
         id: 3
     },
     {
@@ -126,7 +126,7 @@ export const socialIcons = [
         color: '#FF0000',
         colorBg: 'bg-[#FF0000]',
         ringColor: 'hover:ring-[#FF0000]/25',
-        link: '#',
+        link: 'https://www.youtube.com/@VilledeMarche',
         id: 4
     },
     {
@@ -136,7 +136,7 @@ export const socialIcons = [
         color: '#0a66c2',
         colorBg: 'bg-[#0a66c2]',
         ringColor: 'hover:ring-[#0a66c2]/25',
-        link: '#',
+        link: 'https://www.linkedin.com/company/e-square-marche-en-famenne',
         id: 5
     },
 ]
