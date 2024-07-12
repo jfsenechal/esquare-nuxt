@@ -4,13 +4,16 @@ const props = defineProps({
   path: {
     type: Array, required: false, default: [
       {
-        name: "Espace", link: "/espace", id: 1
+        name: "Nos espaces", link: "/espace", id: 1
       },
       {
         name: "Co-Working", link: "/espace/co-working", id: 2
       }
     ]
   }
+})
+const dottedOrNot = computed(() => {
+  return props.path.length > 1
 })
 </script>
 <template>
@@ -26,7 +29,7 @@ const props = defineProps({
           <span class="sr-only">Home</span>
         </NuxtLink>
       </li>
-      <li class="flex md:hidden items-center">
+      <li class="flex md:hidden items-center" v-if="dottedOrNot">
         <svg class="h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
           <path fill-rule="evenodd"
                 d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"

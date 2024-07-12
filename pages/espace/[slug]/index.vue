@@ -4,9 +4,7 @@ import {departments} from "~/composables/menuItemsGet";
 const route = useRoute()
 const slug = route.params.slug
 const department = departments.find(obj => obj.slug === slug)
-
-const path = [{name: "Espace", link: "/espace", id: 1}]
-
+const path = [{name: "Nos espaces", link: "/espace", id: 1}]
 </script>
 <template>
   <article class="flex flex-col relative">
