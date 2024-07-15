@@ -48,9 +48,6 @@ res.json().then((data) => {
           </div>
         </div>
       </div>
-        <div class="-translate-x-1/3 intersect:translate-x-0 transition ease-out duration-500">
-            <img src="https://picsum.photos/600/400?random=2" class="w-full h-80 object-cover bg-slate-300 rounded">
-        </div>
     </section>
   </article>
 </template>
