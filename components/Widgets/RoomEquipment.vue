@@ -30,11 +30,20 @@ const equipments = [
 ]
 </script>
 <template>
-  <ul class="flex flex-row gap-2 items-center">
-    <li class="pointer-events-auto flex flex-col gap-2 items-center justify-center shadow-lg p-3 w-48 h-48 hover:text-esquare-green-dark"
-        v-for="equipment in equipments" :key="equipment.id">
-      <component :is="equipment.icon"></component>
-      <span class="text-esquare-blue">{{ equipment.name }}</span>
-    </li>
-  </ul>
+  <div>
+    <ul role="list" class="grid grid-rows md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 my-4">
+      <li v-for="equipment in equipments" :key="equipment.id" class="flex rounded-md shadow-sm h-12">
+        <div
+            class="flex w-16 items-center justify-center rounded-l-md bg-pink-600 text-sm font-medium text-white">
+          <component :is="equipment.icon"></component>
+        </div>
+        <div
+            class="flex items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
+          <div class="flex-1 px-4 py-2 ">
+            <span href="#" class="font-medium text-gray-900 hover:text-gray-600">{{ equipment.name }}</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </template>

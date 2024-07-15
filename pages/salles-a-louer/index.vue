@@ -1,5 +1,5 @@
 <script setup>
-/*useHead({
+useHead({
   script: [
     {
       src: 'https://unpkg.com/tailwindcss-intersect@2.0.1/dist/observer.min.js',
@@ -7,7 +7,7 @@
       defer: true
     }
   ]
-})*/
+})
 const state = reactive({
   rooms: [],
 });
@@ -32,9 +32,9 @@ res.json().then((data) => {
         </p>
         <WidgetsRoomEquipment/>
         <div v-for="room in state.rooms" :key="room.id"
-             class="flex flex-row items-center  e44ven:flex-row-reverse justify-between  mb-2">
+             class="flex flex-row items-center even:flex-row-reverse mb-2 -translate-x-1/3 intersect:translate-x-0 transition ease-out duration-500">
           <img
-              class="w-[50rem] sc44ale-50 animate-fade-up animate-duration-700 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700"
+              class="w-[50rem]"
               :src="room.Image.files[0].name" alt="room"/>
           <div class="flex flex-col items-center prose lg:prose-xl ml-4 ">
             <h3 class="text-2xl text-esquare-yellow font-semibold ">
@@ -48,6 +48,9 @@ res.json().then((data) => {
           </div>
         </div>
       </div>
+        <div class="-translate-x-1/3 intersect:translate-x-0 transition ease-out duration-500">
+            <img src="https://picsum.photos/600/400?random=2" class="w-full h-80 object-cover bg-slate-300 rounded">
+        </div>
     </section>
   </article>
 </template>
