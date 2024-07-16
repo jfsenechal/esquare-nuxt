@@ -13,7 +13,9 @@ const state = reactive({
   rooms: [],
 });
 const path = [{name: "Accueil", link: "/", id: 1}]
-const res = await fetch(config.public.API_URL+"/api/rooms");
+
+console.log(config.public.API_URL + "/api/rooms")
+const res = await fetch(config.public.API_URL + "/api/rooms");
 res.json().then((data) => {
   console.log(data)
   state.rooms = data;
