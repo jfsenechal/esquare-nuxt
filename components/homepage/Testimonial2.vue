@@ -12,7 +12,7 @@
           </blockquote>
         </div>
       </div>
-      <NuxtImg class="absolute inset-0 w-full h-full object-cover max-w-full" src="/images/batimentaerien.jpg" alt=""/>
+      <NuxtImg class="absolute inset-0 w-full h-full object-cover max-w-full object-[center_25%]" src="/images/batimentaerien.jpg" alt=""/>
     </div>
   </section>
 </template>
