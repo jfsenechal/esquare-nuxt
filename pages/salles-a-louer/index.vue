@@ -1,4 +1,6 @@
 <script setup>
+import {rooms} from "~/composables/roomsStatic.js";
+
 useHead({
   script: [
     {
@@ -35,7 +37,7 @@ onMounted(async () => {
         <WidgetsRoomEquipment/>
         <div v-if="pending">Loading...</div>
         <div v-else>
-          <div v-for="room in data" :key="room.id"
+          <div v-for="room in rooms" :key="room.id"
                class="flex flex-col md:flex-row items-center md:even:flex-row-reverse mb-2 -translate-x-1/3 intersect:translate-x-0 transition ease-out duration-500">
             <img
                 class="w-[18rem] md:w-[50rem] mb-2 md:mb-0"
