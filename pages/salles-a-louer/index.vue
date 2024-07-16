@@ -15,19 +15,6 @@ const state = reactive({
 });
 const path = [{name: "Accueil", link: "/", id: 1}]
 
-console.log(config.public.API_URL + "/api/rooms")
-
-const authToken = 'secret_E07Z3ebhUCA3U6oQQORVFNEVc4Ey97YeRham2LGrcKF' // Replace with your Notion API token
-const databaseId = '88b1b7e26fcb424e8d1c0cad103eb398' // Replace with your database ID
-
-const database = ref(null)
-const { initializeNotion, getDatabase } = useNotion()
-
-onMounted(async () => {
-  initializeNotion(authToken)
-  database.value = await getDatabase(databaseId)
-})
-
 const res = await fetch(config.public.API_URL + "/api/rooms");
 res.json().then((data) => {
   console.log(data)
@@ -44,7 +31,6 @@ res.json().then((data) => {
       <ArticleTitle>Nos salles à louer</ArticleTitle>
       <WidgetsShareBox/>
       <div class="mt-6 min-h-svh p-4">
-        {{database}}
         <p class="text-2xl text-esquare-brown font-semibold ">
           Toutes nos salles sont équipé de :
         </p>

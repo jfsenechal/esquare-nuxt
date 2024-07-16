@@ -3,8 +3,6 @@ import {Client} from "@notionhq/client";
 
 const notion = new Client({auth: process.env.NOTION_API_KEY});
 const rooms_id = process.env.NOTION_ROOMS_ID;
-console.log(process.env.NOTION_API_KEY)
-console.log(process.env.NOTION_ROOMS_ID)
 let payload = [];
 
 async function getRooms() {
@@ -14,7 +12,7 @@ async function getRooms() {
 }
 
 getRooms().then((data) => {
-    console.log(data)
+    console.log("zeze" + data)
     payload = data.results
 });
 
