@@ -1,5 +1,5 @@
 <script setup>
-import { useNotion } from '@/composables/roomsGet.js'
+import {rooms} from '~/composables/roomsStatic'
 useHead({
   script: [
     {
@@ -35,7 +35,7 @@ res.json().then((data) => {
           Toutes nos salles sont équipé de :
         </p>
         <WidgetsRoomEquipment/>
-        <div v-for="room in state.rooms" :key="room.id"
+        <div v-for="room in rooms" :key="room.id"
              class="flex flex-row items-center even:flex-row-reverse mb-2 -translate-x-1/3 intersect:translate-x-0 transition ease-out duration-500">
           <img
               class="w-[50rem]"
