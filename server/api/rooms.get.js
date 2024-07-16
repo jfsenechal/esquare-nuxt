@@ -13,6 +13,7 @@ async function getRooms() {
 }
 
 getRooms().then((data) => {
+    console.log(data)
     payload = data.results;
 });
 
