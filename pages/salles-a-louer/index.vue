@@ -1,5 +1,4 @@
 <script setup>
-import {rooms} from '~/composables/roomsStatic'
 useHead({
   script: [
     {
@@ -9,17 +8,16 @@ useHead({
     }
   ]
 })
-const config = useRuntimeConfig()
-const state = reactive({
-  rooms: [],
-});
 const path = [{name: "Accueil", link: "/", id: 1}]
+const {
+  pending,
+  data,
+  error
+} = roomsComposeGet()
 
-const res = await fetch(config.public.API_URL + "/api/rooms");
-res.json().then((data) => {
-  console.log(data)
-  state.rooms = data;
-});
+onMounted(async () => {
+
+})
 </script>
 <template>
   <article class="flex flex-col relative overflow-clip">
@@ -32,23 +30,26 @@ res.json().then((data) => {
       <WidgetsShareBox/>
       <div class="mt-6 min-h-svh p-4">
         <p class="text-2xl text-esquare-brown font-semibold ">
-          Toutes nos salles sont équipé de :
+          Toutes nos salles sont équipées de :
         </p>
         <WidgetsRoomEquipment/>
-        <div v-for="room in rooms" :key="room.id"
-             class="flex flex-col md:flex-row items-center md:even:flex-row-reverse mb-2 -translate-x-1/3 intersect:translate-x-0 transition ease-out duration-500">
-          <img
-              class="w-[18rem] md:w-[50rem] mb-2 md:mb-0"
-              :src="room.Image.files[0].name" alt="room"/>
-          <div class="flex flex-col items-center prose lg:prose-xl ml-4 ">
-            <h3 class="text-2xl text-esquare-yellow font-semibold ">
-              {{ room.Nom.title[0].text.content }}
-            </h3>
-            <span class="text-esquare-grey-dark">{{ room.Description.rich_text[0].text.content }}</span>
-            <NuxtLink :to="`salles-a-louer/reserver-zeze`"
-                      class="animate-up text-esquare-black flex flex-row  justify-center items-center h-16 w-80 border-8 border-t-esquare-blue border-r-esquare-yellow border-b-esquare-blue border-l-esquare-yellow">
-              Réservation et tarifs
-            </NuxtLink>
+        <div v-if="pending">Loading...</div>
+        <div v-else>
+          <div v-for="room in data" :key="room.id"
+               class="flex flex-col md:flex-row items-center md:even:flex-row-reverse mb-2 -translate-x-1/3 intersect:translate-x-0 transition ease-out duration-500">
+            <img
+                class="w-[18rem] md:w-[50rem] mb-2 md:mb-0"
+                :src="room.Image.files[0].name" alt="room"/>
+            <div class="flex flex-col items-center prose lg:prose-xl ml-4 ">
+              <h3 class="text-2xl text-esquare-yellow font-semibold ">
+                {{ room.Nom.title[0].text.content }}
+              </h3>
+              <span class="text-esquare-grey-dark">{{ room.Description.rich_text[0].text.content }}</span>
+              <NuxtLink :to="`salles-a-louer/reserver-${room.id}`"
+                        class="animate-up text-esquare-black flex flex-row  justify-center items-center h-16 w-80 border-8 border-t-esquare-blue border-r-esquare-yellow border-b-esquare-blue border-l-esquare-yellow">
+                Réservation et tarifs
+              </NuxtLink>
+            </div>
           </div>
         </div>
       </div>
