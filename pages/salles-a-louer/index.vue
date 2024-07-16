@@ -8,11 +8,12 @@ useHead({
     }
   ]
 })
+const config = useRuntimeConfig()
 const state = reactive({
   rooms: [],
 });
 const path = [{name: "Accueil", link: "/", id: 1}]
-const res = await fetch("http://localhost:3000/api/rooms");
+const res = await fetch(config.public.API_URL+"/api/rooms");
 res.json().then((data) => {
   state.rooms = data;
 });
