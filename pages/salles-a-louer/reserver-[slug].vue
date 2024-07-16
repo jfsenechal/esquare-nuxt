@@ -1,8 +1,9 @@
 <script setup>
 const route = useRoute()
 const slug = route.params.slug
-const path = []
-const post = {title: 'Tournoi Super Smash Bros', link: '/', icon: ''}
+const path = [
+    {name: "Nos salles à louer", link: "/salles-a-louer", id: 1}
+]
 </script>
 <template>
   <article class="flex flex-col relative">
