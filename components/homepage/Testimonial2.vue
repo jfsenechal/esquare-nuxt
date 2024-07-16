@@ -8,9 +8,7 @@
         <h2 class="hero__headline font-ro2boto">E-square - Tiers lieu</h2>
         <div class="flow">
           <blockquote class="mt-6 text-lg font-montserr2at font-semibold text-white sm:text-2xl sm:leading-8">
-            "C’est par la rencontre et l’échange de points de vue que les idées fleurissent ;
-              et c’est par l’échange de capacités et de compétences qu’elles se réalisent.
-              Si vous avez envie d’entreprendre, de créer ou de co-créer, vous êtes au bon endroit."
+            "SE REUNIR EST UN DEBUT,<br/> RESTER ENSEMBLE EST UN PROGRES, <br/>TRAVAILLER ENSEMBLE EST LA CLÉ DE LA REUSSITE"
           </blockquote>
         </div>
       </div>
@@ -19,6 +17,7 @@
   </section>
 </template>
 <style>
+/* bg-gradient-to-r from-slate-300 to-slate-500 */
 .hero {
   --gradient-dir: to top;
   min-height: calc(300px + 15vw);
