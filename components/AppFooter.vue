@@ -4,8 +4,8 @@ import {news} from "~/composables/menuItemsGet";
 </script>
 <template>
   <footer class="w-full min-h-[20rem] text-white ">
-    <section class="bg-grey-dark p-5 pb-10 grid grid-cols-1 xl:grid-cols-3 items-start justify-around">
-      <div class="flex flex-col items-center gap-3">
+    <section class="bg-grey-dark p-5 pb-10 grid grid-cols-1 gap-3 xl:grid-cols-3 items-start justify-around">
+      <div class="flex flex-col items-start md:items-center gap-3">
         <h3 class="text-2xl mb-2 font-roboto font-semi-bold">Menu</h3>
         <ul class="block ml-4">
           <li v-for="link in items" :key="link.id" class="text-sm py-1">
@@ -13,7 +13,7 @@ import {news} from "~/composables/menuItemsGet";
           </li>
         </ul>
       </div>
-      <div class="flex flex-col items-center gap-3">
+      <div class="flex flex-col items-start md:items-center gap-3">
         <h3 class="text-2xl mb-2 font-roboto font-semi-bold">Events</h3>
         <ul class="block ml-4">
           <li v-for="event in news" :key="event.id" class="py-1">
