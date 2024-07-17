@@ -35,7 +35,7 @@ const dottedOrNot = computed(() => {
                 d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
                 clip-rule="evenodd"/>
         </svg>
-        <span class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">
+        <span class="ml-4 font-medium text-gray-500 hover:text-gray-700">
           ...
         </span>
       </li>
@@ -45,7 +45,7 @@ const dottedOrNot = computed(() => {
                 d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
                 clip-rule="evenodd"/>
         </svg>
-        <NuxtLink :to="item.link" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">
+        <NuxtLink :to="item.link" class="ml-4 font-medium text-gray-500 hover:text-gray-700">
           {{ item.name }}
         </NuxtLink>
       </li>

@@ -1,6 +1,11 @@
 <script setup>
 const monthSelected = defineModel('monthSelected')
+const daySelected = defineModel('daySelected')
 const propos = defineProps({
+  today: {
+    type: Date,
+    required: true,
+  },
   day: {
     type: String,
     required: true,
@@ -14,10 +19,10 @@ const isInCurrentMonthC = computed(() => {
   return isInCurrentMonth(propos.day, monthSelected.value)
 })
 const isToday = computed(() => {
-
+  return propos.day === formatDate(propos.today, 'yyyy-MM-dd')
 })
 const isSelected = computed(() => {
-
+  return propos.day === daySelected.value
 })
 </script>
 <template>
@@ -34,7 +39,8 @@ const isSelected = computed(() => {
           -->
   <button type="button"
           class="mx-auto flex h-8 w-8 items-center justify-center rounded-full hover:bg-gray-200"
-          :class="[isInCurrentMonthC ? 'text-gray-900' : 'text-gray-400']">
-    <time :datetime="propos.day">{{ formatDate(day) }}</time>
+          :class="[isInCurrentMonthC ? 'text-gray-900' : 'text-gray-400', isToday ? 'bg-esquare-yellow':'', isSelected ? 'text-white bg-indigo-600':'']"
+          @click="daySelected = day">
+    <time :datetime="day">{{ formatDateString(day) }}</time>
   </button>
 </template>

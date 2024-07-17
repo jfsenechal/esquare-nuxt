@@ -1,13 +1,14 @@
 <script setup>
-const yearSelected = ref(2024)
-const monthSelected = ref(9)
-
+const today = getToday()
+const daySelected = ref(null)
+const yearSelected = ref(Number(formatDate(today, 'yyyy')))
+const monthSelected = ref(Number(formatDate(today, 'MM')))
 const days = ref(getFullWeeksIncludingOverflow(yearSelected.value, monthSelected.value))
-
 watch(monthSelected, (newX) => {
-
   days.value = getFullWeeksIncludingOverflow(yearSelected.value, newX)
-
+})
+watch(daySelected, (newX) => {
+  console.log("day " + newX)
 })
 
 function isFirstWeek(index) {
@@ -18,9 +19,9 @@ function isFirstWeek(index) {
   <div class="md:grid md:grid-cols-2 md:divide-x md:divide-gray-200">
     <div class="md:pr-14">
       <div class="flex items-center">
-        <h2 class="flex-auto text-sm font-semibold text-gray-900 capitalize">
+        <h3 class="flex-auto text-2xl font-semibold capitalize">
           {{ getMonthNameInFrench(monthSelected) }} {{ yearSelected }}
-        </h2>
+        </h3>
         <button type="button"
                 class="-my-1.5 flex flex-none items-center justify-center p-1.5 text-gray-400 hover:text-gray-500"
                 @click="monthSelected=monthSelected - 1">
@@ -55,13 +56,15 @@ function isFirstWeek(index) {
         <div class="py-2"
              :class="{'border-t border-gray-200': isFirstWeek(index)}"
              v-for="(day,index) in days" :key="index">
-          <RoomItemCalendar :day :month-selected :year-selected/>
+          <RoomItemCalendar :day :month-selected :year-selected :today v-model:daySelected="daySelected"/>
         </div>
       </div>
     </div>
     <section class="mt-12 md:mt-0 md:pl-14">
-      <h2 class="text-base font-semibold leading-6 text-gray-900">Schedule for
-        <time datetime="2022-01-21">January 21, 2022</time>
+      <h2 class="text-base font-semibold leading-6 text-gray-900">
+        Réservation(s)
+        <time :datetime="daySelected" v-if="daySelected">pour le {{ daySelected }}</time>
+        <span class="text-esquare-brown" v-else>Veuillez sélectionner une date</span>
       </h2>
       <ol class="mt-4 space-y-1 text-sm leading-6 text-gray-500">
         <li class="group flex items-center space-x-4 rounded-xl px-4 py-2 focus-within:bg-gray-100 hover:bg-gray-100">
@@ -76,44 +79,7 @@ function isFirstWeek(index) {
               <time datetime="2022-01-21T14:30">2:30 PM</time>
             </p>
           </div>
-          <div class="relative opacity-0 focus-within:opacity-100 group-hover:opacity-100">
-            <div>
-              <button type="button" class="-m-2 flex items-center rounded-full p-1.5 text-gray-500 hover:text-gray-600"
-                      id="menu-0-button" aria-expanded="false" aria-haspopup="true">
-                <span class="sr-only">Open options</span>
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                     aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"/>
-                </svg>
-              </button>
-            </div>
-
-            <!--
-              Dropdown menu, show/hide based on menu state.
-
-              Entering: "transition ease-out duration-100"
-                From: "transform opacity-0 scale-95"
-                To: "transform opacity-100 scale-100"
-              Leaving: "transition ease-in duration-75"
-                From: "transform opacity-100 scale-100"
-                To: "transform opacity-0 scale-95"
-            -->
-            <div
-                class="absolute right-0 z-10 mt-2 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                role="menu" aria-orientation="vertical" aria-labelledby="menu-0-button" tabindex="-1">
-              <div class="py-1" role="none">
-                <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                   id="menu-0-item-0">Edit</a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                   id="menu-0-item-1">Cancel</a>
-              </div>
-            </div>
-          </div>
         </li>
-
-        <!-- More meetings... -->
       </ol>
     </section>
   </div>
