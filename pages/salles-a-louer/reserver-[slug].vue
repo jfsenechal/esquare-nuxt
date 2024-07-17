@@ -13,8 +13,9 @@ const path = [
       <WidgetsBreadcrumb :path/>
       <ArticleTitle>Réserver la salle X</ArticleTitle>
       <WidgetsShareBox/>
-      <div class="mt-6 min-h-svh p-4 prose lg:prose-xl">
+      <div class="mt-6 min-h-svh p-4">
         <h3 class="text-2xl">Calendrier + formulaire</h3>
+        <RoomCalendar/>
       </div>
     </section>
   </article>

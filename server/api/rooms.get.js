@@ -6,14 +6,21 @@ const rooms_id = process.env.NOTION_ROOMS_ID;
 let payload = [];
 
 async function getRooms() {
-    return await notion.databases.query({
-        database_id: rooms_id,
-    });
+    if (rooms_id) {
+        console.log("room is " + rooms_id)
+        return await notion.databases.query({
+            database_id: rooms_id,
+        });
+    } else {
+        return [];
+    }
 }
 
 getRooms().then((data) => {
-    console.log("zeze" + data)
-    payload = data.results
+    console.log("zeze" + JSON.stringify(data))
+    if (data.length > 0) {
+        payload = data.results
+    }
 });
 
 function getUrls(results) {
