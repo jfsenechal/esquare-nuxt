@@ -6,11 +6,9 @@
     <div class="wrapper hero__wrapper text-white flex-1 grid w-full pl-0 pr-0">
       <div class="hero__content">
         <h2 class="hero__headline font-ro2boto">E-square - Tiers lieu</h2>
-        <div class="flow">
-          <blockquote class="mt-6 text-lg font-montserr2at font-semibold text-white sm:text-2xl sm:leading-8">
-            "SE REUNIR EST UN DEBUT,<br/> RESTER ENSEMBLE EST UN PROGRES, <br/>TRAVAILLER ENSEMBLE EST LA CLÉ DE LA REUSSITE"
+          <blockquote class="mt-6 text-lg font-montserr2at font-semibold text-white sm:text-2xl sm:leading-8 whitespace-nowrap overflow-hidden animate-typing">
+            "SE REUNIR EST UN DEBUT, RESTER ENSEMBLE EST UN PROGRES, TRAVAILLER ENSEMBLE EST LA CLÉ DE LA REUSSITE"
           </blockquote>
-        </div>
       </div>
       <NuxtImg class="absolute inset-0 w-full h-full object-cover max-w-full object-[center_25%]" src="/images/batimentaerien.jpg" alt=""/>
     </div>
@@ -68,7 +66,6 @@
   flex: 1;
   z-index: 2;
   padding: 1rem 0 1rem 1rem;
-  max-width: 65ch;
 
   blockquote {
     color: #fff;
@@ -83,14 +80,7 @@
   margin-bottom: 0.5rem;
 }
 
-.flow {
-  > * + * {
-    margin-top: var(--flow-space, 1rem);
-  }
-}
-
 .wrapper {
-  max-width: 1170px;
   padding-left: 1rem;
   padding-right: 1rem;
   /*  margin-left: auto;
