@@ -6,7 +6,7 @@ import {departments} from "~/composables/menuItemsGet";
     <WidgetsTitle>Nos espaces</WidgetsTitle>
     <ul class="grid grid-cols-2 md:grid-cols-3 gap-4">
       <li v-for="department in departments" :key="department.id"
-          class="flex flex-col items-center group group-hover:text-esquare-green-dark text-center">
+          class="flex flex-col items-center group group-hover:text-esquare-green-dark text-center scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700">
         <NuxtLink :to="department.link">
           <component :is="department.icon" class="h-12 w-12 group-hover:text-esquare-green-dark"
                      :class="department.color"></component>
