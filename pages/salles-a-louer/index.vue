@@ -22,7 +22,7 @@ const state = reactive({
   images: [],
 });
 
-const res = await fetch("http://localhost:3001/api/rooms");
+const res = await fetch("https://esquare.marche.be/new/api/rooms");
 
 res.json().then((images) => {
   console.log(images);
