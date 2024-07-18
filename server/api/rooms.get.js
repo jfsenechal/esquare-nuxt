@@ -2,7 +2,7 @@
 import {Client} from "@notionhq/client";
 
 const notion = new Client({auth: process.env.NOTION_API_KEY});
-const rooms_id = process.env.NOTION_ROOMS_ID;
+const rooms_id = "30a7b69078854847994e94c86eb09e1c";
 let payload = [];
 
 async function getRooms() {
