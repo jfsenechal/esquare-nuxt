@@ -139,13 +139,59 @@ export default {
                     transform: "translateY(-8px)",
                     "animation-timing-function": "ease-in"
                 }
-            }
+            },
+            "scale-up-center": {
+                "0%": {
+                    transform: "scale(.5)"
+                },
+                to: {
+                    transform: "scale(1)"
+                }
+            },
+            typing: {
+                '0%': {
+                    width: '0ch',
+                },
+                '10%': {
+                    width: '11ch',
+                },
+                '20%': {
+                    width: '22ch',
+                },
+                '30%': {
+                    width: '33ch',
+                },
+                '40%': {
+                    width: '44ch',
+                },
+                '50%': {
+                    width: '55ch',
+                },
+                '60%': {
+                    width: '66ch',
+                },
+                '70%': {
+                    width: '77ch',
+                },
+                '80%': {
+                    width: '88ch',
+                },
+                '90%': {
+                    width: '99ch',
+                },
+                '100%': {
+                    width: '110ch',
+                }
+            },
         },
+        //https://tail-animista.vercel.app/
         animation: {
             shimmer: "6s infinite shimmer ease-in-out",
             bouncejf: "bouncejf linear 2s",
             leftjf: "leftjf linear 2s",
-            "bounce-in-top": "bounce-in-top 2s ease both" //https://tail-animista.vercel.app/
+            typing: 'typing 5s steps(34)',
+            "scale-up-center": "scale-up-center 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
+            "bounce-in-top": "bounce-in-top 2s ease both"
         },
     },
     plugins: [
