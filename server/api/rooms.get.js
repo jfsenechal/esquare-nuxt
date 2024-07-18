@@ -7,28 +7,31 @@ let payload = [];
 
 async function getRooms() {
     if (rooms_id) {
-        console.log("room is " + rooms_id)
         return await notion.databases.query({
             database_id: rooms_id,
         });
     } else {
+        console.log("vide");
         return [];
     }
 }
 
-getRooms().then((data) => {
-    console.log("zeze" + JSON.stringify(data))
-    if (data.length > 0) {
-        payload = data.results
-    }
-});
-
-function getUrls(results) {
-    let urls = [];
-    results.forEach((result) => {
-        urls.push(result.properties)
+getRooms()
+    .then((data) => {
+        if (data.results.length > 0) {
+            payload = data.results
+        }
     })
-    return urls;
+    .catch((err) => {
+        console.error("error" + err);
+    })
+
+function getProperties(results) {
+    let properties = [];
+    results.forEach((result) => {
+        properties.push(result.properties)
+    })
+    return properties;
 }
 
-export default defineEventHandler(() => getUrls(payload));
+export default defineEventHandler(() => getProperties(payload));
