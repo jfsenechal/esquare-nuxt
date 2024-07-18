@@ -17,6 +17,12 @@ const {
 onMounted(async () => {
 
 })
+function slugify(text) {return text.toString().toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/^-+/, '')
+    .replace(/-+$/, '');
+}
 </script>
 <template>
   <article class="flex flex-col relative overflow-clip">
@@ -44,7 +50,8 @@ onMounted(async () => {
                 {{ room.Nom.title[0].text.content }}
               </h3>
               <span class="text-esquare-grey-dark">{{ room.Description.rich_text[0].text.content }}</span>
-              <NuxtLink :to="`salles-a-louer/reserver-${room.GrrId.number}`"
+              <NuxtLink :to="`salles-a-louer/reserver-${slugify(room.Nom.title[0].text.content)}-${room.GrrId.number}`"
+                        :key="room.GrrId.number"
                         class="animate-up text-esquare-black flex flex-row  justify-center items-center h-16 w-80 border-8 border-t-esquare-blue border-r-esquare-yellow border-b-esquare-blue border-l-esquare-yellow">
                 Réservation et tarifs
               </NuxtLink>

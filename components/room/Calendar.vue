@@ -1,18 +1,30 @@
 <script setup>
+import {IconClipboard} from "@tabler/icons-vue";
 const today = getToday()
 const daySelected = ref(null)
 const yearSelected = ref(Number(formatDate(today, 'yyyy')))
 const monthSelected = ref(Number(formatDate(today, 'MM')))
 const days = ref(getFullWeeksIncludingOverflow(yearSelected.value, monthSelected.value))
+const data2 = ref([])
+const propos = defineProps({
+  dataGrr: {
+    Type: String, required: true, default: []
+  },
+})
 watch(monthSelected, (newX) => {
   days.value = getFullWeeksIncludingOverflow(yearSelected.value, newX)
 })
 watch(daySelected, (newX) => {
-  console.log("day " + newX)
+  if (daySelected.value) {
+    data2.value = JSON.parse(propos.dataGrr).filter((item) => {
+      return daySelected.value == item.dayStart
+    })
+  }
 })
-
-function isFirstWeek(index) {
-  return index > 6
+function getDataByDay(day) {
+  return JSON.parse(propos.dataGrr).filter((item) => {
+    return day === item.dayStart
+  })
 }
 </script>
 <template>
@@ -54,34 +66,35 @@ function isFirstWeek(index) {
       </div>
       <div class="mt-2 grid grid-cols-7 text-sm">
         <div class="py-2"
-             :class="{'border-t border-gray-200': isFirstWeek(index)}"
-             v-for="(day,index) in days" :key="index">
-          <RoomItemCalendar :day :month-selected :year-selected :today v-model:daySelected="daySelected"/>
+             :class="{'border-t border-gray-200': index > 6}"
+             v-for="(day,index) in days" :key="day">
+          <RoomItemCalendar :day :month-selected :year-selected :today v-model:daySelected="daySelected"
+                            :items="getDataByDay(day)" :key="day"/>
         </div>
       </div>
     </div>
     <section class="mt-12 md:mt-0 md:pl-14">
-      <h2 class="text-base font-semibold leading-6 text-gray-900">
+      <h2 class="text-lg font-semibold leading-6 text-esquare-brown">
         Réservation(s)
         <time :datetime="daySelected" v-if="daySelected">pour le {{ daySelected }}</time>
         <span class="text-esquare-brown" v-else>Veuillez sélectionner une date</span>
       </h2>
       <ol class="mt-4 space-y-1 text-sm leading-6 text-gray-500">
-        <li class="group flex items-center space-x-4 rounded-xl px-4 py-2 focus-within:bg-gray-100 hover:bg-gray-100">
-          <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-              alt="" class="h-10 w-10 flex-none rounded-full">
+        <li v-for="item in data2" :key="item.id"
+            class="group flex items-center space-x-4 rounded-xl px-4 py-2 focus-within:bg-gray-100 hover:bg-gray-100">
+          <IconClipboard
+              alt="" class="h-10 w-10 flex-none rounded-full text-esquare-brown"/>
           <div class="flex-auto">
-            <p class="text-gray-900">Leslie Alexander</p>
+            <p class="text-gray-900">Réservé</p>
             <p class="mt-0.5">
-              <time datetime="2022-01-21T13:00">1:00 PM</time>
-              -
-              <time datetime="2022-01-21T14:30">2:30 PM</time>
+              de
+              <time datetime="2022-01-21T13:00">{{ item.dayStartHours }}</time>
+              - à
+              <time datetime="2022-01-21T14:30">{{ item.dayEndHours }}</time>
             </p>
           </div>
         </li>
       </ol>
     </section>
   </div>
-
 </template>
