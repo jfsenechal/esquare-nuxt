@@ -1,12 +1,21 @@
-import {IconBadge3d, IconBuildingFortress, IconCube, IconDevices2, IconUsersGroup, IconYoga} from "@tabler/icons-vue";
+import {
+    IconBadge3d,
+    IconBuildingFortress,
+    IconCube,
+    IconDevices2,
+    IconUsersGroup,
+    IconYoga,
+    IconDeviceGamepad2
+} from "@tabler/icons-vue";
 
 export const items = [
     {name: 'CO-WORKING', link: '/espace/co-working', icon: '', color: '', id: 1},
     {name: 'E-CUBE', link: '/espace/ecube', icon: '', color: '', id: 2},
     {name: 'EPN', link: '/espace/espace-publique-numerique', icon: '', color: '', id: 3},
     {name: 'FABLAB', link: '/espace/fablab', icon: '', color: '', id: 4},
-    {name: 'SALLES DE REUNION', link: '/salles-a-louer', icon: '', color: '', id: 5},
-    {name: 'CONTACT', link: '/contact', icon: '', color: '', id: 6},
+    {name: 'GAMING', link: '/espace/gaming', icon: '', color: '', id: 5},
+    {name: 'SALLES DE REUNION', link: '/salles-a-louer', icon: '', color: '', id: 6},
+    {name: 'CONTACT', link: '/contact', icon: '', color: '', id: 7},
 ]
 //https://picsum.photos/1200/800?6
 export const news = [
@@ -154,7 +163,7 @@ export const departments = [
     },
     {
         name: 'E-CUBE',
-        description: '"E-cube", un programme conçu spécialement pour accompagner les porteurs de projets, les starters et les entreprises dans leur parcours entrepreneurial et d\'innovation',
+        description: 'Un programme conçu spécialement pour accompagner les porteurs de projets, les starters et les entreprises dans leur parcours entrepreneurial et d\'innovation',
         link: '/espace/ecube',
         slug: 'ecube',
         icon: IconCube,
@@ -164,7 +173,7 @@ export const departments = [
     },
     {
         name: 'Espace Publique Numérique',
-        description: 'L’espace public numérique. Accès aux ordinateurs ou connexion au wi-fi. Scanner et impressions. ',
+        description: 'Accès à du matériel informatique (PC, imprimante, lecteur de carte d\'identité, scanner...), un accompagnement humain dans vos démarches numériques mais aussi des formations',
         link: '/espace/espace-publique-numerique',
         slug: 'espace-publique-numerique',
         icon: IconDevices2,
@@ -180,6 +189,16 @@ export const departments = [
         icon: IconBadge3d,
         color: 'text-red-500',
         image: 'https://e-square.marche.be/wp-content/uploads/2024/07/404456887_18001792097485303_7109058707732543650_n.jpg',
+        id: 4
+    },
+    {
+        name: 'GAMING',
+        description: 'Un espace gaming dynamique et accueillant où les enfants et adolescents conçu pour encourager l\'apprentissage à travers le jeu',
+        link: '/espace/gaming',
+        slug: 'gaming',
+        icon: IconDeviceGamepad2,
+        color: 'text-orange-300',
+        image: 'https://e-square.marche.be/wp-content/uploads/2024/07/380060554_615173910782676_1815093535198738928_n.jpg',
         id: 4
     },
     {
