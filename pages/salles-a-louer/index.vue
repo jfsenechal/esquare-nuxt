@@ -17,6 +17,18 @@ const {
 onMounted(async () => {
 
 })
+
+const state = reactive({
+  images: [],
+});
+
+const res = await fetch("http://localhost:3001/api/rooms");
+
+res.json().then((images) => {
+  console.log(images);
+  state.images = images;
+});
+
 function slugify(text) {return text.toString().toLowerCase()
     .replace(/\s+/g, '-')
     .replace(/[^\w\-]+/g, '')
