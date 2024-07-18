@@ -18,12 +18,13 @@ async function getRooms() {
 
 getRooms()
     .then((data) => {
+        console.log("error" + JSON.stringify(data));
         if (data.results.length > 0) {
             payload = data.results
         }
     })
     .catch((err) => {
-        console.error("error" + err);
+        console.log("error" + err);
     })
 
 function getProperties(results) {
