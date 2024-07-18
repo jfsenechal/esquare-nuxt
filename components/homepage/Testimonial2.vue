@@ -3,14 +3,16 @@
 </script>
 <template>
   <section class="hero grid relative">
-    <div class="wrapper hero__wrapper text-white flex-1 grid w-full pl-0 pr-0">
+    <div class="hero__wrapper px-4 text-white flex-1 grid w-full pl-0 pr-0">
       <div class="hero__content">
         <h2 class="hero__headline font-ro2boto">E-square - Tiers lieu</h2>
-          <blockquote class="mt-6 text-lg font-montserr2at font-semibold text-white sm:text-2xl sm:leading-8 whitespace-nowrap overflow-hidden animate-typing">
-            "SE REUNIR EST UN DEBUT, RESTER ENSEMBLE EST UN PROGRES, TRAVAILLER ENSEMBLE EST LA CLÉ DE LA REUSSITE"
-          </blockquote>
+        <blockquote
+            class="mt-6 text-lg font-semibold text-white sm:text-2xl sm:leading-8 md:whitespace-nowrap md:overflow-hidden md:animate-typing">
+          "SE REUNIR EST UN DEBUT, RESTER ENSEMBLE EST UN PROGRES, TRAVAILLER ENSEMBLE EST LA CLÉ DE LA REUSSITE"
+        </blockquote>
       </div>
-      <NuxtImg class="absolute inset-0 w-full h-full object-cover max-w-full object-[center_25%]" src="/images/batimentaerien.jpg" alt=""/>
+      <NuxtImg class="absolute inset-0 w-full h-full object-cover max-w-full object-[center_25%]"
+               src="/images/batimentaerien.jpg" alt=""/>
     </div>
   </section>
 </template>
@@ -78,13 +80,6 @@
   font-size: clamp(1.35rem, 6vw, 2.15rem);
   font-weight: 700;
   margin-bottom: 0.5rem;
-}
-
-.wrapper {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  /*  margin-left: auto;
-    margin-right: auto;*/
 }
 
 .hero {
