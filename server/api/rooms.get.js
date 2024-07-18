@@ -6,6 +6,7 @@ const rooms_id = process.env.NOTION_ROOMS_ID;
 let payload = [];
 
 async function getRooms() {
+    console.log("room id " + rooms_id);
     if (rooms_id) {
         return await notion.databases.query({
             database_id: rooms_id,
