@@ -20,7 +20,7 @@ const props = defineProps({
          alt="" />
     <!-- ICON -->
     <div class="max-w-32 ms-2 md:ms-24 -mt-12">
-      <img class="h-24 w-24 roun4ded-full rin4g-4 ring-4bl4ue-300 sm:h-20 sm:w-20 animate-bounce-in-top duration-700"
+      <img class="h-24 w-24 sm:h-20 sm:w-20 animate-bounce-in-top duration-700"
            :src="icon"
            alt="">
     </div>
