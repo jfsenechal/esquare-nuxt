@@ -1,14 +1,16 @@
 <script setup>
-import {IconClipboard} from "@tabler/icons-vue";
 const today = getToday()
 const daySelected = ref(null)
 const yearSelected = ref(Number(formatDate(today, 'yyyy')))
 const monthSelected = ref(Number(formatDate(today, 'MM')))
 const days = ref(getFullWeeksIncludingOverflow(yearSelected.value, monthSelected.value))
-const data2 = ref([])
-const propos = defineProps({
+const dataByRoom = ref([])
+const allData = ref([])
+const props = defineProps({
   dataGrr: {
-    Type: String, required: true, default: []
+    Type: String,
+    required: true,
+    default: ''
   },
 })
 watch(monthSelected, (newX) => {
@@ -16,16 +18,25 @@ watch(monthSelected, (newX) => {
 })
 watch(daySelected, (newX) => {
   if (daySelected.value) {
-    data2.value = JSON.parse(propos.dataGrr).filter((item) => {
-      return daySelected.value == item.dayStart
+    console.log('iii')
+    dataByRoom.value = allData.value.filter((item) => {
+      return daySelected.value === item.dayStart
     })
   }
+  return []
 })
+
 function getDataByDay(day) {
-  return JSON.parse(propos.dataGrr).filter((item) => {
-    return day === item.dayStart
-  })
+  if (allData.value && typeof allData.value === 'object') {
+    return allData.value.filter((item) => {
+      return day === item.dayStart
+    })
+  }
 }
+
+onMounted(() => {
+  allData.value = props.dataGrr
+})
 </script>
 <template>
   <div class="md:grid md:grid-cols-2 md:divide-x md:divide-gray-200">
@@ -73,28 +84,6 @@ function getDataByDay(day) {
         </div>
       </div>
     </div>
-    <section class="mt-12 md:mt-0 md:pl-14">
-      <h2 class="text-lg font-semibold leading-6 text-esquare-brown">
-        Réservation(s)
-        <time :datetime="daySelected" v-if="daySelected">pour le {{ daySelected }}</time>
-        <span class="text-esquare-brown" v-else>Veuillez sélectionner une date</span>
-      </h2>
-      <ol class="mt-4 space-y-1 text-sm leading-6 text-gray-500">
-        <li v-for="item in data2" :key="item.id"
-            class="group flex items-center space-x-4 rounded-xl px-4 py-2 focus-within:bg-gray-100 hover:bg-gray-100">
-          <IconClipboard
-              alt="" class="h-10 w-10 flex-none rounded-full text-esquare-brown"/>
-          <div class="flex-auto">
-            <p class="text-gray-900">Réservé</p>
-            <p class="mt-0.5">
-              de
-              <time datetime="2022-01-21T13:00">{{ item.dayStartHours }}</time>
-              - à
-              <time datetime="2022-01-21T14:30">{{ item.dayEndHours }}</time>
-            </p>
-          </div>
-        </li>
-      </ol>
-    </section>
+    <RoomReservations :day-selected :data-by-room/>
   </div>
 </template>

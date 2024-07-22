@@ -20,7 +20,6 @@ export function getFullWeeksIncludingOverflow(year, month) {
 
 export function formatDateString(dateString, formatString = 'dd') {
     const date = parseISO(dateString)
-    // 'EEEE' gives the full day name, e.g., 'Sunday'
     return format(date, formatString)
 }
 
@@ -31,6 +30,11 @@ export function formatDate(date, formatString = 'dd') {
 export function getMonthNameInFrench(monthNumber) {
     const date = setMonth(new Date(0), monthNumber - 1)
     return format(startOfMonth(date), 'MMMM', {locale: fr})
+}
+
+export function getDayInFrench(dayString) {
+    const date = parseISO(dayString)
+    return format(date, 'EEEE d MMMM yyyy', {locale: fr})
 }
 
 export function isInCurrentMonth(dateString, currentMonth) {

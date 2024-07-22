@@ -16,7 +16,8 @@ const propos = defineProps({
   },
   items: {
     type: Array,
-    required: true
+    required: true,
+    default:[]
   },
 })
 const isInCurrentMonthC = computed(() => {
@@ -46,7 +47,7 @@ const hasData = computed(() => {
           -->
   <button type="button"
           class="mx-auto flex h-8 w-8 items-center justify-center rounded-full hover:bg-gray-200"
-          :class="[isInCurrentMonthC ? 'text-gray-900' : 'text-gray-400', isToday ? 'bg-esquare-yellow':'', isSelected ? 'text-white bg-indigo-600':'', hasData ? 'text-white bg-red-200':'']"
+          :class="[isInCurrentMonthC ? 'text-gray-900' : 'text-gray-400', isToday ? 'bg-esquare-yellow':'', isSelected ? 'text-white bg-indigo-600':'', hasData ? 'text-white bg-red-400':'']"
           @click="daySelected = day">
     <time :datetime="day">{{ formatDateString(day) }}</time>
   </button>
