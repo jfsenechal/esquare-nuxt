@@ -1,6 +1,9 @@
 <script setup>
 const props = defineProps({
-  room: Object
+  room: {
+    type: Object,
+    required: true,
+  }
 })
 const slugify = computed(() => {
   return props.room.Nom.title[0].text.content.toString().toLowerCase()
