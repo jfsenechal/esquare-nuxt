@@ -28,10 +28,7 @@ const {
         <RoomEquipment/>
         <div v-if="pending">Loading...</div>
         <div v-else>
-          <div v-for="(room,index) in data" :key="index"
-               class="flex flex-col md:flex-row items-center md:even:flex-row-reverse mb-2 even:translate-x-1/3 -translate-x-1/3 intersect:translate-x-0 transition ease-out duration-500">
-            <RoomInline :room="room"/>
-          </div>
+            <RoomInline :room="room" v-for="(room,index) in data" :key="index"/>
         </div>
       </div>
     </section>
