@@ -31,6 +31,9 @@ const equipments = [
 </script>
 <template>
   <div>
+    <p class="text-2xl text-esquare-brown font-semibold ">
+      Toutes nos salles sont équipées de :
+    </p>
     <ul role="list" class="grid grid-rows md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 my-4">
       <li v-for="equipment in equipments" :key="equipment.id" class="flex rounded-md shadow-sm h-12">
         <div
@@ -40,7 +43,7 @@ const equipments = [
         <div
             class="flex items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
           <div class="flex-1 px-4 py-2 ">
-            <span href="#" class="font-medium text-gray-900 hover:text-gray-600">{{ equipment.name }}</span>
+            <span class="font-medium text-gray-900 hover:text-gray-600">{{ equipment.name }}</span>
           </div>
         </div>
       </li>
