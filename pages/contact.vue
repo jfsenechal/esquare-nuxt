@@ -9,7 +9,7 @@ const path = [
   <article class="flex flex-col relative overflow-clip">
     <ArticleHeader icon="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f4ec.svg"
                    bgimage="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=6000"/>
-    <section class="container flex flex-col gap-2 mx-auto md:ms-24 mt-14 min-h-80">
+    <section class="container flex flex-col gap-2 mx-auto pl-2 md:px-24 mt-14 min-h-80">
       <WidgetsBreadcrumb :path/>
       <ArticleTitle>Contactez-nous</ArticleTitle>
       <WidgetsShareBox/>

@@ -11,7 +11,7 @@ const department = departments.find(obj => obj.slug === slug)
   <article class="flex flex-col relative">
     <ArticleHeader icon="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f3ae.svg"
                      :bgimage="department.image"/>
-    <section class="container flex flex-col gap-2 mx-auto md:ms-24 mt-14 min-h-80">
+    <section class="container flex flex-col gap-2 mx-auto pl-2 md:px-24 mt-14 min-h-80">
       <WidgetsBreadcrumb/>
       <ArticleTitle>{{ slug }}  {{ param }}</ArticleTitle>
       <WidgetsShareBox/>
