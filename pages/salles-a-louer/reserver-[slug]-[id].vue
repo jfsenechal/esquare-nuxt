@@ -35,7 +35,7 @@ const roomDescription = computed(() => {
     <ArticleHeader icon="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f4c5.svg"
                    bgimage="https://images.unsplash.com/photo-1617106400337-66e7d72a466e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=4800"/>
     <div v-if="pending">Loading...</div>
-    <section class="container flex flex-col gap-2 mx-auto ms-2 md:ms-24 mt-14 min-h-80" v-else>
+    <section class="container flex flex-col gap-2 mx-auto md:ms-24 mt-14 min-h-80" v-else>
       <WidgetsBreadcrumb :path/>
       <ArticleTitle>Détails et réservation de la salle <i class="text-esquare-brown">{{ roomName }}</i></ArticleTitle>
       <WidgetsShareBox/>

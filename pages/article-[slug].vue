@@ -25,7 +25,7 @@ const post = {
   <article class="flex flex-col relative overflow-clip">
     <ArticleHeader :icon="post.icon"
                    :bgimage="post.image"/>
-    <section class="container flex flex-col gap-2 mx-auto ms-2 md:ms-24 mt-14 min-h-80">
+    <section class="container flex flex-col gap-2 mx-auto md:ms-24 mt-14 min-h-80">
       <WidgetsBreadcrumb :path/>
       <ArticleTitle>{{ post.title }}</ArticleTitle>
       <WidgetsShareBox/>
