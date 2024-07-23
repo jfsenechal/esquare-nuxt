@@ -1,16 +1,19 @@
 <script setup>
 const openBook = defineModel('openBook')
-
+const config = useRuntimeConfig()
+const person = defineModel({default: {name: '', email: '', phone: '', street: ''}})
 const pending = ref(null)
 const data = ref(null)
 const error = ref(null)
 
-async function submit() {
+async function addBook() {
+  console.log(person.value.name + "new2")
   pending.value = true;
-  data.value = null;
-  error.value = null;
   try {
-    const result = await bookPost();
+    const result = await $fetch(`${config.public.API_URL_SERVER}/api/44`, {
+      method: 'POST',
+      body: {}
+    })
     data.value = result.data;
   } catch (err) {
     error.value = err;
@@ -23,23 +26,28 @@ async function submit() {
   <form>
     <div class="space-y-12">
       <div class="border-b border-gray-900/10 pb-12">
-        {{ data }} {{ error }}
+        {{ data }}
         <h2 class="text-base font-semibold leading-7 text-gray-900">Vos coordonnées</h2>
-        <p class="mt-1 text-sm leading-6 text-gray-600">Use a permanent address where you can receive mail.</p>
+        <NuxtLink to="/contact"
+                  class="mt-1 text-sm leading-6 text-gray-600">
+          Si vous avez des besoins particuliers n'hésitez pas à nous contacter.
+        </NuxtLink>
 
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div class="sm:col-span-full">
-            <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Nom et prénom</label>
+            <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Nom et prénom</label>
             <div class="mt-2">
-              <input type="text" name="first-name" id="first-name" autocomplete="given-name"
+              <input type="text" name="name" id="name" autocomplete="name"
+                     v-model="person.name"
                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
           </div>
 
           <div class="sm:col-span-full">
-            <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Numéro de TVA</label>
+            <label for="vat" class="block text-sm font-medium leading-6 text-gray-900">Numéro de TVA</label>
             <div class="mt-2">
-              <input type="text" name="last-name" id="last-name" autocomplete="family-name"
+              <input type="text" name="vat" id="vat" autocomplete="tva"
+                     v-model="person.vat"
                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
           </div>
@@ -48,23 +56,26 @@ async function submit() {
             <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Adresse mail</label>
             <div class="mt-2">
               <input id="email" name="email" type="email" autocomplete="email"
+                     v-model="person.email"
                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
           </div>
 
           <div class="sm:col-span-full">
-            <label for="city" class="block text-sm font-medium leading-6 text-gray-900">Téléphone</label>
+            <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">Téléphone</label>
             <div class="mt-2">
-              <input type="text" name="city" id="city" autocomplete="address-level2"
+              <input type="text" name="phone" id="phone" autocomplete="phone"
+                     v-model="person.phone"
                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
           </div>
 
           <div class="col-span-full">
-            <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Adresse de
+            <label for="street" class="block text-sm font-medium leading-6 text-gray-900">Adresse de
               facturation</label>
             <div class="mt-2">
-              <input type="text" name="street-address" id="street-address" autocomplete="street-address"
+              <input type="text" name="street" id="street" autocomplete="adresse"
+                     v-model="person.street"
                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
           </div>
@@ -73,7 +84,6 @@ async function submit() {
           <div class="mt-10 space-y-10">
             <fieldset>
               <legend class="text-sm font-semibold leading-6 text-gray-900">Horaires</legend>
-              <p class="mt-1 text-sm leading-6 text-gray-600">These are delivered via SMS to your mobile phone.</p>
               <div class="mt-6 space-y-6">
                 <div class="flex items-center gap-x-3">
                   <input id="push-everything" name="push-notifications" type="radio"
@@ -107,12 +117,13 @@ async function submit() {
         </div>
       </div>
     </div>
+    <div class="text-base text-red-500">{{ error }}</div>
     <div class="mt-6 flex items-center justify-end gap-x-6">
       <button type="button" class="text-sm font-semibold leading-6 text-gray-900"
               @click="openBook=false">Annuler
       </button>
-      <button type="submit"
-              @click="submit"
+      <button type="button"
+              @click="addBook"
               class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
         Valider
       </button>

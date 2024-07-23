@@ -10,7 +10,6 @@ const prop = defineProps({
     type: String, required: false, default: null
   },
 })
-console.log("open or not " + openBook)
 </script>
 <template>
   <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
