@@ -1,10 +1,8 @@
 <script setup lang="ts">
 const route = useRoute()
 const roomId = route.params.id
+const openBook = defineModel('openBook')
 const prop = defineProps({
-  openBook: {
-    type: Boolean, required: true, default: false
-  },
   roomId: {
     type: Number, required: false, default: 0
   },
@@ -12,7 +10,7 @@ const prop = defineProps({
     type: String, required: false, default: null
   },
 })
-console.log("open or not " + prop.openBook)
+console.log("open or not " + openBook)
 </script>
 <template>
   <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -59,7 +57,7 @@ console.log("open or not " + prop.openBook)
           <div
               class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6"
               v-if="openBook">
-            <RoomForm/>
+            <RoomForm v-model:open-book="openBook"/>
           </div>
         </transition>
       </div>
