@@ -21,9 +21,9 @@ const isDaySelected = computed(() => {
 })
 </script>
 <template>
-  <section class="mt-12 md:mt-0 pl-5 prose md:prose-xl">
+  <section class="mt-12 mb-12 md:mb-0 md:mt-0 md:pl-5 prose md:prose-xl">
     <span class="text-esquare-brown" v-if="!isDaySelected">
-      Veuillez sélectionner une date pour afficher les réservations
+      Sélectionner une date pour réserver et afficher les réservations déjà prises
     </span>
     <div class="flex flex-col items-start" v-else>
       <span class="text-esquare-brown font-semibold">

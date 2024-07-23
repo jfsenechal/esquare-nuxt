@@ -1,7 +1,6 @@
 <script setup>
 import {IconUsers, IconCoinEuro} from '@tabler/icons-vue'
-
-const props = defineProps({
+defineProps({
   room: {
     type: Object,
     required: true,
@@ -9,27 +8,15 @@ const props = defineProps({
 })
 </script>
 <template>
-  <section class="grid grid-cols-2 tr4ail">
-    <ul class="list-none">
-      <li class="flex flex-row">
-        <IconUsers class="mr-2"/>
-        <span class="font-semibold text-esquare-green-light">
-          Nombre de personnes
-        </span>
-      </li>
-      <li class="flex flex-row">
-        <IconCoinEuro class="mr-2"/>
-        <span class="font-semibold text-esquare-green-light">Prix la journée</span>
-      </li>
-      <li class="flex flex-row">
-        <IconCoinEuro class="mr-2"/>
-        <span class="font-semibold text-esquare-green-light">Prix la demi journée</span>
-      </li>
-    </ul>
-    <ul class="list-none">
-      <li>{{ room.NbrePersonnes.rich_text[0].text.content }}</li>
-      <li>{{ room.TarifHalf.number }} €</li>
-      <li>{{ room.TarifFull.number }} €</li>
-    </ul>
+  <section class="grid grid-cols-[auto_1fr_auto] items-center md:grid-cols-[auto_15rem_1fr] my-4">
+    <IconUsers class="mr-2"/>
+    <span class="font-semibold text-esquare-green-light prose md:prose-xl">Nombre de personnes</span>
+    <span class="font-semibold">{{ room.NbrePersonnes.rich_text[0].text.content }}</span>
+    <IconCoinEuro class="mr-2"/>
+    <span class="font-semibold text-esquare-green-light prose md:prose-xl">Prix la journée</span>
+    <span class="font-semibold">{{ room.TarifHalf.number }} €</span>
+    <IconCoinEuro class="mr-2"/>
+    <span class="font-semibold text-esquare-green-light prose md:prose-xl">Prix la demi journée</span>
+    <span class="font-semibold">{{ room.TarifFull.number }} €</span>
   </section>
 </template>

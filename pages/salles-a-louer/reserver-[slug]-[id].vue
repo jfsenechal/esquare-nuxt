@@ -35,17 +35,18 @@ const roomDescription = computed(() => {
     <ArticleHeader icon="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f4c5.svg"
                    bgimage="https://images.unsplash.com/photo-1617106400337-66e7d72a466e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=4800"/>
     <div v-if="pending">Loading...</div>
-    <section class="container flex flex-col gap-2 mx-auto md:ms-24 mt-14 min-h-80" v-else>
+    <section class="container flex flex-col gap-2 mx-auto pl-2 md:px-24 mt-14 min-h-80" v-else>
       <WidgetsBreadcrumb :path/>
-      <ArticleTitle>Détails et réservation de la salle <i class="text-esquare-brown">{{ roomName }}</i></ArticleTitle>
+      <ArticleTitle><span class="hidden md:block">
+        Détails et réservation de la</span><span class="md:hidden">La</span> salle <i
+          class="text-esquare-brown">{{ roomName }}</i>
+      </ArticleTitle>
       <WidgetsShareBox/>
       <div class="" v-if="pendingGrr">Chargement...</div>
       <div class="text-red-500" v-if="errorGrr">{{ errorGrr }}</div>
       <div class="mt-6 min-h-svh p-4" v-else>
-        <div class="prose md:prose-xl">
-          <span class="text-esquare-grey-dark text-left trail">{{ roomDescription }}</span>
-          <RoomFeatures :room="room" :key="id"/>
-        </div>
+        <span class="text-esquare-grey-dark text-left prose md:prose-xl">{{ roomDescription }}</span>
+        <RoomFeatures :room="room" :key="id"/>
         <RoomLegend/>
         <RoomCalendar :dataGrr/>
       </div>
