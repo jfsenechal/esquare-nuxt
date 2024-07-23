@@ -1,4 +1,4 @@
-export default () => {
+export default (roomId = 0) => {
     const config = useRuntimeConfig()
     const {pending: pending, data: data, error: error} =
         useFetch(
