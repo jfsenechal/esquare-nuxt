@@ -1,6 +1,9 @@
 <script setup>
 import {IconClipboard} from "@tabler/icons-vue";
-
+const openBook = ref(false)
+const dayInFrench = computed(() => {
+  return getDayInFrench(propos.daySelected)
+})
 const propos = defineProps({
   daySelected: {
     type: String,
@@ -13,17 +16,8 @@ const propos = defineProps({
     default: []
   }
 })
-
 const isDaySelected = computed(() => {
-  console.log(propos.daySelected)
-  if (propos.daySelected !== null) {
-    return true
-  }
-  return false
-})
-
-const dayInFrench = computed(() => {
-  return getDayInFrench(propos.daySelected)
+  return propos.daySelected !== null;
 })
 </script>
 <template>
@@ -32,9 +26,9 @@ const dayInFrench = computed(() => {
       Veuillez sélectionner une date pour afficher les réservations
     </span>
     <div class="flex flex-col items-start" v-else>
-      <h3 class="tex font-semibold  text-esquare-brown">
+      <span class="text-esquare-brown font-semibold">
         Réservation(s) pour le {{ dayInFrench }}
-      </h3>
+      </span>
       <ol class="mt-4 space-y-1 text-gray-500" v-if="dataByRoom.length > 0">
         <li v-for="item in dataByRoom" :key="item.id"
             class="group flex items-center space-x-4 rounded-xl px-4 py-2 focus-within:bg-gray-100 hover:bg-gray-100">
@@ -54,6 +48,8 @@ const dayInFrench = computed(() => {
       <span class="font-semibold" v-else>
         Aucune réservation
       </span>
+      <button class="border border-esquare-yellow ring-amber-700" @click="openBook=true">je souhaite réserver</button>
     </div>
+    <RoomToBook :open-book :daySelected/>
   </section>
 </template>

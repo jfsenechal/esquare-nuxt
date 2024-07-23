@@ -37,7 +37,7 @@ const roomDescription = computed(() => {
     <div v-if="pending">Loading...</div>
     <section class="container flex flex-col gap-2 mx-auto ms-2 md:ms-24 mt-14 min-h-80" v-else>
       <WidgetsBreadcrumb :path/>
-      <ArticleTitle>Détails et réservation de la salle {{ roomName }}</ArticleTitle>
+      <ArticleTitle>Détails et réservation de la salle <i class="text-esquare-brown">{{ roomName }}</i></ArticleTitle>
       <WidgetsShareBox/>
       <div class="" v-if="pendingGrr">Chargement...</div>
       <div class="text-red-500" v-if="errorGrr">{{ errorGrr }}</div>

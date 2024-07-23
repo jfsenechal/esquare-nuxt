@@ -7,10 +7,8 @@ const props = defineProps({
 })
 const slugify = computed(() => {
   return props.room.Nom.title[0].text.content.toString().toLowerCase()
-      .replace(/\s+/g, '-')
-      .replace(/[^\w\-]+/g, '')
-      .replace(/^-+/, '')
-      .replace(/-+$/, '')
+    .replace(/\s+/g, '')  // Remove spaces instead of replacing with hyphens
+    .replace(/[^\w]+/g, '')  // Remove any non-word characters
 })
 </script>
 <template>
