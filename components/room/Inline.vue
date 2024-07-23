@@ -11,10 +11,10 @@ const slugify = computed(() => {
     .replace(/[^\w]+/g, '')  // Remove any non-word characters
 })
 const roomName = computed(() => {
-  return room.value.Nom.title[0].text.content
+  return props.room.Nom.title[0].text.content
 })
 const roomDescription = computed(() => {
-  return room.value.Description.rich_text[0].text.content
+  return props.room.Description.rich_text[0].text.content
 })
 </script>
 <template>
