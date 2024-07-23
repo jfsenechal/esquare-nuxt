@@ -106,6 +106,7 @@ export const socialIcons = [
         colorBg: 'bg-[#0f1419]',
         ringColor: 'hover:ring-[#0f1419]/25',
         link: 'https://x.com/lesquaremarche',
+        shareLink: 'https://twitter.com/intent/tweet?url',
         id: 1
     },
     {
@@ -116,6 +117,7 @@ export const socialIcons = [
         colorBg: 'bg-[#1877f2]',
         ringColor: 'hover:ring-[#1877f2]/25',
         link: 'https://www.facebook.com/LeSquareMarche/',
+        shareLink: 'https://www.facebook.com/sharer/sharer.php?u=',
         id: 2
     },
     {
@@ -126,6 +128,7 @@ export const socialIcons = [
         colorBg: 'bg-[#e1306c]',
         ringColor: 'hover:ring-[#e1306c]/25',
         link: 'https://www.instagram.com/fablab_lesquare/',
+        shareLink: null,
         id: 3
     },
     {
@@ -136,6 +139,7 @@ export const socialIcons = [
         colorBg: 'bg-[#FF0000]',
         ringColor: 'hover:ring-[#FF0000]/25',
         link: 'https://www.youtube.com/@VilledeMarche',
+        shareLink: null,
         id: 4
     },
     {
@@ -146,6 +150,7 @@ export const socialIcons = [
         colorBg: 'bg-[#0a66c2]',
         ringColor: 'hover:ring-[#0a66c2]/25',
         link: 'https://www.linkedin.com/company/e-square-marche-en-famenne',
+        shareLink: 'https://www.linkedin.com/sharing/share-offsite/?url=',
         id: 5
     },
 ]
