@@ -1,4 +1,7 @@
 <script setup>
+useSeoMeta({
+  title: 'Nos salles à louer',
+})
 useHead({
   script: [
     {
