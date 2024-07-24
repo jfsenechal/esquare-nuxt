@@ -1,11 +1,12 @@
 <script setup lang="ts">
+const config = useRuntimeConfig()
 const title = ref('')
 useHead({
   link: [
-    {rel: 'apple-touch-icon', type: 'image/png', href: '/new/favicon/apple-touch-icon.png', sizes: '180x180'},
-    {rel: 'icon', type: 'image/png', href: '/new/favicon/favicon-32x32.png', sizes: '32x32'},
-    {rel: 'icon', type: 'image/png', href: '/new/favicon/favicon-16x16.png', sizes: '16x16'},
-    {rel: 'manifest', type: 'image/png', href: '/new/favicon/site.webmanifest'}
+    {rel: 'apple-touch-icon', type: 'image/png', href: `${config.public.NUXT_APP_BASE_URL}favicon/apple-touch-icon.png`, sizes: '180x180'},
+    {rel: 'icon', type: 'image/png', href: `${config.public.NUXT_APP_BASE_URL}favicon/favicon-32x32.png`, sizes: '32x32'},
+    {rel: 'icon', type: 'image/png', href: `${config.public.NUXT_APP_BASE_URL}favicon/favicon-16x16.png`, sizes: '16x16'},
+    {rel: 'manifest', type: 'image/png', href: `${config.public.NUXT_APP_BASE_URL}favicon/site.webmanifest`}
   ],
 })
 useSeoMeta({
