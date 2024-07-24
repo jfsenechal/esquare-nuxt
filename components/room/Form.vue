@@ -2,28 +2,29 @@
 const openBook = defineModel('openBook')
 const config = useRuntimeConfig()
 const person = defineModel({default: {name: '', email: '', phone: '', street: ''}})
-const pending = ref(null)
-const data = ref(null)
-const error = ref(null)
+const didItWork = ref(false)
+
+const {error, data, pending, refresh} = await $fetch(`${config.public.API_URL_SERVER}/api/44`, {
+  method: 'POST',
+  body: {person: person.value},
+  immediate: false,
+  watch: false,
+  type: 'application/json',
+  onResponse(context) {
+    console.log(context)
+  }
+})
 
 async function addBook() {
   console.log(person.value.name + "new2")
-  pending.value = true;
-  try {
-    const result = await $fetch(`${config.public.API_URL_SERVER}/api/44`, {
-      method: 'POST',
-      body: {}
-    })
-    data.value = result.data;
-  } catch (err) {
-    error.value = err;
-  } finally {
-    pending.value = false;
+  await refresh()
+  if(!error.value){
+    didItWork.value = true
   }
 }
 </script>
 <template>
-  <form>
+  <form @submit.prevent="addBook">
     <div class="space-y-12">
       <div class="border-b border-gray-900/10 pb-12">
         {{ data }}
