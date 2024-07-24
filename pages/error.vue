@@ -8,7 +8,7 @@ const props = defineProps({
 
 const handleError = () => clearError({ redirect: '/' })
 </script>
-
+<!--
 <template>
   <div>
     <h2>{{ error.statusCode }}</h2>
@@ -34,7 +34,8 @@ const handleError = () => clearError({ redirect: '/' })
   </template>
 </NuxtErrorBoundary>
 </template>
-<template2>
+-->
+<template>
   <NuxtLayout>
     <div class="flex flex-col">
       <div v-if="error.statusCode === '404'" class="prose">
@@ -62,4 +63,4 @@ const handleError = () => clearError({ redirect: '/' })
       </div>
     </div>
   </NuxtLayout>
-</template2>
+</template>
