@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     },
     nitro: {
         prerender: {
-            routes: ['/salles-a-louer'],
+            routes: [],
         },
     },
     compatibilityDate: '2024-07-03',
