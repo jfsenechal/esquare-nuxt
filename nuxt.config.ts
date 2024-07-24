@@ -18,5 +18,10 @@ export default defineNuxtConfig({
             NUXT_APP_BASE_URL: process.env.NUXT_APP_BASE_URL || '/',
         },
     },
+    nitro: {
+        prerender: {
+            routes: ['/salles-a-louer'],
+        },
+    },
     compatibilityDate: '2024-07-03',
 })
