@@ -13,7 +13,8 @@ const url = useRequestURL()
               :class="`${icon.colorBg} ${icon.ringColor}`"
               :v-if="icon.shareLink"
               :to="`${icon.shareLink}${url.href}`"
-              target="_blank">
+              target="_blank"
+              external>
       <span
           class="absolute scale-0 rounded-full bg-white/25 transition duration-200 ease-out group-active:scale-100"></span>
       <div
