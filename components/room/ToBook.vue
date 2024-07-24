@@ -6,8 +6,8 @@ const prop = defineProps({
   roomId: {
     type: Number, required: false, default: 0
   },
-  daySelected: {
-    type: String, required: false, default: null
+  daysSelected: {
+    type: Array, required: false, default: []
   },
 })
 </script>
@@ -56,7 +56,7 @@ const prop = defineProps({
           <div
               class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6"
               v-if="openBook">
-            <RoomForm v-model:open-book="openBook"/>
+            <RoomForm v-model:open-book="openBook" :daysSelected />
           </div>
         </transition>
       </div>

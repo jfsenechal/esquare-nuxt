@@ -3,6 +3,12 @@ const openBook = defineModel('openBook')
 const config = useRuntimeConfig()
 const person = defineModel({default: {name: 'jf', email: 'jf@marche', phone: '084', street: 'bois'}})
 const didItWork = ref(false)
+const props = defineProps({
+  daysSelected: {
+    type: Array,
+    default: []
+  }
+})
 
 const {error, data, pending, refresh} = useFetch(`${config.public.API_URL_GRR}/nuxt/addbook.php`, {
   method: 'POST',

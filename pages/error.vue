@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
 
+const error = useError();
 const props = defineProps({
   error: Object as () => NuxtError
 })
@@ -33,3 +34,32 @@ const handleError = () => clearError({ redirect: '/' })
   </template>
 </NuxtErrorBoundary>
 </template>
+<template2>
+  <NuxtLayout>
+    <div class="flex flex-col">
+      <div v-if="error.statusCode === '404'" class="prose">
+        <h1>404</h1>
+        <p>I guess that page doesn't exist.</p>
+      </div>
+      <div v-else class="prose">
+        <h1>Dang</h1>
+        <p>It looks like something broke.</p>
+        <p>Sorry about that.</p>
+      </div>
+      <div class="prose mt-5">
+        <p>
+          <strong>{{ error.message }}</strong>
+        </p>
+        <p>
+          Go to the
+          <a
+            class="hover:cursor-pointer"
+            @click="handleError"
+          >
+            Homepage.
+          </a>
+        </p>
+      </div>
+    </div>
+  </NuxtLayout>
+</template2>

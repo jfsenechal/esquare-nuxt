@@ -1,42 +1,28 @@
 <script setup>
+const route = useRoute()
+const id = route.params.id
 const today = getToday()
-const daySelected = ref(null)
+const daysSelected = ref([])
 const yearSelected = ref(Number(formatDate(today, 'yyyy')))
 const monthSelected = ref(Number(formatDate(today, 'MM')))
 const days = ref(getFullWeeksIncludingOverflow(yearSelected.value, monthSelected.value))
-const dataByRoom = ref([])
-const allData = ref([])
-const props = defineProps({
-  dataGrr: {
-    Type: String,
-    required: true,
-    default: ''
-  },
-})
+const {
+  pendingGrr,
+  dataGrr,
+  errorGrr
+} = entriesGet(id)
+
 watch(monthSelected, (newX) => {
   days.value = getFullWeeksIncludingOverflow(yearSelected.value, newX)
 })
-watch(daySelected, (newX) => {
-  if (daySelected.value) {
-    console.log('iii')
-    dataByRoom.value = allData.value.filter((item) => {
-      return daySelected.value === item.dayStart
-    })
-  }
-  return []
-})
 
 function getDataByDay(day) {
-  if (allData.value && typeof allData.value === 'object') {
-    return allData.value.filter((item) => {
+  if (dataGrr.value && typeof dataGrr.value === 'object') {
+    return dataGrr.value.filter((item) => {
       return day === item.dayStart
     })
   }
 }
-
-onMounted(() => {
-  allData.value = props.dataGrr
-})
 </script>
 <template>
   <div class="md:grid md:grid-cols-2 md:divide-x md:divide-gray-200">
@@ -79,11 +65,11 @@ onMounted(() => {
         <div class="py-2"
              :class="{'border-t border-gray-200': index > 6}"
              v-for="(day,index) in days" :key="day">
-          <RoomItemCalendar :day :month-selected :year-selected :today v-model:daySelected="daySelected"
+          <RoomItemCalendar :day :month-selected :year-selected :today v-model:daysSelected="daysSelected"
                             :items="getDataByDay(day)" :key="day"/>
         </div>
       </div>
     </div>
-    <RoomReservations :day-selected :data-by-room/>
+    <RoomReservations :days-selected :data-grr/>
   </div>
 </template>

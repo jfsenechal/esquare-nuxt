@@ -12,7 +12,7 @@
     </li>
     <li class="flex flex-row gap-2 items-center">
       <span class="mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600"></span>
-      <span>Jour sélectionné</span>
+      <span>Jour(s) sélectionné(s)</span>
     </li>
   </ul>
 </template>

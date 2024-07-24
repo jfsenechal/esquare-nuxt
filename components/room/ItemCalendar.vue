@@ -1,6 +1,6 @@
 <script setup>
 const monthSelected = defineModel('monthSelected')
-const daySelected = defineModel('daySelected')
+const daysSelected = defineModel('daysSelected')
 const propos = defineProps({
   today: {
     type: Date,
@@ -20,6 +20,16 @@ const propos = defineProps({
     default: []
   },
 })
+
+function addDay(day) {
+  const index = daysSelected.value.indexOf(day);
+  if (index === -1) {
+    daysSelected.value.push(day);
+  } else {
+    daysSelected.value.splice(index, 1);
+  }
+}
+
 const isInCurrentMonthC = computed(() => {
   return isInCurrentMonth(propos.day, monthSelected.value)
 })
@@ -27,7 +37,7 @@ const isToday = computed(() => {
   return propos.day === formatDate(propos.today, 'yyyy-MM-dd')
 })
 const isSelected = computed(() => {
-  return propos.day === daySelected.value
+ return  daysSelected.value.indexOf(propos.day)!== -1
 })
 const hasData = computed(() => {
   return propos.items.length > 0
@@ -60,7 +70,7 @@ const whatBackground = computed(() => {
   <button type="button"
           class="mx-auto flex h-8 w-8 items-center justify-center rounded-full hover:bg-gray-200"
           :class="[isInCurrentMonthC ? 'text-gray-900' : 'text-gray-400', whatBackground]"
-          @click="daySelected = day">
+          @click="addDay(day)">
     <time :datetime="day">{{ formatDateString(day) }}</time>
   </button>
 </template>
