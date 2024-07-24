@@ -19,15 +19,15 @@ const roomDescription = computed(() => {
 </script>
 <template>
   <div
-      class="flex flex-col md:flex-row items-center md:even:flex-row-reverse mb-2 even:translate-x-1/3 -translate-x-1/3 intersect:translate-x-0 transition ease-out duration-500">
+      class="flex flex-col sm:flex-row items-center sm:even:flex-row-reverse mb-2 even:translate-x-1/3 -translate-x-1/3 intersect:translate-x-0 transition ease-out duration-500">
     <img
-        class="w-full md:w-[50rem] mb-2 md:mb-0"
+        class="w-full md:w-1/2 mb-2 sm:mb-0"
         :src="room.Image.files[0].name" alt="room"/>
     <div class="flex flex-col items-center">
       <h3 class="text-2xl text-esquare-yellow font-semibold">
         {{ roomName }}
       </h3>
-      <span class="text-esquare-grey-dark text-left prose lg:prose-xl ">
+      <span class="text-esquare-grey-dark sm:pl-3 text-left prose lg:prose-xl ">
         {{ roomDescription }}
       </span>
       <RoomFeatures :room :key="room.GrrId.number"/>
