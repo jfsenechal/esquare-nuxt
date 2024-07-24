@@ -10,8 +10,8 @@ const propos = defineProps({
   },
   dataGrr: {
     type: Array,
-    required: true,
-    default: []
+    required: false,
+    default: [],
   }
 })
 const isDaysSelected = computed(() => {
