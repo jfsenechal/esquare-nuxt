@@ -26,7 +26,7 @@ const {
       <WidgetsBreadcrumb :path/>
       <ArticleTitle>Nos salles à louer</ArticleTitle>
       <WidgetsShareBox/>
-      <div class="mt-6 min-h-svh p-4">
+      <div class="mt-6 min-h-svh p-4 md:p-0">
         <RoomEquipment/>
         <div v-if="pending">Loading...</div>
         <div v-else>
