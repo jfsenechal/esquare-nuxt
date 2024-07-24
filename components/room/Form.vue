@@ -1,12 +1,12 @@
 <script setup>
 const openBook = defineModel('openBook')
 const config = useRuntimeConfig()
-const person = defineModel({default: {name: '', email: '', phone: '', street: ''}})
+const person = defineModel({default: {name: 'jf', email: 'jf@marche', phone: '084', street: 'bois'}})
 const didItWork = ref(false)
 
-const {error, data, pending, refresh} = await $fetch(`${config.public.API_URL_SERVER}/api/44`, {
+const {error, data, pending, refresh} = useFetch(`${config.public.API_URL_GRR}/nuxt/addbook.php`, {
   method: 'POST',
-  body: {person: person.value},
+  body: {person},
   immediate: false,
   watch: false,
   type: 'application/json',
@@ -18,7 +18,7 @@ const {error, data, pending, refresh} = await $fetch(`${config.public.API_URL_SE
 async function addBook() {
   console.log(person.value.name + "new2")
   await refresh()
-  if(!error.value){
+  if (!error.value) {
     didItWork.value = true
   }
 }
