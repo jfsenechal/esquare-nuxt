@@ -47,11 +47,15 @@ useSeoMeta({
       <div class="mt-6 min-h-svh p-4 prose lg:prose-xl">
         {{ error }}
         <div v-for="block in data.children.results" :key="block.id">
-          <BlockParagraph :block="block" v-if="block.type === 'paragraph'"/>
-          <BlockImage :block="block" v-if="block.type === 'image'"/>
-          <BlockHeading :block="block" v-if="block.type.includes('heading')"/>
-          <BlockFile :block="block" v-if="block.type === 'file'"/>
-          <BlockVideo :block="block" v-if="block.type === 'video'"/>
+          <BlockParagraph :block v-if="block.type === 'paragraph'"/>
+          <BlockImage :block v-else-if="block.type === 'image'"/>
+          <BlockHeading :block v-else-if="block.type.includes('heading')"/>
+          <BlockFile :block v-else-if="block.type === 'file'"/>
+          <BlockVideo :block v-else-if="block.type === 'video'"/>
+          <BlockBulletedListItem :block v-else-if="block.type === 'bulleted_list_item'"/>
+          <BlockNumberedListItem :block v-else-if="block.type === 'numbered_list_item'"/>
+          <BlockQuote :block v-else-if="block.type === 'quote'"/>
+          <BlockUnsupported :block v-else/>
         </div>
 
         <!-- <div class="grid gap-4 lg:grid-cols-2">
