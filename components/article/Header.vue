@@ -1,9 +1,14 @@
 <script setup>
-const props = defineProps({
+defineProps({
   icon: {
     type: String,
-    default: '',
-    required: true,
+    default: null,
+    required: false,
+  },
+  emoji: {
+    type: String,
+    default: null,
+    required: false,
   },
   bgimage: {
     type: String,
@@ -15,14 +20,18 @@ const props = defineProps({
 <template>
   <header class="bg-gray-200" style="height: 30vh">
     <NuxtImg class="w-full object-center-50 block"
-         style="height: 30vh;"
-         :src="bgimage"
-         alt="" />
+             style="height: 30vh;"
+             :src="bgimage"
+             alt=""/>
     <!-- ICON -->
     <div class="max-w-32 ms-2 md:ms-24 -mt-12">
       <img class="h-24 w-24 sm:h-20 sm:w-20 animate-bounce-in-top duration-700"
            :src="icon"
-           alt="">
+           alt=""
+           v-if="icon">
+      <div class=" text-8xl sm:text-7xl animate-bounce-in-top duration-700" v-if="emoji">
+        {{ emoji }}
+      </div>
     </div>
   </header>
 </template>
