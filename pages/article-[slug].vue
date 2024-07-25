@@ -18,7 +18,7 @@ const {
   pending,
   data,
   error
-} = pageComposeGet()
+} = pageComposeGet(process.env.NOTION_PAGE_ID)
 
 const post = {
   title: 'Tournoi Super Smash Bros',
@@ -46,7 +46,7 @@ useSeoMeta({
       <WidgetsShareBox/>
       <div class="mt-6 min-h-svh p-4 prose lg:prose-xl">
         {{ error }}
-        <div v-for="block in data.children.results" :key="block.id">
+        <div v-for="block in data.children?.results" :key="block.id">
           <BlockParagraph :block v-if="block.type === 'paragraph'"/>
           <BlockImage :block v-else-if="block.type === 'image'"/>
           <BlockHeading :block v-else-if="block.type.includes('heading')"/>
@@ -56,6 +56,7 @@ useSeoMeta({
           <BlockNumberedListItem :block v-else-if="block.type === 'numbered_list_item'"/>
           <BlockQuote :block v-else-if="block.type === 'quote'"/>
           <BlockDivider :block v-else-if="block.type === 'divider'"/>
+          <BlockColumnList :block v-else-if="block.type === 'column_list'"/>
           <BlockCallout :block v-else-if="block.type === 'callout'"/>
           <BlockUnsupported :block v-else/>
         </div>
