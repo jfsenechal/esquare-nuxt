@@ -55,6 +55,8 @@ useSeoMeta({
           <BlockBulletedListItem :block v-else-if="block.type === 'bulleted_list_item'"/>
           <BlockNumberedListItem :block v-else-if="block.type === 'numbered_list_item'"/>
           <BlockQuote :block v-else-if="block.type === 'quote'"/>
+          <BlockDivider :block v-else-if="block.type === 'divider'"/>
+          <BlockCallout :block v-else-if="block.type === 'callout'"/>
           <BlockUnsupported :block v-else/>
         </div>
 
