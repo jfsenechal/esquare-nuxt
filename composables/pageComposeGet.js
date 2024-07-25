@@ -1,7 +1,7 @@
-export default (roomId = 0) => {
+export default (pageId = null) => {
     const config = useRuntimeConfig()
     const {pending: pending, data: data, error: error} =
-        useFetch(`${config.public.API_URL_SERVER}/api/page`, {})
+        useFetch(`${config.public.API_URL_SERVER}/api/page`, {query: {page_id: pageId}})
     return {
         pending,
         data,
