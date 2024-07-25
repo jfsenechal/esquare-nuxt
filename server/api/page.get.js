@@ -25,7 +25,6 @@ async function getChildren(page) {
 
 getPage()
     .then((data) => {
-        console.log(data);
         if (data) {
             payload = data
         }
