@@ -1,4 +1,7 @@
 <script setup lang="ts">
+useSeoMeta({
+  title: 'Accueil',
+})
 useHead({
   script: [
     {
@@ -7,9 +10,6 @@ useHead({
       defer: true
     }
   ]
-})
-definePageMeta({
-  layout: 'default',
 })
 const cookiesOpen = useCookie('cookiesOpen', {
   default: () => ({score: true}),

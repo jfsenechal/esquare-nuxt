@@ -18,8 +18,13 @@ const post = {
   title: 'Tournoi Super Smash Bros',
   link: '/',
   icon: 'https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f3ae.svg',
-  image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=6000'
+  image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=6000',
+  description: 'ma super description'
 }
+useSeoMeta({
+  title: () => `${post.title ?? ''}`,
+  description: () => `${post.description ?? ''}`
+})
 </script>
 <template>
   <article class="flex flex-col relative overflow-clip">

@@ -1,10 +1,5 @@
 <script setup>
-useSeoMeta({
-  title: (titleName) => `Salle: ${titleName ?? ''}`
-})
-const titleName = ref('')
-const route = useRoute()
-const id = route.params.id
+const id = useRoute().params.id
 const path = [
   {name: "Nos salles à louer", link: "/salles-a-louer", id: 1}
 ]
@@ -13,12 +8,10 @@ const {
   data,
   error
 } = roomsComposeGet(id)
-
 const room = computed(() => {
   if (data.value) {
     const t = data.value.filter((item) => item.GrrId.number == id)
     if (t !== null && t.length > 0) {
-      titleName.value = 'zee'
       return t[0]
     }
   }
@@ -29,6 +22,10 @@ const roomName = computed(() => {
 })
 const roomDescription = computed(() => {
   return room.value ? room.value.Description.rich_text[0].text.content : ''
+})
+useSeoMeta({
+  title: () => `Salle: ${roomName.value ?? ''}`,
+  description: () => `Salle: ${roomDescription.value ?? ''}`
 })
 </script>
 <template>

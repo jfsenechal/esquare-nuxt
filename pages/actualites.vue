@@ -1,4 +1,7 @@
 <script setup>
+useSeoMeta({
+  title: 'Actualités',
+})
 const path = [{name: "Accueil", link: "/", id: 1}]
 </script>
 <template>

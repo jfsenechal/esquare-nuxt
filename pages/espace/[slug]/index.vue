@@ -1,10 +1,13 @@
 <script setup>
 import {departments} from "~/composables/menuItemsGet";
-
 const route = useRoute()
 const slug = route.params.slug
 const department = departments.find(obj => obj.slug === slug)
 const path = [{name: "Nos espaces", link: "/espace", id: 1}]
+useSeoMeta({
+  title: () => `${department.name ?? ''}`,
+  description: () => `Salle: ${department.description ?? ''}`
+})
 </script>
 <template>
   <article class="flex flex-col relative">

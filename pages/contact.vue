@@ -1,4 +1,7 @@
 <script setup>
+useSeoMeta({
+  title: 'Contact et accès',
+})
 const path = [
   {
     name: "Accueil", link: "/", id: 1
