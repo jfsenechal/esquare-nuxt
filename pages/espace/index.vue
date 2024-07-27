@@ -10,6 +10,8 @@ const {
 } = pageComposeGet(config.public.NOTION_ESPACE_ID)
 const path = [{name: "Accueil", link: "/", id: 1}]
 const name = computed(() => data.value?.properties.title.title[0].text.content)
+const image = computed(() => data.value?.cover?.external.url)
+const emoji = computed(() => data.value?.icon?.emoji)
 useSeoMeta({
   title: () => `${name.value ?? ''}`,
 })
@@ -25,13 +27,11 @@ useSeoMeta({
       <div class="mt-6 min-h-svh p-4 prose lg:prose-xl">
         <div v-if="pending">Chargement...</div>
         <div v-if="error">error {{ error }}</div>
-        <div v-for="block in data.children?.results" :key="block.id">
-          <div v-if="block.type === 'child_page'">
-            <h3>
-              {{block}}
-              <NuxtLink>{{ block.child_page.title }}</NuxtLink>
+        <div v-for="block in data.children" :key="block.id">
+            <h3 v-if="block.type === 'child_page'">
+              <NuxtLink to="/">{{ block.child_page.title }}</NuxtLink>
+              {{block.page.icon}}
             </h3>
-          </div>
         </div>
       </div>
     </section>

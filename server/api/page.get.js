@@ -40,6 +40,14 @@ async function fetchAllChildren(blocks) {
             block.children = await getChildren(block.id);
             await fetchAllChildren(block.children);
         }
+        //to get icon and cover
+        if (block.type === 'child_page') {
+            block.page = await notion.pages.retrieve({
+                page_id: block.id,
+            });
+            block.page.children = await getChildren(block.page.id);
+            await fetchAllChildren(block.page.children);
+        }
     }
 }
 
