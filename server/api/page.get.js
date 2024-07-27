@@ -1,48 +1,64 @@
-//https://dev.to/trentbrew/using-notion-as-a-headless-cms-with-nuxt-3mk
-import {Client} from "@notionhq/client";
+import { Client } from "@notionhq/client";
 
-const notion = new Client({auth: process.env.NOTION_API_KEY});
+const notion = new Client({ auth: process.env.NOTION_API_KEY });
 let payload = [];
-let page_id = null
 
 async function getPage(event) {
-    const query = getQuery(event)
-    page_id = query.page_id
-    console.log(page_id)
+    const query = getQuery(event);
+    const page_id = query.page_id;
+    console.log("Load page " + page_id);
     if (page_id) {
         return await notion.pages.retrieve({
             page_id: page_id,
         });
     } else {
-        return [];
+        throw createError({
+            statusCode: 500,
+            statusMessage: 'No page ID',
+        });
     }
 }
 
-async function getChildren(page) {
-    if (page_id) {
-        page.children = await notion.blocks.children.list({
-            block_id: page_id,
+async function getChildren(block_id) {
+    let children = [];
+    let cursor;
+    do {
+        const response = await notion.blocks.children.list({
+            block_id: block_id,
             page_size: 50,
-        })
-    } else
-        page.children = []
+            start_cursor: cursor,
+        });
+        children = children.concat(response.results);
+        cursor = response.has_more ? response.next_cursor : null;
+    } while (cursor);
+    return children;
+}
+
+async function fetchAllChildren(blocks) {
+    for (let block of blocks) {
+        if (block.has_children) {
+            block.children = await getChildren(block.id);
+            await fetchAllChildren(block.children);
+        }
+    }
 }
 
 async function execute(event) {
     try {
-        const data = await getPage(event);
-        if (data) {
-            await getChildren(data)
-            payload = data;
+        const page = await getPage(event);
+        if (page) {
+            page.children = await getChildren(page.id);
+            await fetchAllChildren(page.children);
+            payload = page;
         }
     } catch (err) {
-        console.log("error ici" + JSON.stringify(err));
+        console.log("Error: " + JSON.stringify(err));
         throw createError({
             statusCode: 500,
-            statusMessage: 'ID should be an integer' + err,
-        })
+            statusMessage: 'Error loading page: ' + err,
+        });
     }
-    return payload
+    return payload;
 }
 
 export default defineEventHandler((event) => execute(event));
