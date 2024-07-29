@@ -17,22 +17,28 @@ const {
   data,
   error
 } = roomsComposeGet()
+const name = computed(() => "Nos salles à louer")
+const cover = computed(() => "https://e-square.marche.be/wp-content/uploads/2020/02/20200211_092215-1-scaled.jpg")
+const icon = computed(() => "https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f468-1f3ff-200d-1f4bc.svg")
 </script>
 <template>
-  <article class="flex flex-col relative overflow-clip">
-    <ArticleHeader icon="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f468-1f3ff-200d-1f4bc.svg"
-                   bgimage="https://e-square.marche.be/wp-content/uploads/2020/02/20200211_092215-1-scaled.jpg"/>
-    <section class="container flex flex-col gap-2 mx-auto pl-2 md:px-24 mt-14 min-h-80">
+  <BaseLayout>
+    <template v-slot:header>
+      <ArticleHeader :icon
+                     :cover/>
+    </template>
+    <template v-slot:breadcrumb>
       <WidgetsBreadcrumb :path/>
-      <ArticleTitle>Nos salles à louer</ArticleTitle>
-      <WidgetsShareBox/>
-      <div class="mt-6 min-h-svh p-4 md:p-0">
-        <RoomEquipment/>
-        <div v-if="pending">Loading...</div>
-        <div v-else>
-          <RoomInline :room="room" v-for="(room,index) in data" :key="index"/>
-        </div>
+    </template>
+    <template v-slot:title>
+      <ArticleTitle>{{ name }}</ArticleTitle>
+    </template>
+    <template v-slot>
+      <RoomEquipment/>
+      <div v-if="pending">Loading...</div>
+      <div v-else>
+        <RoomInline :room="room" v-for="(room,index) in data" :key="index"/>
       </div>
-    </section>
-  </article>
+    </template>
+  </BaseLayout>
 </template>

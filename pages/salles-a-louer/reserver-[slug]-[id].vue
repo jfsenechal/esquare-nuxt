@@ -17,36 +17,40 @@ const room = computed(() => {
   }
   return null
 })
-const roomName = computed(() => {
+const name = computed(() => {
   return room.value ? room.value.Nom.title[0].text.content : ''
 })
-const roomDescription = computed(() => {
+const description = computed(() => {
   return room.value ? room.value.Description.rich_text[0].text.content : ''
 })
+const cover = computed(() => data.value?.icon?.emoji)
+const emoji = computed(() => data.value?.icon?.emoji)
 useSeoMeta({
-  title: () => `Salle: ${roomName.value ?? ''}`,
-  description: () => `Salle: ${roomDescription.value ?? ''}`
+  title: () => `Salle: ${name.value ?? ''}`,
+  description: () => `Salle: ${description.value ?? ''}`
 })
 </script>
 <template>
-  <article class="flex flex-col relative">
-    <ArticleHeader icon="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f4c5.svg"
-                   bgimage="https://images.unsplash.com/photo-1617106400337-66e7d72a466e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=4800"/>
-    <section class="container flex flex-col gap-2 mx-auto pl-2 md:px-24 mt-14 min-h-80">
+  <BaseLayout>
+    <template v-slot:header>
+      <ArticleHeader :emoji
+                     :cover/>
+    </template>
+    <template v-slot:breadcrumb>
       <WidgetsBreadcrumb :path/>
-      <ArticleTitle><span class="hidden md:block">
-        Détails et réservation de la</span><span class="md:hidden">La</span> salle <i
-          class="text-esquare-brown">{{ roomName }}</i>
+    </template>
+    <template v-slot:title>
+      <ArticleTitle>
+        <span class="hidden md:block">
+        Détails et réservation de la</span><span class="md:hidden">
+        La</span> salle <i class="text-esquare-brown">{{ name }} </i>
       </ArticleTitle>
-      <WidgetsShareBox/>
-      <div class="" v-if="pending">Chargement...</div>
-      <div class="text-red-500" v-if="error">{{ error }}</div>
-      <div class="mt-6 min-h-svh p-4" v-else>
-        <span class="text-esquare-grey-dark text-left prose md:prose-xl">{{ roomDescription }}</span>
-        <RoomFeatures :room="room" :key="id"/>
-        <RoomLegend/>
-        <RoomCalendar/>
-      </div>
-    </section>
-  </article>
+    </template>
+    <template v-slot>
+      <span class="text-esquare-grey-dark text-left prose md:prose-xl">{{ description }}</span>
+      <RoomFeatures :room="room" :key="id"/>
+      <RoomLegend/>
+      <RoomCalendar/>
+    </template>
+  </BaseLayout>
 </template>

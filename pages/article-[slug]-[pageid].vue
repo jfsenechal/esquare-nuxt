@@ -18,50 +18,50 @@ const {
   pending,
   data,
   error
-} = pageComposeGet(process.env.NOTION_PAGE_ID)
+} = pageComposeGet(route.params.pageid)
 
-const post = {
-  title: 'Tournoi Super Smash Bros',
-  link: '/',
-  icon: 'https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f3ae.svg',
-  image2: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=6000',
-  description: 'ma super description'
-}
 const name = computed(() => data.value?.properties.title.title[0].text.content)
-const image = computed(() => data.value?.cover.external.url)
-const emoji = computed(() => data.value?.icon.emoji)
+const cover = computed(() => data.value?.cover?.external.url)
+const emoji = computed(() => data.value?.icon?.emoji)
 useSeoMeta({
   title: () => `${post.title ?? ''}`,
   description: () => `${post.description ?? ''}`
 })
+onMounted(() => {
+
+})
 </script>
 <template>
-  <article class="flex flex-col relative overflow-clip">
-    <ArticleHeader :icon="post.icon"
-                   :emoji="emoji"
-                   :bgimage="image"/>
-    <section class="container flex flex-col gap-2 mx-auto pl-2 md:px-24 mt-14 min-h-80">
+  <BaseLayout>
+    <template v-slot:header>
+      <ArticleHeader :emoji
+                     :cover/>
+    </template>
+    <template v-slot:breadcrumb>
       <WidgetsBreadcrumb :path/>
+    </template>
+    <template v-slot:title>
       <ArticleTitle>{{ name }}</ArticleTitle>
-      <WidgetsShareBox/>
-      <div class="mt-6 min-h-svh p-4 prose lg:prose-xl">
-        {{ error }}
-        <div v-for="block in data.children?.results" :key="block.id">
-          <BlockParagraph :block v-if="block.type === 'paragraph'"/>
-          <BlockImage :block v-else-if="block.type === 'image'"/>
-          <BlockHeading :block v-else-if="block.type.includes('heading')"/>
-          <BlockFile :block v-else-if="block.type === 'file'"/>
-          <BlockVideo :block v-else-if="block.type === 'video'"/>
-          <BlockBulletedListItem :block v-else-if="block.type === 'bulleted_list_item'"/>
-          <BlockNumberedListItem :block v-else-if="block.type === 'numbered_list_item'"/>
-          <BlockQuote :block v-else-if="block.type === 'quote'"/>
-          <BlockDivider :block v-else-if="block.type === 'divider'"/>
-          <BlockColumnList :block v-else-if="block.type === 'column_list'"/>
-          <BlockCallout :block v-else-if="block.type === 'callout'"/>
-          <BlockUnsupported :block v-else/>
-        </div>
+    </template>
+    <template v-slot>
+      <div v-if="pending">Chargement...</div>
+      <div v-if="error">error {{ error }}</div>
+      <div v-for="block in data.children?.results" :key="block.id">
+        <BlockParagraph :block v-if="block.type === 'paragraph'"/>
+        <BlockImage :block v-else-if="block.type === 'image'"/>
+        <BlockHeading :block v-else-if="block.type.includes('heading')"/>
+        <BlockFile :block v-else-if="block.type === 'file'"/>
+        <BlockVideo :block v-else-if="block.type === 'video'"/>
+        <BlockBulletedListItem :block v-else-if="block.type === 'bulleted_list_item'"/>
+        <BlockNumberedListItem :block v-else-if="block.type === 'numbered_list_item'"/>
+        <BlockQuote :block v-else-if="block.type === 'quote'"/>
+        <BlockDivider :block v-else-if="block.type === 'divider'"/>
+        <BlockColumnList :block v-else-if="block.type === 'column_list'"/>
+        <BlockCallout :block v-else-if="block.type === 'callout'"/>
+        <BlockUnsupported :block v-else/>
+      </div>
 
-        <!-- <div class="grid gap-4 lg:grid-cols-2">
+      <!-- <div class="grid gap-4 lg:grid-cols-2">
            <div class="scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700">
              <nuxt-img src="/images/fablab/449924545_774884834811582_4951520691865757433_n.jpg"
                        class="w-full h-96 object-cover bg-slate-300 rounded"/>
@@ -93,7 +93,6 @@ useSeoMeta({
                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
  -->
-      </div>
-    </section>
-  </article>
+    </template>
+  </BaseLayout>
 </template>

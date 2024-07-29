@@ -7,12 +7,14 @@ const path = [
     name: "Accueil", link: "/", id: 1
   },
 ]
+const cover = computed(() => "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=6000")
+const icon = computed(() => "https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f4ec.svg")
 </script>
 <template>
   <BaseLayout>
     <template v-slot:header>
-      <ArticleHeader icon="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f4ec.svg"
-                     bgimage="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=6000"/>
+      <ArticleHeader :icon
+                     :cover/>
     </template>
     <template v-slot:breadcrumb>
       <WidgetsBreadcrumb :path/>
