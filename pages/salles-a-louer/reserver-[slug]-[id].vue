@@ -1,6 +1,6 @@
 <script setup>
 const id = useRoute().params.id
-const path = [
+const breadcrumb = [
   {name: "Nos salles à louer", link: "/salles-a-louer", id: 1}
 ]
 const {
@@ -31,14 +31,7 @@ useSeoMeta({
 })
 </script>
 <template>
-  <BaseLayout>
-    <template v-slot:header>
-      <ArticleHeader :emoji
-                     :cover/>
-    </template>
-    <template v-slot:breadcrumb>
-      <WidgetsBreadcrumb :path/>
-    </template>
+  <BaseLayout v-if="data" :page-title="name" :breadcrumb :cover :emoji>
     <template v-slot:title>
       <ArticleTitle>
         <span class="hidden md:block">

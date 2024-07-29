@@ -11,7 +11,7 @@ useHead({
     }
   ]
 })
-const path = [{name: "Accueil", link: "/", id: 1}]
+const breadcrumb = [{name: "Accueil", link: "/", id: 1}]
 const {
   pending,
   data,
@@ -22,23 +22,11 @@ const cover = computed(() => "https://e-square.marche.be/wp-content/uploads/2020
 const icon = computed(() => "https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f468-1f3ff-200d-1f4bc.svg")
 </script>
 <template>
-  <BaseLayout>
-    <template v-slot:header>
-      <ArticleHeader :icon
-                     :cover/>
-    </template>
-    <template v-slot:breadcrumb>
-      <WidgetsBreadcrumb :path/>
-    </template>
-    <template v-slot:title>
-      <ArticleTitle>{{ name }}</ArticleTitle>
-    </template>
-    <template v-slot>
-      <RoomEquipment/>
-      <div v-if="pending">Loading...</div>
-      <div v-else>
-        <RoomInline :room="room" v-for="(room,index) in data" :key="index"/>
-      </div>
-    </template>
+  <BaseLayout v-if="data" :page-title="name" :breadcrumb :cover :icon>
+    <RoomEquipment/>
+    <div v-if="pending">Loading...</div>
+    <div v-else>
+      <RoomInline :room="room" v-for="(room,index) in data" :key="index"/>
+    </div>
   </BaseLayout>
 </template>
