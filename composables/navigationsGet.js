@@ -1,9 +1,18 @@
 export default () => {
-    const {pending: pending, data: data, error: error} =
-        useFetch(`${process.env.API_URL_SERVER}/api/navigation`, {})
-    return {
+    const {
         pending,
         data,
+        error
+    } = spacesGet()
+    const additems = [
+        {name: 'SALLES DE REUNION', link: '/salles-a-louer', id: 'rooms'},
+        {name: 'CONTACT', link: '/contact', id: 'contact'}
+    ]
+    const items = ref([])
+    items.value = [...data.value, ...additems]
+    return {
+        pending,
+        data: items,
         error
     }
 }

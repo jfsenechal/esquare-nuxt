@@ -1,18 +1,24 @@
 <script setup>
 import {news} from "~/composables/menuItemsGet";
+
 const {
   pending,
   data,
   error
 } = navigationsGet()
+const items = ref([])
+onMounted(() => {
+  items.value = data.value
+})
 </script>
 <template>
   <footer class="w-full min-h-[20rem] text-white ">
     <section class="bg-grey-dark p-5 pb-10 grid grid-cols-1 gap-3 xl:grid-cols-3 items-start justify-around">
       <div class="flex flex-col items-start md:items-center gap-3">
         <h3 class="text-2xl mb-2 font-roboto font-semi-bold">Menu</h3>
-        <ul class="block ml-4" v-if="!pending">
-          <li v-for="link in data" :key="link.id" class="text-sm py-1 uppercase">
+        <ul class="block ml-4"
+            v-if="items.length > 0">
+          <li v-for="link in items" :key="link.id" class="text-sm py-1 uppercase">
             <NuxtLink :to="link.link">{{ link.name }}</NuxtLink>
           </li>
         </ul>

@@ -1,10 +1,10 @@
-import pageComposeGet from "~/composables/pageComposeGet.js";
 export default () => {
+    const config = useRuntimeConfig()
     const {
         pending,
         data,
         error
-    } = pageComposeGet(process.env.NOTION_ESPACE_ID)
+    } = pageComposeGet(config.public.NOTION_ESPACE_ID)
     const spaces = ref([])
     spaces.value = extractSpaces(data)
     return {
