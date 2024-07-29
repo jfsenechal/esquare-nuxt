@@ -14,6 +14,11 @@ export function underline(text) {
     return text?.annotations.underline
 }
 
+export function extractText(block) {
+    const color = text?.annotations.color;
+    return color === 'default' ? false : color;
+}
+
 export function extractColor(text) {
     const color = text?.annotations.color;
     return color === 'default' ? false : color;
