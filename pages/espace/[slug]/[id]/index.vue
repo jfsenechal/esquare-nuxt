@@ -10,13 +10,13 @@ const name = computed(() => data.value?.properties.title.title[0].text.content)
 const cover = computed(() => data.value?.cover?.external.url)
 const emoji = computed(() => data.value?.icon?.emoji)
 useSeoMeta({
-  title: () => name ?? '',
+ title: () => name.value ?? '',
 })
 </script>
 <template>
-  <BaseLayout>
+  <BaseLayout v-if="data">
     <template v-slot:header>
-      <ArticleHeader :icon
+      <ArticleHeader :cover
                      :emoji/>
     </template>
     <template v-slot:breadcrumb>

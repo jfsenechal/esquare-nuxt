@@ -7,16 +7,6 @@ import {
     IconYoga,
     IconDeviceGamepad2
 } from "@tabler/icons-vue";
-
-export const items = [
-    {name: 'CO-WORKING', link: '/espace/co-working', icon: '', color: '', id: 1},
-    {name: 'E-CUBE', link: '/espace/ecube', icon: '', color: '', id: 2},
-    {name: 'EPN', link: '/espace/espace-publique-numerique', icon: '', color: '', id: 3},
-    {name: 'FABLAB', link: '/espace/fablab', icon: '', color: '', id: 4},
-    {name: 'GAMING', link: '/espace/gaming', icon: '', color: '', id: 5},
-    {name: 'SALLES DE REUNION', link: '/salles-a-louer', icon: '', color: '', id: 6},
-    {name: 'CONTACT', link: '/contact', icon: '', color: '', id: 7},
-]
 //https://picsum.photos/1200/800?6
 export const news = [
     {

@@ -12,12 +12,6 @@ const path = [{name: "Accueil", link: "/", id: 1}]
 const name = computed(() => data.value?.properties.title.title[0].text.content)
 const cover = computed(() => data.value?.cover?.external.url)
 const emoji = computed(() => data.value?.icon?.emoji)
-
-function slugify(text) {
-  return text.toString().toLowerCase()
-      .replace(/\s+/g, '')
-      .replace(/[^\w]+/g, '')
-}
 useSeoMeta({
   title: () => `${name.value ?? ''}`,
 })
