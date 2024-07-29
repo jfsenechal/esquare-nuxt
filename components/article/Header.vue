@@ -10,7 +10,7 @@ defineProps({
     default: null,
     required: false,
   },
-  bgimage: {
+  cover: {
     type: String,
     default: '',
     required: true
@@ -21,7 +21,7 @@ defineProps({
   <header class="bg-gray-200" style="height: 30vh">
     <NuxtImg class="w-full object-center-50 block"
              style="height: 30vh;"
-             :src="bgimage"
+             :src="cover"
              alt=""/>
     <!-- ICON -->
     <div class="max-w-32 ms-2 md:ms-24 -mt-12">
