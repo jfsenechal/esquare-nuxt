@@ -17,6 +17,7 @@ const color = computed(() => {
 </template>
 <style>
 .gray_background {
-  background-color: #f3c30c;
+  /*background-color: #f3c30c;  */
+  background-color: v-bind(color);
 }
 </style>

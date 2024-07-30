@@ -19,7 +19,7 @@ onMounted(() => {
         <NuxtLink :to="space.link"
                   class="text-8xl sm:text-7xl group-hover:text-esquare-green-dark"
                   :class="space.color ?? ''">
-                {{ space.emoji }}
+          {{ space.emoji }}
         </NuxtLink>
         <div class="prose xl:prose-xl flex flex-col p-3 md:p-6">
           <NuxtLink :to="space.link"
@@ -28,7 +28,7 @@ onMounted(() => {
             {{ space.name }}
           </NuxtLink>
           <p class="hidden md:block mt-2 text-base text-gray-600 dark:text-gray-400 self-start">
-            {{ space.description }}
+           <BlockRichText :texts="space.texts" />
           </p>
         </div>
       </li>

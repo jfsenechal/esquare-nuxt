@@ -1,4 +1,5 @@
 <script setup>
+const config = useRuntimeConfig()
 useSeoMeta({
   title: 'Nos salles à louer',
 })
@@ -16,17 +17,14 @@ const {
   pending,
   data,
   error
-} = roomsComposeGet()
+} = pageComposeGet(config.public.NOTION_ROOMS_ID)
 const name = computed(() => "Nos salles à louer")
 const cover = computed(() => "https://e-square.marche.be/wp-content/uploads/2020/02/20200211_092215-1-scaled.jpg")
 const icon = computed(() => "https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f468-1f3ff-200d-1f4bc.svg")
 </script>
 <template>
-  <BaseLayout v-if="data" :page-title="name" :breadcrumb :cover :icon>
+  <BaseLayout :page-title="name" :breadcrumb :cover :icon>
     <RoomEquipment/>
-    <div v-if="pending">Loading...</div>
-    <div v-else>
-      <RoomInline :room="room" v-for="(room,index) in data" :key="index"/>
-    </div>
+    <RoomInline :room="room" v-for="room in data" :key="room.id"/>
   </BaseLayout>
 </template>

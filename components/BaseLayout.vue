@@ -1,4 +1,6 @@
 <script setup>
+const pending = defineModel('pending', {type: Boolean, default: false})
+const error = defineModel('error', {type: Object, default: null})
 defineProps({
   pageTitle: {
     type: String,
@@ -37,7 +39,9 @@ defineProps({
         <ArticleTitle>{{ pageTitle }}</ArticleTitle>
       </slot>
       <WidgetsShareBox/>
-      <div class="mt-6 min-h-svh p-4 prose lg:prose-xl">
+      <div v-if="pending">Chargement...</div>
+      <div v-if="error" class="accent-red-500">error: {{ error }}</div>
+      <div class="mt-6 min-h-svh p-4">
         <slot></slot>
       </div>
     </section>

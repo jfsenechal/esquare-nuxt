@@ -30,7 +30,7 @@ onMounted(() => {
 })
 </script>
 <template>
-  <BaseLayout v-if="data" :page-title="name" :breadcrumb :cover :emoji>
+  <BaseLayout :page-title="name" :breadcrumb :cover :emoji>
     <div v-if="pending">Chargement...</div>
     <div v-if="error">error {{ error }}</div>
     <ArticleContentNotion :data/>

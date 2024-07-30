@@ -1,11 +1,12 @@
 <script setup>
-const propos = defineProps({
+defineProps({
   texts: {
     type: Array
   }
 })
 let color = null
-function getColor (text) {
+
+function getColor(text) {
   color = extractColor(text)
   return color
 }

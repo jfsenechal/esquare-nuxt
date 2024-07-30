@@ -1,4 +1,5 @@
 <script setup>
+const config = useRuntimeConfig()
 const id = useRoute().params.id
 const breadcrumb = [
   {name: "Nos salles à louer", link: "/salles-a-louer", id: 1}
@@ -7,7 +8,7 @@ const {
   pending,
   data,
   error
-} = roomsComposeGet(id)
+} = pageComposeGet(config.public.NOTION_ROOMS_ID)
 const room = computed(() => {
   if (data.value) {
     const t = data.value.filter((item) => item.GrrId.number == id)
@@ -31,8 +32,8 @@ useSeoMeta({
 })
 </script>
 <template>
-  <BaseLayout v-if="data" :page-title="name" :breadcrumb :cover :emoji>
-    <template v-slot:title>
+  <BaseLayout :page-title="name" :breadcrumb :cover :emoji>
+    <template #title>
       <ArticleTitle>
         <span class="hidden md:block">
         Détails et réservation de la</span><span class="md:hidden">

@@ -10,7 +10,5 @@ const icon = computed(() => "https://notion-emojis.s3-us-west-2.amazonaws.com/pr
 <template>
   <BaseLayout :page-title="name" :breadcrumb :cover :emoji>
     <HomepageNews/>
-    <WidgetsPhones/>
-    <WidgetsContactForm/>
   </BaseLayout>
 </template>
