@@ -1,6 +1,6 @@
 <script setup lang="ts">
 //https://play.tailwindcss.com/Pxaduu1tUN
-import {socialIcons} from "~/composables/menuItemsGet";
+import {socialIcons} from "~/constants/socialsNetwork";
 </script>
 <template>
   <div class="flex flex-wrap items-center justify-center gap-2">

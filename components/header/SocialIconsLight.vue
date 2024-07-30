@@ -1,7 +1,7 @@
 <script setup lang="ts">
 //https://play.tailwindcss.com/Pxaduu1tUN
 //https://tw-elements.com/docs/standard/components/social-buttons/
-import {socialIcons} from "~/composables/menuItemsGet";
+import {socialIcons} from "~/constants/socialsNetwork";
 
 const propos = defineProps({
   svgFill: {
