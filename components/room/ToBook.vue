@@ -1,6 +1,8 @@
 <script setup lang="ts">
-const route = useRoute()
-const roomId = route.params.id
+import { onClickOutside } from '@vueuse/core'
+
+const target = ref(null)
+const roomId = useRoute().params.id
 const openBook = defineModel('openBook')
 const prop = defineProps({
   roomId: {
@@ -10,9 +12,10 @@ const prop = defineProps({
     type: Array, required: false, default: []
   },
 })
+onClickOutside(target, event => console.log(event))
 </script>
 <template>
-  <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true" ref="target">
     <!--
       Background backdrop, show/hide based on modal state.
 
