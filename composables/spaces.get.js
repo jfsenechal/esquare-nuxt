@@ -21,15 +21,15 @@ function extractSpaces(data) {
             let texts = []
             space.children.forEach(child => {
                 if (child.type === 'paragraph') {
-                    texts.push(child.paragraph.rich_text)
+                    texts.push(...child.paragraph.rich_text)
                 }
             })
+
             const item = {
                 id: space.id,
                 emoji: space.page.icon.emoji,
                 name: space.child_page.title,
-                description1: texts,
-                description: "blabla",
+                texts: texts,
                 link: `/espace/${slugify(space.child_page.title)}/${slugify(space.id)}`,
                 color: 'red'
             }
