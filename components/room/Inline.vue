@@ -14,13 +14,16 @@ const roomName = computed(() => {
 const roomDescription = computed(() => {
   return props.room.Description.rich_text[0].text.content
 })
+const image = computed(() => {
+  return props.room.Image.files[0].name
+})
 </script>
 <template>
   <div
       class="flex flex-col sm:flex-row items-center sm:even:flex-row-reverse mb-2 even:translate-x-1/3 -translate-x-1/3 intersect:translate-x-0 transition ease-out duration-500">
     <img
         class="w-full md:w-1/2 mb-2 sm:mb-0"
-        :src="room.Image.files[0].name" alt="room"/>
+        :src="image" alt="room"/>
     <div class="flex flex-col items-center">
       <h3 class="text-2xl text-esquare-yellow font-semibold">
         {{ roomName }}

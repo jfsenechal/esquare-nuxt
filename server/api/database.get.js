@@ -5,18 +5,17 @@ const notion = new Client({auth: process.env.NOTION_API_KEY});
 const rooms_id = process.env.NOTION_ROOMS_ID;
 let payload = [];
 
-async function getBlocks() {
+async function getRooms() {
     if (rooms_id) {
-        console.log('children ' + rooms_id)
         return await notion.databases.query({
-            block_id: rooms_id,
+            database_id: rooms_id,
         });
     } else {
-        return ['!!'];
+        return [];
     }
 }
 
-getBlocks()
+getRooms()
     .then((data) => {
         if (data.results.length > 0) {
             payload = data.results
@@ -27,7 +26,6 @@ getBlocks()
     })
 
 function getProperties(results) {
-    return results
     let properties = [];
     results.forEach((result) => {
         properties.push(result.properties)

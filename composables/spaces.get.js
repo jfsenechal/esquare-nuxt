@@ -24,7 +24,6 @@ function extractSpaces(data) {
                     texts.push(...child.paragraph.rich_text)
                 }
             })
-
             const item = {
                 id: space.id,
                 emoji: space.page.icon.emoji,
@@ -36,5 +35,34 @@ function extractSpaces(data) {
             items.push(item)
         }
     })
+
+    items.push(
+        {
+            id: 'room',
+            emoji: null,
+            image: 'https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f5e3-fe0f.svg',
+            name: 'Salles de réunion',
+            texts: [
+                {
+                    "type": "text",
+                    "text": {
+                        "content": "Vous cherchez un endroit parfaitement équipé pour vos réunions, formations, conférences ? Nous vous proposons un vaste choix à l'e-Square.",
+                        "link": null
+                    },
+                    "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                    },
+                    "plain_text": "Vous cherchez un endroit parfaitement équipé pour vos réunions, formations, conférences ? Nous vous proposons un vaste choix à l'e-Square.",
+                    "href": null
+                }
+            ],
+            link: `/salles-a-louer`,
+            color: 'red'
+        })
     return items
 }

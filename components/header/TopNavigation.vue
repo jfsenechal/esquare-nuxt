@@ -15,7 +15,7 @@ onMounted(() => {
   <nav
       v-if="items.length > 0"
       :class="mobileMenu ? 'h-screen' : 'h-0'"
-      class="overflow-hidden z-20  lg:h-full lg:z-auto bg-white flex flex-col lg:flex-row lg:gap-4 absolute lg:static left-0 right-0 top-24 w-full lg:w-auto items-center text-lg mr-4 text-esquare-grey-dark transition-all duration-700 ease-in-out ">
+      class="overflow-hidden text-center z-20 lg:h-full lg:z-auto bg-white flex flex-col lg:flex-row lg:gap-4 absolute lg:static left-0 right-0 top-24 w-full lg:w-auto items-center text-lg mr-4 text-esquare-grey-dark transition-all duration-700 ease-in-out ">
     <NuxtLink v-for="item in items"
               :key="item.id"
               :to="item.link"

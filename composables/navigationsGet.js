@@ -5,7 +5,7 @@ export default () => {
         error
     } = spacesGet()
     const additems = [
-        {name: 'SALLES DE REUNION', link: '/salles-a-louer', id: 'rooms'},
+        {name: 'SERVICES DE LA VILLE', link: '/services', id: 'services'},
         {name: 'CONTACT', link: '/contact', id: 'contact'}
     ]
     const items = ref([])
