@@ -14,7 +14,7 @@ useSeoMeta({
 })
 </script>
 <template>
-  <BaseLayout :page-title="name" :breadcrumb :cover :emoji>
+  <BaseLayout :page-title="name ?? ''" :breadcrumb :cover :emoji>
     <ArticleContentNotion :data/>
   </BaseLayout>
 </template>

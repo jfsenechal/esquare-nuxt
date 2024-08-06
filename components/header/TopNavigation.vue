@@ -1,15 +1,12 @@
 <script setup>
-const {
-  pending,
-  data,
-  error
-} = navigationsGet()
+import items from '~/composables/navigationsGet.js';
+
 const mobileMenu = defineModel('mobileMenu')
 //this because error hydration
-const items = ref([])
+/*const items = ref([])
 onMounted(() => {
   items.value = data.value
-})
+})*/
 </script>
 <template>
   <nav

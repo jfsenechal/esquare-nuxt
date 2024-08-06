@@ -1,15 +1,6 @@
 <script setup>
 import {news} from "~/composables/menuItemsGet";
-
-const {
-  pending,
-  data,
-  error
-} = navigationsGet()
-const items = ref([])
-onMounted(() => {
-  items.value = data.value
-})
+import items from '~/composables/navigationsGet.js';
 </script>
 <template>
   <footer class="w-full min-h-[20rem] text-white ">

@@ -8,7 +8,6 @@ defineProps({
 </script>
 <template>
   <div>
-    {{ data }}
     <div v-for="block in data.children" :key="block.id">
       <BlockParagraph :block v-if="block.type === 'paragraph'"/>
       <BlockImage :block v-else-if="block.type === 'image'"/>
