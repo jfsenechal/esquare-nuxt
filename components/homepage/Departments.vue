@@ -37,3 +37,10 @@ import spaces from "~/composables/spacesStatic.js";
     </ul>
   </section>
 </template>
+<style>
+/* tip if 5 elements  */
+
+grid:nth-last-child(5) {
+  /* col-span */
+}
+</style>
