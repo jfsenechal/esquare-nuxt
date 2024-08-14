@@ -19,11 +19,12 @@ const {
   error
 } = pageComposeGet(useRoute().params.pageid)
 const name = computed(() => data.value?.properties.title.title[0].text.content)
+const description = computed(() => '')
 const cover = computed(() => data.value?.cover?.external.url)
 const emoji = computed(() => data.value?.icon?.emoji)
 useSeoMeta({
-  title: () => `${post.title ?? ''}`,
-  description: () => `${post.description ?? ''}`
+  title: () => `${name?.value ?? ''}`,
+  description: () => `${description?.value ?? ''}`
 })
 onMounted(() => {
 
