@@ -4,21 +4,36 @@ const props = defineProps({
   breadcrumb: {
     type: Array,
     required: false,
-    default: [
-      {
-        name: "Nos espaces", link: "/espace", id: 1
-      },
-      {
-        name: "Co-Working", link: "/espace/co-working", id: 2
-      }
-    ]
+    default: [{
+      label: 'Home',
+      icon: 'i-heroicons-home',
+      to: '/'
+    }, {
+      label: 'Navigation',
+      icon: 'i-heroicons-square-3-stack-3d',to: '/'
+    }, {
+      label: 'Breadcrumb',
+      icon: 'i-heroicons-link'
+    }]
   }
 })
 const dottedOrNot = computed(() => {
   return props.breadcrumb.length > 1
 })
+const links=[{
+      label: 'Home',
+      icon: 'i-heroicons-home',
+      to: '/'
+    }, {
+      label: 'Navigation',
+      icon: 'i-heroicons-square-3-stack-3d'
+    }, {
+      label: 'Breadcrumb',
+      icon: 'i-heroicons-link'
+    }]
 </script>
 <template>
+  <UBreadcrumb :links/>
   <nav class="flex" aria-label="Breadcrumb">
     <ol role="list" class="flex items-center space-x-4">
       <li class="flex items-center" title="Retour à l'accueil">
