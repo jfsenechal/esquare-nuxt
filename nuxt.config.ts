@@ -1,14 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: {enabled: true},
-    modules: ["@nuxtjs/tailwindcss", ["@nuxtjs/google-fonts", {
+    modules: ["@nuxt/image", "@nuxt/ui",["@nuxtjs/google-fonts", {
         families: {
             Roboto: true,
             Montserrat: true,
         }
-    }], "@nuxt/image"],
+    }]],
     app: {
-        rootId: 'app',
+        rootId: 'app', head: {
+            htmlAttrs: {
+                lang: 'fr',
+            },
+        },
         pageTransition: {name: 'page', mode: 'out-in'}
     },
     runtimeConfig: {
