@@ -4,7 +4,6 @@ import {news} from "~/composables/menuItemsGet";
 
 const tagSelected = ref('Tout')
 const newsRef = ref(news)
-
 watch(tagSelected, (newTag) => {
   if (newTag) {
     newsRef.value = news.filter((item) => item.tag === tagSelected.value)
@@ -20,29 +19,9 @@ watch(tagSelected, (newTag) => {
     <div class=" flex flex-col items-center">
       <HomepageTags v-model:tag-selected="tagSelected"/>
     </div>
-    <Transition name="slide-fade" appear mode="out-in">
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-8 p-8" :key="tagSelected">
-        <NuxtLink :to="`article-${item.tag}-0dcf77ca3c1349b08d19afc5092129f3`" v-for="item in newsRef" :key="item.id"
-                  class="group relative mx-auto block w-full max-w-sm overflow-hidden rounded-lg ring-8 ring-white/50 transition duration-150 ease-out active:scale-105 active:opacity-75 md:max-w-full">
-          <div class="rounded-lg">
-            <div
-                class="aspect-h-3 aspect-w-4 transition duration-300 ease-out will-change-transform group-hover:scale-110">
-              <NuxtImg format="webp" :src="item.image" alt="" class="w-full h-48 object-cover rounded-t-lg"/>
-            </div>
-            <div
-                class="absolute inset-0 flex flex-col justify-center gap-1.5 bg-zinc-800/60 bg-am2ber-700/75 p-4 text-center text-white opacity-0 duration-150 ease-out group-hover:opacity-100 md:p-8">
-              {{ item.excerpt }}
-            </div>
-            <div class="p-6">
-              <h2 class="font-bold text-2xl;">{{ item.name }}</h2>
-              <p class="mt-4 mb-3">
-                {{ item.excerpt }}
-              </p>
-            </div>
-          </div>
-        </NuxtLink>
-      </div>
-    </Transition>
+    <div class="space-y-8 sm:space-y-0 sm:grid sm:grid-cols-2 md:grid-cols-3 gap-8 mt-4">
+      <WidgetsCard v-for="item in newsRef" :key="item.id" :item/>
+    </div>
   </section>
 </template>
 <style>
