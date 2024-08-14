@@ -57,7 +57,7 @@ export default {
                 },
                 grey: {
                     dark: '#707070',
-                    footer: '#797979',
+                    footer: '#767676',
                     shop: '#6c6b6b',
                     e: '#828080',
                     light: '#F8F8F8',

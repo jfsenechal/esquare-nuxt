@@ -2,7 +2,7 @@
 //https://codepen.io/shadeed/pen/NWzrjVR/83da07fda0c07756629e660b1bc7e69f?editors=1100
 </script>
 <template>
-  <section class="hero grid relative">
+  <section class="hero grid relative bg-black">
     <div class="hero__wrapper px-4 text-white flex-1 grid w-full pl-0 pr-0">
       <div class="hero__content">
         <h2 class="hero__headline font-ro2boto">E-square - Tiers lieu</h2>
