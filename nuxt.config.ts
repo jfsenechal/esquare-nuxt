@@ -8,7 +8,8 @@ export default defineNuxtConfig({
         }
     }]],
     app: {
-        rootId: 'app', head: {
+        rootId: 'app',
+        head: {
             htmlAttrs: {
                 lang: 'fr',
             },
