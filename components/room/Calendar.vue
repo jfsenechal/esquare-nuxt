@@ -1,4 +1,5 @@
 <script setup>
+//https://lexingtonthemes.com/tutorials/how-to-create-a-calendar-layout-with-tailwind-css/
 const route = useRoute()
 const id = route.params.id
 const today = getToday()
