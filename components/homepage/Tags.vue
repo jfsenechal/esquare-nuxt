@@ -7,6 +7,7 @@ const tagSelected = defineModel('tagSelected')
   <div class="mx-auto">
     <button
         type="button"
+        aria-label="select tag"
         v-for="item in tags()"
         @click="tagSelected = item.tag"
         class="uppercase bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-blue-400"
