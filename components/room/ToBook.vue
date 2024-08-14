@@ -1,4 +1,5 @@
 <script setup lang="ts">
+//https://lexingtonthemes.com/tutorials/how-to-create-a-javascript-free-modal-popup-with-only-tailwind-css/
 import { onClickOutside } from '@vueuse/core'
 
 const target = ref(null)
