@@ -6,9 +6,9 @@ const {
   data,
   error
 } = pageComposeGet(route.params.id)
-const name = computed(() => data.value?.properties.title.title[0].text.content)
-const cover = computed(() => data.value?.cover?.external.url)
-const emoji = computed(() => data.value?.icon?.emoji)
+const name = computed(() => getNamePage(data.value))
+const cover = computed(() => getCoverPage(data.value))
+const emoji = computed(() => getEmojiPage(data.value))
 useSeoMeta({
   title: () => name.value ?? '',
 })

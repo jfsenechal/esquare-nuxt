@@ -5,7 +5,7 @@
 @layer base {
 
     html {
-        @apply scroll-pt-3 scroll-smooth text-base font-montserrat;
+        @apply scroll-pt-3 scroll-smooth text-base font-Hanken-Grotesk;
         /* see https://www.getrevue.co/profile/shrutibalasa/issues/did-you-know-about-scroll-padding-easy-solution-to-fixed-header-problem-1325973 */
     }
 
@@ -32,6 +32,6 @@
 @layer components {
     #app {
         @apply grid min-h-screen;
-        grid-template-rows: auto 1fr auto;
+        grid-template-rows: [header] auto [content] 1fr [footer] auto;
     }
 }

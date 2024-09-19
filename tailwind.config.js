@@ -12,6 +12,7 @@ export default {
             fontFamily: {
                 roboto: ['Roboto', 'sans-serif'],
                 montserrat: ['Montserrat', 'sans-serif'],
+                'Hanken-Grotesk': ['Hanken Grotesk', 'sans-serif'],
                 lato: [100, 300],
             },
             colors: {
@@ -77,6 +78,7 @@ export default {
             'center-center': 'center center',
             'bottom-center': 'bottom center',
             'center-50': 'center 50%',
+            'center-80': 'center 80%',
             'bottom-left': 'bottom left'
         },
         keyframes: {

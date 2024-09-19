@@ -1,36 +1,35 @@
 //https://dev.to/trentbrew/using-notion-as-a-headless-cms-with-nuxt-3mk
-import {Client} from "@notionhq/client";
+import {Client} from "@notionhq/client"
 
-const notion = new Client({auth: process.env.NOTION_API_KEY});
-const rooms_id = process.env.NOTION_ROOMS_ID;
-let payload = [];
+const notion = new Client({auth: process.env.NOTION_API_KEY})
+let payload = []
 
-async function getRooms() {
-    if (rooms_id) {
+async function getRooms(event) {
+    const query = getQuery(event)
+    const database_id = query.id
+    console.log('database id', database_id)
+    if (database_id) {
         return await notion.databases.query({
-            database_id: rooms_id,
-        });
+            database_id: database_id,
+        })
     } else {
-        return [];
+        return []
     }
 }
 
-getRooms()
-    .then((data) => {
-        if (data.results.length > 0) {
-            payload = data.results
-        }
-    })
-    .catch((err) => {
-        console.log("error" + err);
-    })
-
-function getProperties(results) {
-    let properties = [];
-    results.forEach((result) => {
-        properties.push(result.properties)
-    })
-    return properties;
+async function execute(event) {
+    try {
+        const result = await getRooms(event)
+        console.log(result)
+        payload = result
+    } catch (err) {
+        console.log("Error: " + JSON.stringify(err))
+        throw createError({
+            statusCode: 500,
+            statusMessage: 'Error loading page: ' + err,
+        })
+    }
+    return payload
 }
 
-export default defineEventHandler(() => getProperties(payload));
+export default defineEventHandler((event) => execute(event))

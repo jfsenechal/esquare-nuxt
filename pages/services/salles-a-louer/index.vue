@@ -1,6 +1,4 @@
 <script setup>
-import rooms from "~/composables/roomsStatic.js";
-
 useHead({
   script: [
     {
@@ -11,9 +9,9 @@ useHead({
   ]
 })
 const breadcrumb = [{name: "Accueil", link: "/", id: 1}]
-const name = computed(() => "Nos salles à louer")
-const cover = computed(() => "https://e-square.marche.be/wp-content/uploads/2020/02/20200211_092215-1-scaled.jpg")
-const icon = computed(() => "https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f468-1f3ff-200d-1f4bc.svg")
+const name = computed(() => getNamePage(data.value))
+const cover = computed(() => getCoverPage(data.value))
+const emoji = computed(() => getEmojiPage(data.value))
 useSeoMeta({
   title: name.value,
 })

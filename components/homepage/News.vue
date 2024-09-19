@@ -1,7 +1,5 @@
 <script setup lang="ts">
 //https://play.tailwindcss.com/0MGqLZKhTK
-import {news} from "~/composables/menuItemsGet";
-
 const tagSelected = ref('Tout')
 const newsRef = ref(news)
 watch(tagSelected, (newTag) => {

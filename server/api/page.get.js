@@ -1,6 +1,6 @@
-import { Client } from "@notionhq/client";
+import {Client} from "@notionhq/client";
 
-const notion = new Client({ auth: process.env.NOTION_API_KEY });
+const notion = new Client({auth: process.env.NOTION_API_KEY});
 let payload = [];
 
 async function getPage(event) {
@@ -19,44 +19,46 @@ async function getPage(event) {
     }
 }
 
-async function getChildren(block_id) {
-    let children = [];
-    let cursor;
-    do {
-        const response = await notion.blocks.children.list({
-            block_id: block_id,
-            page_size: 50,
-            start_cursor: cursor,
-        });
-        children = children.concat(response.results);
-        cursor = response.has_more ? response.next_cursor : null;
-    } while (cursor);
-    return children;
+async function getBlocks(pageId) {
+    const response = await notion.blocks.children.list({
+        block_id: pageId,
+        page_size: 50,
+    });
+    return response.results;
 }
 
-async function fetchAllChildren(blocks) {
+async function fetchChildPages(blocks) {
+    let childPages = []
     for (let block of blocks) {
-        if (block.has_children) {
-            block.children = await getChildren(block.id);
-            await fetchAllChildren(block.children);
-        }
-        //to get icon and cover
         if (block.type === 'child_page') {
-            block.page = await notion.pages.retrieve({
+            const page = await notion.pages.retrieve({
                 page_id: block.id,
             });
-            block.page.children = await getChildren(block.page.id);
-            await fetchAllChildren(block.page.children);
+            childPages.push(page)
         }
     }
+    return childPages;
+}
+
+async function fetchDatabases(blocks) {
+    for (let block of blocks) {
+        block.database = null
+        if (block.type === 'child_database') {
+            block.database =await notion.databases.query({
+                database_id: block.id,
+            })
+        }
+    }
+    return blocks;
 }
 
 async function execute(event) {
     try {
         const page = await getPage(event);
         if (page) {
-            page.children = await getChildren(page.id);
-            await fetchAllChildren(page.children);
+            page.blocks = await getBlocks(page.id);
+            page.childPages = await fetchChildPages(page.blocks);
+            page.blocks = await fetchDatabases(page.blocks);
             payload = page;
         }
     } catch (err) {

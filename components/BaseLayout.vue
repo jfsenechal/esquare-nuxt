@@ -9,17 +9,21 @@ defineProps({
   breadcrumb: {
     type: Array,
     required: true,
+    default: []
   },
   cover: {
     type: String,
     required: false,
+    default: null,
   },
   emoji: {
     type: String,
+    default: null,
     required: false,
   },
   icon: {
     type: String,
+    default: null,
     required: false,
   }
 })

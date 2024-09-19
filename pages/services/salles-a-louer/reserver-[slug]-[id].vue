@@ -1,6 +1,4 @@
 <script setup>
-import rooms from "~/composables/roomsStatic.js";
-
 const id = useRoute().params.id
 const breadcrumb = [
   {name: "Nos salles à louer", link: "/salles-a-louer", id: 1}

@@ -1,10 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: {enabled: true},
-    modules: ["@nuxt/image", "@nuxt/ui",["@nuxtjs/google-fonts", {
+    modules: ["@nuxt/image", "@nuxt/ui", ["@nuxtjs/google-fonts", {
         families: {
             Roboto: true,
             Montserrat: true,
+            'Hanken+Grotesk': {wght: '100..900', ital: true},
+            //'Hanken+Grotesk': true
         }
     }]],
     app: {
@@ -20,8 +22,10 @@ export default defineNuxtConfig({
         public: {
             API_URL_SERVER: process.env.API_URL_SERVER,
             API_URL_GRR: process.env.API_URL_GRR,
-            NOTION_ESPACE_ID: process.env.NOTION_ESPACE_ID,
+            NOTION_ROOT_ID: process.env.NOTION_ROOT_ID,
+            NOTION_SERVICES_ID: process.env.NOTION_SERVICES_ID,
             NOTION_ROOMS_ID: process.env.NOTION_ROOMS_ID,
+            NOTION_CONTACT_ID: process.env.NOTION_CONTACT_ID,
             NUXT_APP_BASE_URL: process.env.NUXT_APP_BASE_URL || '/',
         },
     },

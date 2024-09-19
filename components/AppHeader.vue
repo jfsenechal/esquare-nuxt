@@ -1,17 +1,21 @@
 <script setup>
+const config = useRuntimeConfig()
+const {
+  pending,
+  data,
+  error
+} = pageComposeGet(config.public.NOTION_SERVICES_ID)
 const mobileMenu = ref(false)
-import items from '~/composables/navigationsGet.js';
 </script>
 <template>
   <header class="bg-white shadow">
     <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:divide-y lg:divide-gray-200 lg:px-8">
-      <div class="relative flex h-16 justify-between">
+      <div class="relative flex h-20 justify-between">
         <div class="relative z-10 flex px-2 lg:px-0">
-
-          <div class="flex flex-shrink-0 items-center">
-            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                 alt="Your Company">
-          </div>
+          <NuxtLink to="/" class="flex flex-shrink-0 items-center">
+            <NuxtPicture src="/images/EsquareLogoBlackWhite.png" alt="logo" id="logoEsquare"
+                         :imgAttrs="{class:'transition-all duration-500 tease-in-out animate-bouncejf h-16 md:h-16 w-auto '}"/>
+          </NuxtLink>
         </div>
         <div class="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0">
           <div class="w-full sm:max-w-xs">
@@ -23,11 +27,11 @@ import items from '~/composables/navigationsGet.js';
                         clip-rule="evenodd"/>
                 </svg>
               </div>
-              <a id="search"
-                 href="/contact"
-                 class="block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <NuxtLink to="/contact"
+                        id="search"
+                        class="block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 Contactez-nous
-              </a>
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -43,7 +47,7 @@ import items from '~/composables/navigationsGet.js';
 
               Menu open: "hidden", Menu closed: "block"
             -->
-            <svg class="h-6 w-6"
+            <svg class="h-12 w-12"
                  :class="mobileMenu ? 'hidden':'block'"
                  fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                  aria-hidden="true">
@@ -54,7 +58,7 @@ import items from '~/composables/navigationsGet.js';
 
               Menu open: "block", Menu closed: "hidden"
             -->
-            <svg class="h-6 w-6"
+            <svg class="h-12 w-12"
                  :class="mobileMenu ? 'block':'hidden'"
                  fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                  aria-hidden="true">
@@ -69,22 +73,11 @@ import items from '~/composables/navigationsGet.js';
         class="overflow-hidden text-center z-20 transition-all duration-700 ease-in-out"
         :class="mobileMenu ? 'h-screen' : 'h-0'"
         aria-label="Global" id="mobile-menu">
-      <div class="space-y-1 px-2 pb-3 pt-2">
-        <!-- todo Current: "bg-gray-100 text-gray-900", Default: "text-gray-900 hover:bg-gray-50 hover:text-gray-900" -->
-        <NuxtLink v-for="item in items"
-                  :key="item.id"
-                  :to="item.link"
-                  @click="mobileMenu = !mobileMenu"
-                  class="animateText block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 hover:text-gray-900 uppercase"
-                  aria-current="page">
-          {{ item.name }}
-        </NuxtLink>
+      <div class="space-y-1 px-2 pb-3 pt-2" v-if="pending">Chargement...</div>
+      <div class="space-y-1 px-2 pb-3 pt-2" v-if="error">error {{ error }}</div>
+      <div class="space-y-1 px-2 pb-3 pt-2" v-if="data">
+        <HeaderMenuItems :child-pages="data.child_pages" v-model:mobile-menu="mobileMenu"/>
       </div>
     </nav>
   </header>
 </template>
-<style>
-.animateText {
-  @apply relative after:absolute after:bg-esquare-yellow after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300
-}
-</style>

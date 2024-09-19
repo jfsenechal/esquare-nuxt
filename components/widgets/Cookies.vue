@@ -1,5 +1,7 @@
 <script setup lang="ts">
 //https://merakiui.com/components/application-ui/cookies
+//https://masteringnuxt.com/blog/how-to-read-and-write-cookies-in-nuxt-3?s=03
+//https://akalfood.com/fr/
 const cookiesOpen = defineModel('cookiesOpen')
 </script>
 <template>

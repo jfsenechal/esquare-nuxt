@@ -8,7 +8,7 @@ defineProps({
 </script>
 <template>
   <div>
-    <div v-for="block in data.children" :key="block.id">
+    <div v-for="block in data.blocks" :key="block.id">
       <BlockParagraph :block v-if="block.type === 'paragraph'"/>
       <BlockImage :block v-else-if="block.type === 'image'"/>
       <BlockHeading :block v-else-if="block.type.includes('heading')"/>
@@ -20,6 +20,7 @@ defineProps({
       <BlockDivider :block v-else-if="block.type === 'divider'"/>
       <BlockColumnList :block v-else-if="block.type === 'column_list'"/>
       <BlockCallout :block v-else-if="block.type === 'callout'"/>
+      <BlockDatabase :block v-else-if="block.type === 'child_database'"/>
       <BlockUnsupported :block v-else/>
     </div>
   </div>

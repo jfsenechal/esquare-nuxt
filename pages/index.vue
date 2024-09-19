@@ -16,14 +16,10 @@ const cookiesOpen = useCookie('cookiesOpen', {
 })
 </script>
 <template>
-  <section class="overflow-clip" style="background-image: url('/images/beams-home.jpg')">
+  <section class="overflow-clip mt-8" style="background-image: url('/images/beams-home.jpg')">
     <WidgetsCookies v-model:cookies-open="cookiesOpen" v-if="cookiesOpen"/>
-    <HomepageTestimonial2/>
-    <HomepageDepartments/>
-    <HomepageALaUne/>
-    <HomepageTestimonial/>
-    <WidgetsWave/>
+
+
     <HomepageNews/>
-    <HomepageSlogan/>
   </section>
 </template>

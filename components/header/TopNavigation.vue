@@ -1,7 +1,6 @@
 <script setup>
-import items from '~/composables/navigationsGet.js';
-
 const mobileMenu = defineModel('mobileMenu')
+const items = []
 //this because error hydration
 /*const items = ref([])
 onMounted(() => {

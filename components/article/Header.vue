@@ -2,24 +2,24 @@
 defineProps({
   icon: {
     type: String,
-    default: null,
     required: false,
+    default: null,
   },
   emoji: {
     type: String,
-    default: null,
     required: false,
+    default: null,
   },
   cover: {
     type: String,
-    default: '',
-    required: true
+    required: true,
+    default: 'https://images.unsplash.com/photo-1596524430615-b46475ddff6e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=6000',
   },
 })
 </script>
 <template>
   <header class="bg-gray-200" style="height: 30vh">
-    <NuxtImg class="w-full object-center-50 block"
+    <NuxtImg class="w-full object-center-80 block"
              style="height: 30vh;"
              :src="cover"
              alt=""/>

@@ -3,9 +3,9 @@ useSeoMeta({
   title: 'Nos espaces',
 })
 const breadcrumb = [{name: "Accueil", link: "/", id: 1}]
-const name = computed(() => 'Nos espaces')
-const cover = computed(() => "https://esquare.marche.be/new/images/batimentaerien.jpg")
-const icon = computed(() => "https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f4ec.svg")
+const name = computed(() => getNamePage(data.value))
+const cover = computed(() =>getCoverPage(data.value))
+const emoji =computed(() => getEmojiPage(data.value))
 useSeoMeta({
   title: () => `${name.value ?? ''}`,
 })

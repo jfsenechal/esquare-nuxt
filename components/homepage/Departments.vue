@@ -1,4 +1,10 @@
 <script setup>
+const config = useRuntimeConfig()
+const {
+  pending,
+  data,
+  error
+} = pageComposeGet(config.public.NOTION_SERVICES_ID)
 /*const {
   pending,
   data,
@@ -6,15 +12,13 @@
 } = spacesGet()*/
 const items = ref([])
 onMounted(() => {
- // items.value = data.value
 })
-import spaces from "~/composables/spacesStatic.js";
 </script>
 <template>
   <section class="container mx-auto ">
-    <WidgetsTitle>Nos espaces</WidgetsTitle>
+    <WidgetsTitle>Nos services</WidgetsTitle>
     <ul class="grid grid-cols-2 md:grid-cols-3 gap-4">
-      <li v-for="space in spaces"
+      <li v-for="space in data.childPages"
           :key="space.id"
           class="flex flex-col items-center group group-hover:text-esquare-green-dark text-center scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700">
         <NuxtLink :to="space.link"
