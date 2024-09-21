@@ -1,4 +1,10 @@
 <script setup>
+const config = useRuntimeConfig()
+const {
+  status,
+  data,
+  error
+} = pageComposeGet(config.public.NOTION_ROOMS_ID)
 useHead({
   script: [
     {
@@ -15,10 +21,15 @@ const emoji = computed(() => getEmojiPage(data.value))
 useSeoMeta({
   title: name.value,
 })
+const rooms= []
 </script>
 <template>
   <BaseLayout :page-title="name" :breadcrumb :cover :icon>
     <RoomEquipment/>
-    <RoomInline :room="room" v-for="room in rooms" :key="room.GrrId.Number"/>
+    <WidgetsLoader v-if="status === 'pending'"/>
+    <WidgetsError v-else-if="error" :error/>
+    <div v-else>
+      <RoomInline :room="room" v-for="room in rooms" :key="room.GrrId.Number"/>
+    </div>
   </BaseLayout>
 </template>

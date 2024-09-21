@@ -1,8 +1,8 @@
 <script setup>
 const route = useRoute()
-const breadcrumb = [{name: "Nos espaces", link: "/espace", id: 1}]
+const breadcrumb = [{name: "Nos services", link: "/services", id: 1}]
 const {
-  pending,
+  status,
   data,
   error
 } = pageComposeGet(route.params.id)
@@ -15,6 +15,12 @@ useSeoMeta({
 </script>
 <template>
   <BaseLayout :page-title="name ?? ''" :breadcrumb :cover :emoji>
-    <ArticleContentNotion :data/>
+    <WidgetsLoader v-if="status === 'pending'"/>
+    <WidgetsError v-else-if="error" :error/>
+    <div v-else>
+      <div v-for="block in data.blocks" :key="block.id">
+        <ArticleBlockNotion :block/>
+      </div>
+    </div>
   </BaseLayout>
 </template>

@@ -14,7 +14,7 @@ const breadcrumb = [
   },
 ]
 const {
-  pending,
+  status,
   data,
   error
 } = pageComposeGet(useRoute().params.pageid)
@@ -32,9 +32,11 @@ onMounted(() => {
 </script>
 <template>
   <BaseLayout :page-title="name" :breadcrumb :cover :emoji>
-    <div v-if="pending">Chargement...</div>
-    <div v-if="error">error {{ error }}</div>
-    <ArticleContentNotion :data/>
+    <WidgetsLoader v-if="status === 'pending'"/>
+    <WidgetsError v-else-if="error" :error/>
+    <div v-for="block in data.blocks" :key="block.id">
+      <ArticleBlockNotion :block/>
+    </div>
   </BaseLayout>
   <!-- <div class="grid gap-4 lg:grid-cols-2">
        <div class="scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700">

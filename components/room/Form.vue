@@ -10,7 +10,7 @@ const props = defineProps({
   }
 })
 
-const {error, data, pending, refresh} = useFetch(`${config.public.API_URL_GRR}/nuxt/addbook.php`, {
+const {error, data, status, refresh} = useFetch(`${config.public.API_URL_GRR}/nuxt/addbook.php`, {
   method: 'POST',
   body: {person},
   immediate: false,
@@ -124,7 +124,7 @@ async function addBook() {
         </div>
       </div>
     </div>
-    <div class="text-base text-red-500">{{ error }}</div>
+    <div class="text-base text-red-500" v-if="error">{{ error }}</div>
     <div class="mt-6 flex items-center justify-end gap-x-6">
       <button type="button" class="text-sm font-semibold leading-6 text-gray-900"
               @click="openBook=false">Annuler

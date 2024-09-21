@@ -23,6 +23,7 @@ export default defineNuxtConfig({
             API_URL_SERVER: process.env.API_URL_SERVER,
             API_URL_GRR: process.env.API_URL_GRR,
             NOTION_ROOT_ID: process.env.NOTION_ROOT_ID,
+            NOTION_PARTNERS_ID: process.env.NOTION_PARTNERS_ID,
             NOTION_SERVICES_ID: process.env.NOTION_SERVICES_ID,
             NOTION_ROOMS_ID: process.env.NOTION_ROOMS_ID,
             NOTION_CONTACT_ID: process.env.NOTION_CONTACT_ID,

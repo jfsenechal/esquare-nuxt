@@ -1,9 +1,9 @@
-export default (pageId = null) => {
+export default (id = null) => {
     const config = useRuntimeConfig()
-    const {pending: pending, data: data, error: error} =
-        useFetch(`${config.public.API_URL_SERVER}/api/children`, {query: {page_id: pageId}})
+    const {status, data, error} =
+        useFetch(`${config.public.API_URL_SERVER}/api/children`, {query: {id: id}})
     return {
-        pending,
+        status,
         data,
         error
     }

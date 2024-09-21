@@ -1,14 +1,14 @@
 <script setup>
 const config = useRuntimeConfig()
 const {
-  pending,
+  status,
   data,
   error
 } = pageComposeGet(config.public.NOTION_SERVICES_ID)
 const mobileMenu = ref(false)
 </script>
 <template>
-  <header class="bg-white shadow">
+  <header class="bg-white/5 shadow sticky top-0  backdrop-blur-md z-30">
     <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:divide-y lg:divide-gray-200 lg:px-8">
       <div class="relative flex h-20 justify-between">
         <div class="relative z-10 flex px-2 lg:px-0">
@@ -73,9 +73,9 @@ const mobileMenu = ref(false)
         class="overflow-hidden text-center z-20 transition-all duration-700 ease-in-out"
         :class="mobileMenu ? 'h-screen' : 'h-0'"
         aria-label="Global" id="mobile-menu">
-      <div class="space-y-1 px-2 pb-3 pt-2" v-if="pending">Chargement...</div>
+      <div class="space-y-1 px-2 pb-3 pt-2" v-if="status==='pending'">Chargement...</div>
       <div class="space-y-1 px-2 pb-3 pt-2" v-if="error">error {{ error }}</div>
-      <div class="space-y-1 px-2 pb-3 pt-2" v-if="data">
+      <div class="space-y-1 px-2 pb-3 pt-2" v-else>
         <HeaderMenuItems :child-pages="data.child_pages" v-model:mobile-menu="mobileMenu"/>
       </div>
     </nav>

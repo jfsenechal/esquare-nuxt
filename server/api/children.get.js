@@ -2,37 +2,51 @@
 import {Client} from "@notionhq/client";
 
 const notion = new Client({auth: process.env.NOTION_API_KEY});
-const rooms_id = process.env.NOTION_ROOMS_ID;
 let payload = [];
 
-async function getBlocks() {
-    if (rooms_id) {
-        console.log('children ' + rooms_id)
-        return await notion.databases.query({
-            block_id: rooms_id,
+/**
+ * block column_list
+ * get children http://localhost:3000/api/children/?id=58a65b3f-91ec-4a29-af8b-f5fe2068aa7d
+ * foreach results get (type  column)
+ * http://localhost:3000/api/children/?id=285b5c5e-08ea-4da2-942e-251af0e8f18b
+ * http://localhost:3000/api/children/?id=25fecf38-7f9a-4ebd-8cf0-818ae85ea1ce
+ * column get block give list
+ *
+ */
+async function getBlocks(blockId) {
+    console.log('block ' + blockId)
+    return await notion.blocks.children.list({
+        block_id: blockId,
+    });
+}
+
+async function fetchChildren(results) {
+    let blocks = []
+    for (let block of results) {
+        const result2 = await notion.blocks.retrieve({
+            block_id: block.id,
         });
-    } else {
-        return ['!!'];
+        blocks.push(result2)
     }
+    return blocks
 }
 
-getBlocks()
-    .then((data) => {
-        if (data.results.length > 0) {
-            payload = data.results
-        }
-    })
-    .catch((err) => {
-        console.log("error" + err);
-    })
-
-function getProperties(results) {
-    return results
-    let properties = [];
-    results.forEach((result) => {
-        properties.push(result.properties)
-    })
-    return properties;
+async function execute(event) {
+    const query = getQuery(event)
+    const id = query.id
+    console.log('id' + id)
+    try {
+        const result = await getBlocks(id)
+        const blocks = await fetchChildren(result.results)
+        payload = blocks
+    } catch (err) {
+        console.log("Error: " + JSON.stringify(err))
+        throw createError({
+            statusCode: 500,
+            statusMessage: 'Error loading page: ' + err,
+        })
+    }
+    return payload
 }
 
-export default defineEventHandler(() => getProperties(payload));
+export default defineEventHandler((event) => execute(event));

@@ -17,7 +17,7 @@ export const socialIcons = [
         color: '#e1306c',
         colorBg: 'bg-[#e1306c]',
         ringColor: 'hover:ring-[#e1306c]/25',
-        link: 'https://www.instagram.com/fablab_lesquare/',
+        link: 'https://www.instagram.com/esquare_marche/',
         shareLink: null,
         id: 2
     },

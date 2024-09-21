@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme');
+const plugin = require('tailwindcss/plugin')
 export default {
     content: [
         './components/**/*.{js,vue,ts}',
@@ -197,6 +198,13 @@ export default {
         },
     },
     plugins: [
+        plugin(function ({addUtilities}) {
+            addUtilities({
+                '.grid-auto-fit': {
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(16rem, 1fr))',
+                },
+            })
+        }),
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
         require('tailwindcss-animated'),

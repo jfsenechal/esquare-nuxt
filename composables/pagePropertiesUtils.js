@@ -9,6 +9,7 @@ export function getCoverPage(data) {
 }
 
 export function getNamePage(data) {
+    if(data)
     return data.properties.title.title[0].text.content
 }
 

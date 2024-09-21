@@ -6,16 +6,19 @@ const propos = defineProps({
   }
 })
 const {
-  pending,
+  status,
   data,
   error
 } = childrenComposeGet(propos.block.id)
 </script>
 <template>
-  <div class="min-h-20 prose lg:prose-xl flex flex-row items-center">
-    <div class="text-red-500" v-if="error">{{ error }}</div>
-    <div v-for="child in data?.results" :key="child.id">
-      <BlockColumn :block="child" v-if="child.type === 'column'"/>
+  <section>
+    <WidgetsLoader v-if="status === 'pending'"/>
+    <WidgetsError v-else-if="error" :error/>
+    <div v-else class="flex flex-row items-center gap-3 justify-between w-full">
+      <div v-for="child in data" :key="child.id">
+        <BlockColumn :block="child" v-if="child.type === 'column'"/>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
