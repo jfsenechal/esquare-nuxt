@@ -14,7 +14,6 @@ let payload = [];
  *
  */
 async function getBlocks(blockId) {
-    console.log('block ' + blockId)
     return await notion.blocks.children.list({
         block_id: blockId,
     });
@@ -34,7 +33,6 @@ async function fetchChildren(results) {
 async function execute(event) {
     const query = getQuery(event)
     const id = query.id
-    console.log('id' + id)
     try {
         const result = await getBlocks(id)
         const blocks = await fetchChildren(result.results)

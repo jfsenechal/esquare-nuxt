@@ -7,7 +7,6 @@ let payload = []
 async function getRooms(event) {
     const query = getQuery(event)
     const database_id = query.id
-    console.log('database id', database_id)
     if (database_id) {
         return await notion.databases.query({
             database_id: database_id,
@@ -20,7 +19,6 @@ async function getRooms(event) {
 async function execute(event) {
     try {
         const result = await getRooms(event)
-        console.log(result)
         payload = result
     } catch (err) {
         console.log("Error: " + JSON.stringify(err))
