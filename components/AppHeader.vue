@@ -9,7 +9,7 @@ const mobileMenu = ref(false)
 </script>
 <template>
   <header
-      class="grid grid-cols-[auto_1fr] h-32 lg:h-32 grid-rows-2 md:grid-rows-1 bg-white/5 shadow sticky top-0 backdrop-blur-md z-30">
+      class="grid grid-cols-[auto_1fr] grid-rows-2 md:grid-rows-1 bg-white/5 shadow sticky top-0 backdrop-blur-md z-30">
     <div class="relative z-30 flex items-center">
       <!-- Mobile menu button -->
       <button type="button" @click.prevent="mobileMenu = !mobileMenu"
@@ -19,7 +19,6 @@ const mobileMenu = ref(false)
         <span class="sr-only">Open menu</span>
         <!--
           Icon when menu is closed.
-
           Menu open: "hidden", Menu closed: "block"
         -->
         <svg class="h-12 w-12"
@@ -30,7 +29,6 @@ const mobileMenu = ref(false)
         </svg>
         <!--
           Icon when menu is open.
-
           Menu open: "block", Menu closed: "hidden"
         -->
         <svg class="h-12 w-12"
@@ -42,12 +40,22 @@ const mobileMenu = ref(false)
       </button>
     </div>
     <NuxtLink to="/" class="flex items-center mt-2 mx-2 ">
-      <img src="/images/EsquareLogoBlackWhite.png" alt="logo" id="logoEsquare"
-           class="h-12 transition-all duration-500 tease-in-out animate-bouncejf md:h-16 w-auto"/>
+      <NuxtImg src="/images/EsquareLogoBlackWhite.png" alt="logo" id="logoEsquare"
+               class="h-12 transition-all duration-500 tease-in-out animate-bouncejf md:h-16 w-auto"/>
     </NuxtLink>
     <div class="col-span-2 md:col-span-1 justify-self-end mr-4 flex flex-col items-end justify-around space-y-4">
       <HeaderSocialIconsLight svg-fill/>
     </div>
-    <!-- Mobile menu, show/hide based on menu state. -->
+    <nav
+        :class="mobileMenu ? 'h-screen' : 'h-0'"
+        class="overflow-hidden text-center z-30 lg:h-full bg-white flex flex-col lg:flex-row lg:gap-4 absolute lg:static left-0 right-0 top-28 w-full lg:w-auto items-center text-lg mr-4 text-esquare-grey-dark transition-all duration-700 ease-in-out "
+        aria-label="Global"
+        id="mobile-menu">
+      <div class="space-y-1 px-2 pb-3 pt-2" v-if="status==='pending'">Chargement...</div>
+      <div class="space-y-1 px-2 pb-3 pt-2" v-else-if="error">{{ error }}</div>
+      <div class="px-2 pb-3 pt-2" v-else>
+        <HeaderMenuItems :child-pages="data.childPages" v-model:mobile-menu="mobileMenu"/>
+      </div>
+    </nav>
   </header>
 </template>

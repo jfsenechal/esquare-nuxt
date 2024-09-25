@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: {enabled: true},
-    modules: ["@nuxt/image", "@nuxt/ui", ["@nuxtjs/google-fonts", {
+    modules: ['@nuxtjs/tailwindcss',"@nuxt/image", ["@nuxtjs/google-fonts", {
         families: {
             Roboto: true,
             Montserrat: true,
