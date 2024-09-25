@@ -9,7 +9,7 @@ const mobileMenu = ref(false)
 </script>
 <template>
   <header
-      class="grid grid-cols-[auto_1fr] md:grid-cols-[auto_auto_1fr] grid-rows-2 md:grid-rows-1 bg-white/5 shadow sticky top-0 backdrop-blur-md z-30">
+      class="grid grid-cols-[auto_1fr] md:grid-cols-[auto_auto_1fr_auto] grid-rows-2 md:grid-rows-1 bg-white/5 shadow sticky top-0 backdrop-blur-md z-30">
     <div class="relative z-30 flex items-center">
       <!-- Mobile menu button -->
       <button type="button" @click.prevent="mobileMenu = !mobileMenu"
@@ -43,6 +43,7 @@ const mobileMenu = ref(false)
       <NuxtImg src="/images/EsquareLogoBlackWhite.png" alt="logo" id="logoEsquare"
                class="h-12 transition-all duration-500 tease-in-out animate-bouncejf md:h-16 w-auto"/>
     </NuxtLink>
+    <HeaderContactLink/>
     <div class="col-span-2 md:col-span-1 justify-self-end mr-4 flex flex-col items-end justify-around space-y-4">
       <HeaderSocialIconsLight svg-fill/>
     </div>
