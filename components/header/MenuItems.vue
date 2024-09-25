@@ -8,7 +8,7 @@ function name(item) {
   return item.properties.title.title[0].text.content
 }
 function generateLink(item) {
- return `services/${slugify(name(item))}/${item.id}`
+ return `/services/${slugify(name(item))}/${item.id}`
 }
 </script>
 <template>
@@ -18,7 +18,7 @@ function generateLink(item) {
             @click="mobileMenu = !mobileMenu"
             class="animateText block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 hover:text-gray-900 uppercase"
             aria-current="page">
-    {{ name(item) }}
+   ss {{ name(item) }}
     <!-- todo Current: "bg-gray-100 text-gray-900", Default: "text-gray-900 hover:bg-gray-50 hover:text-gray-900" -->
   </NuxtLink>
 </template>

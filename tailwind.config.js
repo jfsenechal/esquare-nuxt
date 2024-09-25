@@ -79,6 +79,7 @@ export default {
             'center-center': 'center center',
             'bottom-center': 'bottom center',
             'center-50': 'center 50%',
+            'center-44': 'center 44%',
             'center-80': 'center 80%',
             'bottom-left': 'bottom left'
         },

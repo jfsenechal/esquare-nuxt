@@ -1,6 +1,5 @@
 <script setup>
 const route = useRoute()
-const breadcrumb = [{name: "Nos services", link: "/services", id: 1}]
 const {
   status,
   data,
@@ -14,10 +13,11 @@ useSeoMeta({
 })
 </script>
 <template>
-  <BaseLayout :page-title="name ?? ''" :breadcrumb :cover :emoji>
+  <BaseLayout :page-title="name ?? ''" :cover :emoji>
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
+      <ArticleChildren :children="data.childPages" v-if="data.childPages.length > 0"/>
       <div v-for="block in data.blocks" :key="block.id">
         <ArticleBlockNotion :block/>
       </div>

@@ -74,9 +74,9 @@ const mobileMenu = ref(false)
         :class="mobileMenu ? 'h-screen' : 'h-0'"
         aria-label="Global" id="mobile-menu">
       <div class="space-y-1 px-2 pb-3 pt-2" v-if="status==='pending'">Chargement...</div>
-      <div class="space-y-1 px-2 pb-3 pt-2" v-if="error">error {{ error }}</div>
+      <div class="space-y-1 px-2 pb-3 pt-2" v-else-if="error">{{ error }}</div>
       <div class="space-y-1 px-2 pb-3 pt-2" v-else>
-        <HeaderMenuItems :child-pages="data.child_pages" v-model:mobile-menu="mobileMenu"/>
+        <HeaderMenuItems :child-pages="data.childPages" v-model:mobile-menu="mobileMenu"/>
       </div>
     </nav>
   </header>

@@ -1,7 +1,7 @@
 <script setup>
 const id = useRoute().params.id
 const breadcrumb = [
-  {name: "Nos salles à louer", link: "/salles-a-louer", id: 1}
+  {label: "Nos salles à louer", to: "/salles-a-louer"}
 ]
 const room = computed(() => {
   if (rooms.length > 0) {

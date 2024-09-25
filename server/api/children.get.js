@@ -33,6 +33,7 @@ async function fetchChildren(results) {
 async function execute(event) {
     const query = getQuery(event)
     const id = query.id
+    console.log("Load blocks: http://localhost:3000/api/children/?id=" + id);
     try {
         const result = await getBlocks(id)
         const blocks = await fetchChildren(result.results)

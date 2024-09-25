@@ -10,7 +10,7 @@ useHead({
 })
 const breadcrumb = [
   {
-    name: "Actualités", link: "/actualites", id: 1
+    label: "Actualités", to: "/actualites"
   },
 ]
 const {

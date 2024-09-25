@@ -19,7 +19,9 @@ defineProps({
     <BlockDivider :block v-else-if="block.type === 'divider'"/>
     <BlockColumnList :block v-else-if="block.type === 'column_list'"/>
     <BlockCallout :block v-else-if="block.type === 'callout'"/>
+    <BlockEmbed :block v-else-if="block.type === 'embed'"/>
     <BlockDatabase :block v-else-if="block.type === 'child_database'"/>
+    <BlockChildPage :block v-else-if="block.type === 'child_page'"/>
     <BlockUnsupported :block v-else/>
   </div>
 </template>

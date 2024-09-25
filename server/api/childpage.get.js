@@ -6,6 +6,7 @@ let payload = [];
 async function getPage(event) {
     const query = getQuery(event);
     const page_id = query.page_id;
+    console.log("Load children: http://localhost:3000/api/childpage/?page_id=" + page_id);
     if (page_id) {
         return await notion.pages.retrieve({
             page_id: page_id,

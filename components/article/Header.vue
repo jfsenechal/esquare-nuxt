@@ -19,7 +19,7 @@ defineProps({
 </script>
 <template>
   <header class="bg-gray-200" style="height: 30vh">
-    <NuxtImg class="w-full object-center-80 block"
+    <NuxtImg class="w-full object-center-44 block"
              style="height: 30vh;"
              :src="cover"
              alt=""/>

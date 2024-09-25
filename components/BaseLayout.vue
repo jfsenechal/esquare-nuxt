@@ -8,7 +8,7 @@ defineProps({
   },
   breadcrumb: {
     type: Array,
-    required: true,
+    required: false,
     default: []
   },
   cover: {
@@ -40,12 +40,14 @@ defineProps({
         <WidgetsBreadcrumb :breadcrumb/>
       </slot>
       <slot name="title">
-        <ArticleTitle>{{ pageTitle }}</ArticleTitle>
+        <div class="flex flex-row space-between">
+          <ArticleTitle>{{ pageTitle }}</ArticleTitle>
+          <WidgetsShareBox/>
+        </div>
       </slot>
-      <WidgetsShareBox/>
       <WidgetsError :error v-if="error"/>
       <WidgetsLoader v-if="status === 'pending'"/>
-      <div class="mt-6 min-h-svh p-4" v-else>
+      <div class="mt-3 min-h-svh p-4" v-else>
         <slot></slot>
       </div>
     </section>
