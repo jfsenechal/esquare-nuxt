@@ -9,7 +9,7 @@ const mobileMenu = ref(false)
 </script>
 <template>
   <header
-      class="grid grid-cols-[auto_1fr] grid-rows-2 md:grid-rows-1 bg-white/5 shadow sticky top-0 backdrop-blur-md z-30">
+      class="grid grid-cols-[auto_1fr] md:grid-cols-[auto_auto_1fr] grid-rows-2 md:grid-rows-1 bg-white/5 shadow sticky top-0 backdrop-blur-md z-30">
     <div class="relative z-30 flex items-center">
       <!-- Mobile menu button -->
       <button type="button" @click.prevent="mobileMenu = !mobileMenu"
@@ -48,7 +48,7 @@ const mobileMenu = ref(false)
     </div>
     <nav
         :class="mobileMenu ? 'h-screen' : 'h-0'"
-        class="overflow-hidden text-center z-30 lg:h-full bg-white flex flex-col lg:flex-row lg:gap-4 absolute lg:static left-0 right-0 top-28 w-full lg:w-auto items-center text-lg mr-4 text-esquare-grey-dark transition-all duration-700 ease-in-out "
+        class="overflow-hidden text-center z-30 bg-white flex flex-col absolute left-0 right-0 top-28 md:top-20 w-full items-center text-lg mr-4 text-esquare-grey-dark transition-all duration-700 ease-in-out "
         aria-label="Global"
         id="mobile-menu">
       <div class="space-y-1 px-2 pb-3 pt-2" v-if="status==='pending'">Chargement...</div>

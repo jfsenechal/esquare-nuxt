@@ -19,7 +19,7 @@ function generateLink(item) {
             :key="item.id"
             :to="generateLink(item)"
             @click="mobileMenu = !mobileMenu"
-            class="animateText flex flex-col lg:block items-center justify-center w-full lg:w-auto p-4 lg:p-0 hover:text-esquare-blue border-t-2 lg:border-0 border-esquare-grey-lighter uppercase"
+            class="animateText flex flex-col items-center justify-center w-full p-4 hover:text-esquare-blue border-t-2 border-esquare-grey-lighter uppercase"
             cla44ss="animateText flex flex-col items-center justify-center w-full p-4
             hover:text-esquare-blue border-t-2 border-esquare-grey-lighter uppercase"
             aria-current="page">
