@@ -44,7 +44,7 @@ async function execute(event) {
         console.log("Error: " + JSON.stringify(err));
         throw createError({
             statusCode: 500,
-            statusMessage: 'Error loading page: ' + err,
+            statusMessage: 'Error loading property: ' + err,
         });
     }
     return payload;

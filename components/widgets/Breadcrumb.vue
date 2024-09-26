@@ -18,7 +18,6 @@ const dottedOrNot = computed(() => {
 })
 const links = ref([])
 if (props.breadcrumb.length > 0) {
-  console.log('props bread')
   links.value = props.breadcrumb
 }
 watch(data, (newValue) => {

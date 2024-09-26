@@ -22,7 +22,6 @@ const breadcrumb = [
                 :key="item.id"
                 target="_blank"
                 class="text-center">
-        <BlockRichText :texts="item.properties.Nom.title"/>
         <div class="" v-for="(logo,index) in item.properties.Logo.files " :key="index">
           <img :src="logo.file.url" alt="logo" class="h-24 w-auto hover:scale-110	transition-all duration-500">
         </div>

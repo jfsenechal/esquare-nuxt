@@ -1,6 +1,4 @@
 <script setup>
-import {slugify} from "~/composables/stringUtils.js";
-
 defineProps({
   childPages: {type: Array, required: true, default: []},
 })

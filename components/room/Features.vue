@@ -1,7 +1,7 @@
 <script setup>
 import {IconUsers, IconCoinEuro} from '@tabler/icons-vue'
 defineProps({
-  room: {
+  properties: {
     type: Object,
     required: true,
   }
@@ -11,12 +11,12 @@ defineProps({
   <section class="grid grid-cols-[auto_1fr_auto] items-center md:grid-cols-[auto_15rem_1fr] my-4">
     <IconUsers class="mr-2"/>
     <span class="font-semibold text-esquare-green-light prose md:prose-xl">Nombre de personnes</span>
-    <span class="font-semibold">{{ room.NbrePersonnes.rich_text[0].text.content }}</span>
+    <span class="font-semibold">{{ properties.NbrPersonnes.rich_text[0].text.content }}</span>
     <IconCoinEuro class="mr-2"/>
     <span class="font-semibold text-esquare-green-light prose md:prose-xl">Prix la journée</span>
-    <span class="font-semibold">{{ room.TarifHalf.number }} €</span>
+    <span class="font-semibold">{{ properties.TarifHalfDay.number }} €</span>
     <IconCoinEuro class="mr-2"/>
     <span class="font-semibold text-esquare-green-light prose md:prose-xl">Prix la demi journée</span>
-    <span class="font-semibold">{{ room.TarifFull.number }} €</span>
+    <span class="font-semibold">{{ properties.TarifFullDay.number }} €</span>
   </section>
 </template>

@@ -35,3 +35,8 @@ export function extractHref(block) {
 export function extractLink(block) {
     return block[block.type].rich_text[0]?.text.link
 }
+
+export function slugify(string) {
+    const {$slugify} = useNuxtApp()
+    return $slugify(string, {lower: true})
+}

@@ -5,17 +5,23 @@ const props = defineProps({
     required: true,
   }
 })
+const properties = computed(() => {
+  return props.room.properties
+})
 const slugifyString = computed(() => {
-  return slugify(props.room.Nom.title[0].text.content.toString().toLowerCase())
+  return slugify(roomName.value)
 })
 const roomName = computed(() => {
-  return props.room.Nom.title[0].text.content
+  return properties.value.Nom.title[0].text.content
 })
 const roomDescription = computed(() => {
-  return props.room.Description.rich_text[0].text.content
+  return properties.value.Description.rich_text[0].text.content
 })
 const image = computed(() => {
-  return props.room.Image.files[0].name
+  return properties.value.Image.files[0].url
+})
+onMounted(() => {
+  console.log(properties.value)
 })
 </script>
 <template>
@@ -31,9 +37,9 @@ const image = computed(() => {
       <span class="text-esquare-grey-dark sm:pl-3 text-left prose lg:prose-xl ">
         {{ roomDescription }}
       </span>
-      <RoomFeatures :room :key="room.GrrId.number"/>
-      <NuxtLink :to="`salles-a-louer/reserver-${slugifyString}-${room.GrrId.number}`"
-                :key="room.GrrId.number"
+      <RoomFeatures :properties/>
+      <NuxtLink :to="`/services/salles-de-reunion/reserver-${slugifyString}-${room.id}`"
+                :key="room.id"
                 class="animate-up text-esquare-black flex flex-row  justify-center items-center h-16 w-80 border-8 border-t-esquare-blue border-r-esquare-yellow border-b-esquare-blue border-l-esquare-yellow">
         Réservation et tarifs
       </NuxtLink>

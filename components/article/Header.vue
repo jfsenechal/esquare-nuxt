@@ -29,7 +29,8 @@ defineProps({
            :src="icon"
            alt=""
            v-if="icon">
-      <div class=" text-8xl sm:text-7xl animate-bounce-in-top duration-700" v-if="emoji">
+      <div class=" text-8xl sm:text-7xl animate-bounce-in-top duration-700"
+           v-if="emoji">
         {{ emoji }}
       </div>
     </div>

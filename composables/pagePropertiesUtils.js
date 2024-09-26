@@ -11,10 +11,7 @@ export function getCoverPage(data) {
 }
 
 export function getNamePage(data) {
-    if (data) {
-        return data.properties.title.title[0].text.content
-    }
-    return ''
+    return data?.properties?.title?.title[0]?.text?.content
 }
 
 export function getIconPage(data) {

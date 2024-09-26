@@ -4,7 +4,7 @@ const {
   status,
   data,
   error
-} = pageComposeGet(config.public.NOTION_ROOMS_ID)
+} = databaseComposeGet(config.public.NOTION_ROOMS_DATABASE_ID)
 useHead({
   script: [
     {
@@ -14,14 +14,14 @@ useHead({
     }
   ]
 })
-const breadcrumb = [{label: "Accueil", to: "/"}]
-const name = computed(() => getNamePage(data.value))
-const cover = computed(() => getCoverPage(data.value))
-const emoji = computed(() => getEmojiPage(data.value))
+const breadcrumb = [{label: "Services", to: "/services"}]
+const name = 'Salles de réunion'
+const cover = computed(() => data.value ? getCoverPage(data.value) : null)
+const emoji = computed(() => data.value ? getEmojiPage(data.value) : null)
+const icon = computed(() => data.value ? getIconPage(data.value) : null)
 useSeoMeta({
-  title: name.value,
+  title: name,
 })
-const rooms= []
 </script>
 <template>
   <BaseLayout :page-title="name" :breadcrumb :cover :icon>
@@ -29,7 +29,7 @@ const rooms= []
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
-      <RoomInline :room="room" v-for="room in rooms" :key="room.GrrId.Number"/>
+       <RoomInline :room="room" v-for="room in data.results" :key="room.id"/>
     </div>
   </BaseLayout>
 </template>

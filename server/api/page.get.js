@@ -30,7 +30,7 @@ async function getBlocks(pageId) {
 async function fetchChildPages(blocks) {
     let childPages = []
     for (let block of blocks) {
-        if (block.type === 'child_page') {
+        if (block.type === 'child_page' && block.id) {
             const page = await notion.pages.retrieve({
                 page_id: block.id,
             });

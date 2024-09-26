@@ -28,9 +28,6 @@ onMounted(() => {
                     tabindex="0" role="link">
             {{ getNamePage(childPage) }}
           </NuxtLink>
-          <p class="hidden md:block mt-2 text-base text-gray-600 dark:text-gray-400 self-start">
-            Extrait
-          </p>
         </div>
       </li>
     </ul>
