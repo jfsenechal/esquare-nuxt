@@ -12,15 +12,24 @@ export default (pageId = null) => {
                 }
             },
             getCachedData: (key) => {
-                if (nuxtApp.isHydrating && nuxtApp.payload.data[key]) {
-                    console.log('page payload ' + key)
-                    return nuxtApp.payload.data[key]
+                if (!nuxtApp.isHydrating) {
+                    console.log('no hydrating page' + nuxtApp.isHydrating)
+                    return
                 }
-                if (nuxtApp.static.data[key]) {
-                    console.log('page static ' + key)
-                    return nuxtApp.static.data[key]
+                const data = nuxtApp.payload.data[key] || nuxtApp.static.data[key]
+                if (!data) {
+                    console.log('no data page ')
+                    return
                 }
-                return null
+                console.log('page payload ' + key)
+                const expirationDate = new Date(data.fetchedAt)
+                expirationDate.setTime(expirationDate.getTime() + 30 * 1000)
+                const isExpired = expirationDate.getTime() < Date.now()
+                if (isExpired) {
+                    console.log('expired page')
+                    return
+                }
+                return data
             },
         })
     return {
