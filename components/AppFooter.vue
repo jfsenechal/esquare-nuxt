@@ -15,10 +15,10 @@ function generateLink(item) {
 }
 </script>
 <template>
-  <footer class="bg-white">
+  <footer class="bg-white relative top-28">
     <hr class="border-gray-2 border-2 mx-auto w-1/3 mb-3" />
     <hr class="border-gray-2 border-2 mx-auto w-1/3" />
-    <div class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
+    <div class="mx-auto max-w-7xl overflow-hidden px-6 sm:py-8 lg:px-8">
       <nav class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
         <WidgetsError :error v-if="error"/>
         <WidgetsLoader v-if="status === 'pending'"/>

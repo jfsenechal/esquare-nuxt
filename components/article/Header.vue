@@ -12,7 +12,7 @@ defineProps({
   },
   cover: {
     type: String,
-    required: true,
+    required: false,
     default: 'https://images.unsplash.com/photo-1596524430615-b46475ddff6e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=6000',
   },
 })

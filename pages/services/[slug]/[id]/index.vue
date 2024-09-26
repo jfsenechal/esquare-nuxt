@@ -8,8 +8,12 @@ const {
 const name = computed(() => getNamePage(data.value))
 const cover = computed(() => getCoverPage(data.value))
 const emoji = computed(() => getEmojiPage(data.value))
-useSeoMeta({
-  title: () => name.value ?? '',
+useHead({
+  title: () => status.value
+    ? 'Loading'
+    : name.value
+      ? name.value.id
+      : 'Page not found',
 })
 </script>
 <template>

@@ -43,13 +43,13 @@ const mobileMenu = ref(false)
       <NuxtImg src="/images/EsquareLogoBlackWhite.png" alt="logo" id="logoEsquare"
                class="h-12 transition-all duration-500 tease-in-out animate-bouncejf md:h-16 w-auto"/>
     </NuxtLink>
-    <HeaderContactLink/>
+    <HeaderContactLink  v-model:mobile-menu="mobileMenu"/>
     <div class="col-span-2 md:col-span-1 justify-self-end mr-4 flex flex-col items-end justify-around space-y-4">
       <HeaderSocialIconsLight svg-fill/>
     </div>
     <nav
         :class="mobileMenu ? 'h-screen' : 'h-0'"
-        class="overflow-hidden text-center z-30 bg-white flex flex-col absolute left-0 right-0 top-28 md:top-20 w-full items-center text-lg mr-4 text-esquare-grey-dark transition-all duration-700 ease-in-out "
+        class="overflow-hidden text-center z-30 bg-white flex flex-col absolute left-0 right-0 top-28 md:top-[4.5rem] w-full items-center text-lg mr-4 text-esquare-grey-dark transition-all duration-700 ease-in-out "
         aria-label="Global"
         id="mobile-menu">
       <div class="space-y-1 px-2 pb-3 pt-2" v-if="status==='pending'">Chargement...</div>

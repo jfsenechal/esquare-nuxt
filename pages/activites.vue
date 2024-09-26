@@ -9,9 +9,10 @@ const {
   error
 } = databaseComposeGet(config.public.NOTION_ACTIVIES_ID)
 const name = "Les activités"
-const breadcrumb = [{label: "Accueil", to: "/"}]
+const breadcrumb = [{label: "Activités", to: "/activites"}]
 const cover = computed(() => "https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=6000")
 const icon = computed(() => "https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f5de-fe0f.svg")
+const emoji = null
 const fields = [
   'Description publique',
   'Desc_pub',
@@ -34,6 +35,10 @@ const fields = [
   'Durée',
   'Formateurs',
 ]
+onMounted(async () => {
+  console.log('mounted')
+  console.log(data.value.fetchedAt)
+})
 </script>
 <template>
   <BaseLayout :page-title="name" :breadcrumb :cover :emoji :icon>

@@ -1,3 +1,6 @@
+<script setup>
+const mobileMenu = defineModel('mobileMenu', {type: Boolean, default: false})
+</script>
 <template>
   <div class="hidden md:flex relative items-center justify-center mx-6 px-6">
     <div class="relative">
@@ -10,6 +13,7 @@
       </div>
       <NuxtLink to="/contact"
                 id="search"
+                @click="mobileMenu = !mobileMenu"
                 class="text-base sm:leading-6 md:text-xl block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600">
         Contactez-nous
       </NuxtLink>

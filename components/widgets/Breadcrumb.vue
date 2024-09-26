@@ -35,6 +35,7 @@ watch(data, (newValue) => {
     })
   })
   links.value = path
+  console.log(links.vue)
 })
 //:to="{name:'secteurs-slug',params:{slug:category.slugname}}"
 </script>
