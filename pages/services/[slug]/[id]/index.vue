@@ -21,7 +21,7 @@ useHead({
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
-      <ArticleChildren :children="data.childPages" v-if="data.childPages.length > 0"/>
+      <ArticleChildren :children="data.child_pages" v-if="data.child_pages.length > 0"/>
       <div v-for="block in data.blocks" :key="block.id">
         <ArticleBlockNotion :block/>
       </div>
