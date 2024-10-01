@@ -22,7 +22,7 @@ function generateLink(item) {
       <nav class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
         <WidgetsError :error v-if="error"/>
         <WidgetsLoader v-if="status === 'pending'"/>
-        <div class="pb-6" v-for="item in data.childPages" :key="item.id" v-else>
+        <div class="pb-6" v-for="item in data.child_pages" :key="item.id" v-else>
           <NuxtLink :to="generateLink(item)" class="text-sm leading-6 text-gray-600 hover:text-gray-900">
             {{ name(item) }}
           </NuxtLink>

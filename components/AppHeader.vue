@@ -55,7 +55,7 @@ const mobileMenu = ref(false)
       <div class="space-y-1 px-2 pb-3 pt-2" v-if="status==='pending'">Chargement...</div>
       <div class="space-y-1 px-2 pb-3 pt-2" v-else-if="error">{{ error }}</div>
       <div class="px-2 pb-3 pt-2" v-else>
-        <HeaderMenuItems :child-pages="data.childPages" v-model:mobile-menu="mobileMenu"/>
+        <HeaderMenuItems :child-pages="data.child_pages" v-model:mobile-menu="mobileMenu"/>
       </div>
     </nav>
   </header>

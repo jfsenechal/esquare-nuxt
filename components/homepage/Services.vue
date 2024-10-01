@@ -15,7 +15,7 @@ onMounted(() => {
     <WidgetsError :error v-if="error"/>
     <WidgetsLoader v-if="status === 'pending'"/>
     <ul class="grid grid-cols-2 md:grid-cols-3 gap-4" v-else>
-      <li v-for="childPage in data.childPages"
+      <li v-for="childPage in data.child_pages"
           :key="childPage.id"
           class="flex flex-col items-center group group-hover:text-esquare-green-dark text-center scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700">
         <NuxtLink :to="`/services/${slugify(getNamePage(childPage))}/${childPage.id}`"

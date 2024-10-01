@@ -44,7 +44,7 @@ async function fetchDatabases(blocks) {
     for (let block of blocks) {
         block.database = null
         if (block.type === 'child_database') {
-            block.database =await notion.databases.query({
+            block.database = await notion.databases.query({
                 database_id: block.id,
             })
         }
@@ -57,7 +57,7 @@ async function execute(event) {
         const page = await getPage(event);
         if (page) {
             page.blocks = await getBlocks(page.id);
-            page.childPages = await fetchChildPages(page.blocks);
+            page.child_pages = await fetchChildPages(page.blocks);
             page.blocks = await fetchDatabases(page.blocks);
             payload = page;
         }
