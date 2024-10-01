@@ -1,10 +1,15 @@
 <script setup>
 const config = useRuntimeConfig()
 const {
+  status: roomStatus,
+  data: rooms,
+  error: roomError,
+} = databaseComposeGet(config.public.NOTION_ROOMS_DATABASE_ID)
+const {
   status,
   data,
   error
-} = databaseComposeGet(config.public.NOTION_ROOMS_DATABASE_ID)
+} = pageComposeGet(config.public.NOTION_ROOMS_PAGE_ID)
 useHead({
   script: [
     {
@@ -26,10 +31,10 @@ useSeoMeta({
 <template>
   <BaseLayout :page-title="name" :breadcrumb :cover :icon>
     <RoomEquipment/>
-    <WidgetsLoader v-if="status === 'pending'"/>
-    <WidgetsError v-else-if="error" :error/>
+    <WidgetsLoader v-if="roomStatus === 'pending'"/>
+    <WidgetsError v-else-if="roomError" :error/>
     <div v-else class="overflow-hidden">
-      <RoomInline :room="room" v-for="room in data.results" :key="room.id"/>
+      <RoomInline :room="room" v-for="room in rooms.results" :key="room.id"/>
     </div>
   </BaseLayout>
 </template>
