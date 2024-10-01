@@ -28,8 +28,8 @@ useSeoMeta({
     <RoomEquipment/>
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error" :error/>
-    <div v-else>
-       <RoomInline :room="room" v-for="room in data.results" :key="room.id"/>
+    <div v-else class="overflow-hidden">
+      <RoomInline :room="room" v-for="room in data.results" :key="room.id"/>
     </div>
   </BaseLayout>
 </template>

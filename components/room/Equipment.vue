@@ -36,7 +36,7 @@ const equipments = [
     <ul role="list" class="flex flex-row gap-5 my-4">
       <li v-for="equipment in equipments" :key="equipment.id" class="flex rounded-md shadow-sm h-12">
         <div
-            class="flex w-16 items-center justify-center rounded-l-md bg-pink-600 text-white">
+            class="flex w-16 items-center justify-center rounded-l-md bg-esquare-blue text-white">
           <component :is="equipment.icon"></component>
         </div>
         <div

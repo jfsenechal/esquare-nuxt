@@ -28,7 +28,6 @@ export default defineNuxtConfig({
             NOTION_ROOT_ID: process.env.NOTION_ROOT_ID,
             NOTION_PARTNERS_ID: process.env.NOTION_PARTNERS_ID,
             NOTION_SERVICES_ID: process.env.NOTION_SERVICES_ID,
-            NOTION_ROOMS_PAGE_ID: process.env.NOTION_ROOMS_PAGE_ID,
             NOTION_ROOMS_DATABASE_ID: process.env.NOTION_ROOMS_DATABASE_ID,
             NOTION_CONTACT_ID: process.env.NOTION_CONTACT_ID,
             NOTION_ACTIVIES_ID: process.env.NOTION_ACTIVIES_ID,
