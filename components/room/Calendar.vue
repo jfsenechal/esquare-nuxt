@@ -1,7 +1,12 @@
 <script setup>
 //https://lexingtonthemes.com/tutorials/how-to-create-a-calendar-layout-with-tailwind-css/
-const route = useRoute()
-const id = route.params.id
+const props = defineProps({
+  roomId: {
+    type: Number,
+    required: true,
+    default: 0,
+  }
+})
 const today = getToday()
 const daysSelected = ref([])
 const yearSelected = ref(Number(formatDate(today, 'yyyy')))
@@ -11,7 +16,7 @@ const {
   pendingGrr,
   dataGrr,
   errorGrr
-} = entriesGet(id)
+} = entriesGet(props.roomId)
 
 watch(monthSelected, (newX) => {
   days.value = getFullWeeksIncludingOverflow(yearSelected.value, newX)
@@ -66,7 +71,7 @@ function getDataByDay(day) {
         <div class="py-2"
              :class="{'border-t border-gray-200': index > 6}"
              v-for="(day,index) in days" :key="day">
-          <RoomItemCalendar :day :month-selected :year-selected :today v-model:daysSelected="daysSelected"
+          <RoomItemCalendar :day :month-selected :year-selected v-model:daysSelected="daysSelected"
                             :items="getDataByDay(day)" :key="day"/>
         </div>
       </div>

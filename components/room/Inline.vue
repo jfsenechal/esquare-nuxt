@@ -35,7 +35,7 @@ const image = computed(() => {
         {{ roomDescription }}
       </span>
       <RoomFeatures :properties/>
-      <NuxtLink :to="`/services/salles-de-reunion/reserver-${slugifyString}-${room.id}`"
+      <NuxtLink :to="`/services/salles-de-reunion/reserver/${slugifyString}/${room.id}`"
                 :key="room.id"
                 class="animate-up text-esquare-black flex flex-row  justify-center items-center h-16 w-80 border-8 border-esquare-blue hover:border-esquare-yellow transition-all duration-200 ease-out ">
         Réservation et tarifs

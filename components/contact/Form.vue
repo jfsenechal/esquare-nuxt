@@ -1,5 +1,18 @@
 <script setup>
+const config = useRuntimeConfig()
+const contact = defineModel({default: {name: 'jf', email: 'jf@marche', message: ''}})
+const {status, data, execute, error} =
+    useFetch(`${config.public.API_URL_SERVER}/api/contact`, {
+      immediate: false,
+      watch: false, body: {hello: 'world '}
+    })
 
+async function handleSubmit() {
+  await execute()
+  if (!error.value) {
+
+  }
+}
 </script>
 <template>
   <div class="relative isolate bg-white">
@@ -63,27 +76,29 @@
           </dl>
         </div>
       </div>
-      <form action="#" method="POST" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+      <form @submit.prevent="handleSubmit" action="#" method="POST" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
         <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
           <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
             <div>
               <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">Votre nom</label>
               <div class="mt-2.5">
-                <input type="text" name="name" id="first-name" autocomplete="given-name"
+                <input v-model="contact.name"
+                       type="text" name="name" id="first-name" autocomplete="given-name"
                        class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
               </div>
             </div>
             <div class="sm:col-span-2">
               <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Votre courriel</label>
               <div class="mt-2.5">
-                <input type="email" name="email" id="email" autocomplete="email"
+                <input v-model="contact.email" type="email" name="email" id="email" autocomplete="email"
                        class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
               </div>
             </div>
             <div class="sm:col-span-2">
               <label for="message" class="block text-sm font-semibold leading-6 text-gray-900">Votre message</label>
               <div class="mt-2.5">
-                <textarea name="message" id="message" rows="4"
+                <textarea v-model="contact.message"
+                          name="message" id="message" rows="4"
                           class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
               </div>
             </div>

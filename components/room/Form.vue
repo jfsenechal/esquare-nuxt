@@ -31,21 +31,46 @@ async function addBook() {
 </script>
 <template>
   <form @submit.prevent="addBook">
-    <div class="space-y-12">
+    <div class="mt-24">
       <div class="border-b border-gray-900/10 pb-12">
         {{ data }}
+        <p class="mt-1 text-sm leading-6 text-gray-600">
+          Si vous avez des besoins particuliers n'hésitez pas à nous contacter au .
+        </p>
         <h2 class="text-base font-semibold leading-7 text-gray-900">Vos coordonnées</h2>
-        <NuxtLink to="/contact"
-                  class="mt-1 text-sm leading-6 text-gray-600">
-          Si vous avez des besoins particuliers n'hésitez pas à nous contacter.
-        </NuxtLink>
-
-        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div class="mt-10 grid  grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8">
           <div class="sm:col-span-full">
             <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Nom et prénom</label>
             <div class="mt-2">
               <input type="text" name="name" id="name" autocomplete="name"
                      v-model="person.name"
+                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+
+          <div class="">
+            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Adresse mail</label>
+            <div class="mt-2">
+              <input id="email" name="email" type="email" autocomplete="email"
+                     v-model="person.email"
+                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+
+          <div class="">
+            <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">Téléphone</label>
+            <div class="mt-2">
+              <input type="text" name="phone" id="phone" autocomplete="phone"
+                     v-model="person.phone"
+                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+
+          <div class="col-span-full">
+            <label for="street" class="block text-sm font-medium leading-6 text-gray-900">Adresse de facturation</label>
+            <div class="mt-2">
+              <input type="text" name="street" id="street" autocomplete="adresse"
+                     v-model="person.street"
                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
           </div>
@@ -59,33 +84,6 @@ async function addBook() {
             </div>
           </div>
 
-          <div class="sm:col-span-full">
-            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Adresse mail</label>
-            <div class="mt-2">
-              <input id="email" name="email" type="email" autocomplete="email"
-                     v-model="person.email"
-                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            </div>
-          </div>
-
-          <div class="sm:col-span-full">
-            <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">Téléphone</label>
-            <div class="mt-2">
-              <input type="text" name="phone" id="phone" autocomplete="phone"
-                     v-model="person.phone"
-                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            </div>
-          </div>
-
-          <div class="col-span-full">
-            <label for="street" class="block text-sm font-medium leading-6 text-gray-900">Adresse de
-              facturation</label>
-            <div class="mt-2">
-              <input type="text" name="street" id="street" autocomplete="adresse"
-                     v-model="person.street"
-                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            </div>
-          </div>
         </div>
         <div class="border-b border-gray-900/10 pb-12">
           <div class="mt-10 space-y-10">

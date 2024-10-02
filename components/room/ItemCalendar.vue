@@ -2,10 +2,6 @@
 const monthSelected = defineModel('monthSelected')
 const daysSelected = defineModel('daysSelected')
 const propos = defineProps({
-  today: {
-    type: Date,
-    required: true,
-  },
   day: {
     type: String,
     required: true,
@@ -33,9 +29,6 @@ function addDay(day) {
 const isInCurrentMonthC = computed(() => {
   return isInCurrentMonth(propos.day, monthSelected.value)
 })
-const isToday = computed(() => {
-  return propos.day === formatDate(propos.today, 'yyyy-MM-dd')
-})
 const isSelected = computed(() => {
  return  daysSelected.value.indexOf(propos.day)!== -1
 })
@@ -44,13 +37,10 @@ const hasData = computed(() => {
 })
 const whatBackground = computed(() => {
   if (isSelected.value) {
-    return "text-white bg-indigo-600"
+    return "text-white bg-esquare-yellow"
   }
   if (hasData.value) {
     return "text-white bg-red-400"
-  }
-  if (isToday.value) {
-    return "bg-esquare-yellow"
   }
   return ""
 })

@@ -37,6 +37,11 @@ export function getDayInFrench(dayString) {
     return format(date, 'EEEE d MMMM yyyy', {locale: fr})
 }
 
+export function getDayInFrenchWithoutYear(dayString) {
+    const date = parseISO(dayString)
+    return format(date, 'EEEE d MMMM', {locale: fr})
+}
+
 export function isInCurrentMonth(dateString, currentMonth) {
     const date = parseISO(dateString)
     return format(date, 'MM') == currentMonth
