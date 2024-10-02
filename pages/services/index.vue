@@ -1,25 +1,15 @@
 <script setup>
-const config = useRuntimeConfig()
-const {
-  status,
-  data,
-  error
-} = pageComposeGet(config.public.NOTION_SERVICES_ID)
-useSeoMeta({
-  title: 'Nos services',
-})
-const breadcrumb = [{label: "Accueil", to: "/"}]
-const name = computed(() => getNamePage(data.value))
-const cover = computed(() => getCoverPage(data.value))
-const emoji = computed(() => getEmojiPage(data.value))
-useSeoMeta({
-  title: () => `${name.value ?? ''}`,
+definePageMeta({
+  middleware: [
+    function (to, from) {
+      const config = useRuntimeConfig()
+      if (from.path === '/services') {
+        return navigateTo('/services/' + config.public.NOTION_SERVICES_ID)
+      }
+    },
+  ],
 })
 </script>
 <template>
-  <BaseLayout :page-title="name" :breadcrumb :cover :icon>
-    <WidgetsError :error v-if="error"/>
-    <WidgetsLoader v-if="status === 'pending'"/>
-    <HomepageServices v-else/>
-  </BaseLayout>
+  <div>Page service</div>
 </template>
