@@ -18,8 +18,6 @@ function generateLink(item) {
             :to="generateLink(item)"
             @click="mobileMenu = !mobileMenu"
             class="animateText flex flex-col items-center justify-center w-full p-4 hover:text-esquare-blue border-t-2 border-esquare-grey-lighter uppercase"
-            cla44ss="animateText flex flex-col items-center justify-center w-full p-4
-            hover:text-esquare-blue border-t-2 border-esquare-grey-lighter uppercase"
             aria-current="page">
     {{ name(item) }}
     <!-- todo Current: "bg-gray-100 text-gray-900", Default: "text-gray-900 hover:bg-gray-50 hover:text-gray-900" -->
