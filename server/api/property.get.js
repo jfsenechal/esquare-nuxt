@@ -37,9 +37,7 @@ async function execute(event) {
             });
         }
 
-        const parentPages = await getAllParentPages(page_id);
-
-        payload = parentPages;
+        payload = await getAllParentPages(page_id);
     } catch (err) {
         console.log("Error: " + JSON.stringify(err));
         throw createError({
