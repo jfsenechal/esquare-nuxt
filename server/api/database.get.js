@@ -7,7 +7,7 @@ let payload = []
 async function getDatabase(event) {
     const query = getQuery(event)
     const database_id = query.id
-    console.log('load databse http://localhost:3000/api/database/?id=' + database_id)
+    console.log('load database http://localhost:3000/api/database/?id=' + database_id)
     if (database_id) {
         return await notion.databases.query({
             database_id: database_id,
@@ -19,13 +19,12 @@ async function getDatabase(event) {
 
 async function execute(event) {
     try {
-        const result = await getDatabase(event)
-        payload = result
+        payload = await getDatabase(event)
     } catch (err) {
         console.log("Error: " + JSON.stringify(err))
         throw createError({
             statusCode: 500,
-            statusMessage: 'Error loading page: ' + err,
+            statusMessage: 'Error loading database: ' + err,
         })
     }
     return payload

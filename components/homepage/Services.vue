@@ -6,8 +6,9 @@ const {
   error
 } = pageComposeGet(config.public.NOTION_SERVICES_ID)
 const items = ref([])
-onMounted(() => {
-})
+function generateLink(childPage) {
+  return `/services/${slugify(getNamePage(childPage))}/${childPage.id}`
+}
 </script>
 <template>
   <section class="container mx-auto ">
@@ -18,12 +19,12 @@ onMounted(() => {
       <li v-for="childPage in data.child_pages"
           :key="childPage.id"
           class="flex flex-col items-center group group-hover:text-esquare-green-dark text-center scale-50 opacity-0 intersect:scale-100 intersect:opacity-100 transition duration-700">
-        <NuxtLink :to="`/services/${slugify(getNamePage(childPage))}/${childPage.id}`"
+        <NuxtLink :to="generateLink(childPage)"
                   class="text-7xl sm:text-8xl group-hover:text-esquare-green-dark">
           <img :src="getIconPage(childPage)" class="w-24 h-24" alt="icon"/>
         </NuxtLink>
         <div class="prose xl:prose-xl flex flex-col p-3 md:p-6">
-          <NuxtLink :to="`/services/${slugify(getNamePage(childPage))}/${childPage.id}`"
+          <NuxtLink :to="generateLink(childPage)"
                     class="block mt-2 text-xl font-semibold font-roboto text-esquare-black transition-colors duration-300 transform hover:text-esquare-green-dark hover:underline"
                     tabindex="0" role="link">
             {{ getNamePage(childPage) }}

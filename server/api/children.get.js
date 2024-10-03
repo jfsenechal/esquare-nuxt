@@ -22,10 +22,16 @@ async function getBlocks(blockId) {
 async function fetchChildren(results) {
     let blocks = []
     for (let block of results) {
-        const result2 = await notion.blocks.retrieve({
-            block_id: block.id,
-        });
-        blocks.push(result2)
+        try {
+            const result = await notion.blocks.retrieve({
+                block_id: block.id,
+            });
+            if (result) {
+                blocks.push(result)
+            }
+        } catch (err) {
+            console.log('error fetch children' + err.toString())
+        }
     }
     return blocks
 }
@@ -36,8 +42,7 @@ async function execute(event) {
     console.log("Load blocks: http://localhost:3000/api/children/?id=" + id);
     try {
         const result = await getBlocks(id)
-        const blocks = await fetchChildren(result.results)
-        payload = blocks
+        payload = await fetchChildren(result.results)
     } catch (err) {
         console.log("Error: " + JSON.stringify(err))
         throw createError({

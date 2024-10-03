@@ -8,6 +8,7 @@ export default (page_id = null) => {
             error: null
         };
     }
+    console.log('property id:' + page_id)
     const config = useRuntimeConfig()
     const nuxtApp = useNuxtApp()
     const {status, data, error} =

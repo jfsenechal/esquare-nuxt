@@ -9,7 +9,7 @@ const mobileMenu = ref(false)
 </script>
 <template>
   <header
-      class="grid grid-cols-[auto_1fr] md:grid-cols-[auto_auto_1fr_auto] grid-rows-2 md:grid-rows-1 bg-white/5 shadow sticky top-0 backdrop-blur-md z-30">
+      class="grid grid-cols-[auto_1fr] md:grid-cols-[auto_auto_1fr_auto] grid-rows-2 md:grid-rows-1 bg-white/5 shadow  top-0 backdrop-blur-md z-30">
     <div class="relative z-30 flex items-center">
       <!-- Mobile menu button -->
       <button type="button" @click.prevent="mobileMenu = !mobileMenu"
@@ -43,7 +43,7 @@ const mobileMenu = ref(false)
       <NuxtImg src="/images/EsquareLogoBlackWhite.png" alt="logo" id="logoEsquare"
                class="h-12 transition-all duration-500 tease-in-out animate-bouncejf md:h-16 w-auto"/>
     </NuxtLink>
-    <HeaderContactLink  v-model:mobile-menu="mobileMenu"/>
+    <HeaderContactLink v-model:mobile-menu="mobileMenu"/>
     <div class="col-span-2 md:col-span-1 justify-self-end mr-4 flex flex-col items-end justify-around space-y-4">
       <HeaderSocialIconsLight svg-fill/>
     </div>
@@ -52,9 +52,9 @@ const mobileMenu = ref(false)
         class="overflow-hidden text-center z-30 bg-white flex flex-col absolute left-0 right-0 top-28 md:top-[4.5rem] w-full items-center text-lg mr-4 text-esquare-grey-dark transition-all duration-700 ease-in-out "
         aria-label="Global"
         id="mobile-menu">
-      <div class="space-y-1 px-2 pb-3 pt-2" v-if="status==='pending'">Chargement...</div>
-      <div class="space-y-1 px-2 pb-3 pt-2" v-else-if="error">{{ error }}</div>
-      <div class="px-2 pb-3 pt-2" v-else>
+      <WidgetsError :error v-if="error"/>
+      <WidgetsLoader v-if="status === 'pending'"/>
+      <div class="px-2 pb-3 pt-2 flex flex-col text-lg h-screen z-[1000]" v-else>
         <HeaderMenuItems :child-pages="data.child_pages" v-model:mobile-menu="mobileMenu"/>
       </div>
     </nav>

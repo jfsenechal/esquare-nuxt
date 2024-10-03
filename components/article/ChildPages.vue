@@ -1,12 +1,30 @@
 <script setup>
-defineProps({children: {type: Object, default: []}})
+defineProps({
+  childPages: {
+    type: Object,
+    default: []
+  }
+})
+const route = useRoute()
+const slugs = route.params.slug
+
+function link(childPage) {
+  const path = [...slugs, slugify(getNamePage(childPage))]
+  return {
+    to: '/services',
+    params: {
+      slug: path,
+      id: childPage.id
+    },
+  }
+}
 </script>
 <template>
   <section class="container mx-auto ">
     <ul class="grid grid-cols-2 md:grid-cols-3 gap-4">
-      <li v-for="childPage in children" :key="childPage.id">
+      <li v-for="childPage in childPages" :key="childPage.id">
         <div class="prose xl:prose-xl flex flex-col p-3 md:p-6">
-          <NuxtLink to="/"
+          <NuxtLink :to="link(childPage)"
                     class="block mt-2 text-xl font-semibold font-roboto text-esquare-black transition-colors duration-300 transform hover:text-esquare-green-dark hover:underline"
                     tabindex="0" role="link">
             {{ getNamePage(childPage) }}

@@ -1,6 +1,6 @@
-import { Client } from "@notionhq/client";
+import {Client} from "@notionhq/client";
 
-const notion = new Client({ auth: process.env.NOTION_API_KEY });
+const notion = new Client({auth: process.env.NOTION_API_KEY});
 let payload = [];
 
 async function getPage(event) {
@@ -42,9 +42,11 @@ async function fetchAllChildren(blocks) {
         }
         //to get icon and cover
         if (block.type === 'child_page') {
-            block.page = await notion.pages.retrieve({
-                page_id: block.id,
-            });
+            if (block.id) {
+                block.page = await notion.pages.retrieve({
+                    page_id: block.id,
+                });
+            }
             block.page.children = await getChildren(block.page.id);
             await fetchAllChildren(block.page.children);
         }
@@ -56,7 +58,7 @@ async function execute(event) {
         const page = await getPage(event);
         if (page) {
             page.children = await getChildren(page.id);
-          //  await fetchAllChildren(page.children);
+            //  await fetchAllChildren(page.children);
             payload = page;
         }
     } catch (err) {

@@ -11,14 +11,22 @@ async function getAllParentPages(page_id) {
         if (currentPageId === process.env.NOTION_ROOT_ID) {
             return pages;
         }
-        const page = await notion.pages.retrieve({
-            page_id: currentPageId
-        });
-        pages.push(page);
-        if (page.parent && page.parent.type === 'page_id') {
-            currentPageId = page.parent.page_id;
-        } else {
-            currentPageId = null;
+        try {
+            if (currentPageId) {
+                const page = await notion.pages.retrieve({
+                    page_id: currentPageId
+                });
+                if (page) {
+                    pages.push(page);
+                    if (page.parent && page.parent.type === 'page_id') {
+                        currentPageId = page.parent.page_id
+                    } else {
+                        currentPageId = null
+                    }
+                }
+            }
+        } catch (err) {
+            console.log("Error page property: " + JSON.stringify(err));
         }
     }
 
@@ -29,15 +37,9 @@ async function execute(event) {
     try {
         const query = getQuery(event);
         const page_id = query.page_id;
-
-        if (!page_id) {
-            throw createError({
-                statusCode: 500,
-                statusMessage: 'No page ID provided',
-            });
+        if(page_id) {
+            payload = await getAllParentPages(page_id);
         }
-
-        payload = await getAllParentPages(page_id);
     } catch (err) {
         console.log("Error: " + JSON.stringify(err));
         throw createError({
