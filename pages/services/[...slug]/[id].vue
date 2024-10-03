@@ -9,6 +9,7 @@ const {
 const name = computed(() => getNamePage(data.value))
 const cover = computed(() => getCoverPage(data.value))
 const emoji = computed(() => getEmojiPage(data.value))
+const icon = computed(() => getIconPage(data.value))
 useHead({
   title: () => status.value
       ? 'Loading'
@@ -19,7 +20,7 @@ useHead({
 const isMachinePage = computed(() => data.value.id === config.public.NOTION_MACHINES_PAGE_ID)
 </script>
 <template>
-  <BaseLayout :page-title="name ?? ''" :cover :emoji>
+  <BaseLayout :page-title="name ?? ''" :cover :icon :emoji :status :error>
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
@@ -28,7 +29,7 @@ const isMachinePage = computed(() => data.value.id === config.public.NOTION_MACH
         <ArticleBlockNotion :block/>
       </div>
       <DatabasesMachines v-if="isMachinePage"/>
-      liste des databases ?
+      liste des databases ?p
       {{ data.databases.length }}
     </div>
   </BaseLayout>

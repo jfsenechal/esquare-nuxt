@@ -29,7 +29,7 @@ useSeoMeta({
 })
 </script>
 <template>
-  <BaseLayout :page-title="name" :breadcrumb :cover :icon>
+  <BaseLayout :page-title="name" :breadcrumb :cover :icon :emoji :status :error>
     <RoomEquipment/>
     <WidgetsLoader v-if="roomStatus === 'pending'"/>
     <WidgetsError v-else-if="roomError" :error/>

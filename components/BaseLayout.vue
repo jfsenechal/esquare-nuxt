@@ -1,7 +1,5 @@
 <script setup>
-const status = defineModel('status', {type: String, default: null})
-const error = defineModel('error', {type: Object, default: null})
-defineProps({
+const {pageTitle, breadcrumb, cover, emoji, icon, status, error} = defineProps({
   pageTitle: {
     type: String,
     required: true,
@@ -25,7 +23,13 @@ defineProps({
     type: String,
     default: null,
     required: false,
-  }
+  },
+  status: {
+    type: String,
+    default: null},
+  error: {
+    type: Object,
+    default: null}
 })
 </script>
 <template>

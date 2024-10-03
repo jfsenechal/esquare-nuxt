@@ -1,11 +1,11 @@
 <script setup>
-const propos = defineProps({
+const props = defineProps({
   block: {
     type: Object
   }
 })
 const h = computed(() => {
-  const match = propos.block.type.match(/heading_(\d+)/)
+  const match = props.block.type.match(/heading_(\d+)/)
   return match ? `h${match[1]}` : 'h2'
 })
 </script>
