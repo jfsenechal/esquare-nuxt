@@ -1,12 +1,7 @@
 <script setup>
 //https://merakiui.com/components/application-ui/breadcrumbs
 const route = useRoute();
-const {
-  status,
-  data,
-  error
-} = propertyComposeGet(route.params.id)
-const props = defineProps({
+const {breadcrumb} = defineProps({
   breadcrumb: {
     type: Array,
     required: false,
@@ -14,33 +9,12 @@ const props = defineProps({
   }
 })
 const dottedOrNot = computed(() => {
-  return links.value.length > 1
-})
-const links = ref([])
-if (props.breadcrumb.length > 0) {
-  links.value = props.breadcrumb
-}
-watch(data, (newValue) => {
-  const path = []
-  const urls = []
-  newValue.reverse().forEach(item => {
-    const name = getNamePage(item)
-    const url = `/${slugify(name)}/${item.id}`
-    urls.push(url)
-    path.push({
-      label: name,
-      icon: 'i-heroicons-home',
-      to: urls.join('')
-    })
-  })
-  links.value = path
+  return breadcrumb.length > 1
 })
 </script>
 <template>
   <section>
-    <WidgetsLoader v-if="status === 'pending'"/>
-    <WidgetsError v-else-if="error" :error/>
-    <nav class="flex" aria-label="Breadcrumb" v-else>
+    <nav class="flex" aria-label="Breadcrumb">
       <ol role="list" class="flex items-center space-x-4">
         <li class="flex items-center" title="Retour à l'accueil">
           <NuxtLink to="/" class="text-gray-400 hover:text-gray-500">
@@ -62,7 +36,7 @@ watch(data, (newValue) => {
           ...
         </span>
         </li>
-        <li class="hidden md:flex items-center" v-for="(item,index) in links" :key="index">
+        <li class="hidden md:flex items-center" v-for="(item,index) in breadcrumb" :key="index">
           <svg class="h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd"
                   d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"

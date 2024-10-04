@@ -26,10 +26,14 @@ const {pageTitle, breadcrumb, cover, emoji, icon, status, error} = defineProps({
   },
   status: {
     type: String,
-    default: null},
+    required: false,
+    default: null
+  },
   error: {
     type: Object,
-    default: null}
+    required: false,
+    default: null
+  }
 })
 </script>
 <template>

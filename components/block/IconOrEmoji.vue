@@ -1,14 +1,14 @@
 <script setup>
-const propos = defineProps({
+const props = defineProps({
   block: {
     type: Object
   }
 })
 const emoji = computed(() => {
-  return propos.block[propos.block.type].icon?.emoji
+  return props.block[props.block.type].icon?.emoji
 })
 const icon = computed(() => {
-  return propos.block[propos.block.type].icon?.external.url
+  return props.block[props.block.type].icon?.external.url
 })
 </script>
 <template>

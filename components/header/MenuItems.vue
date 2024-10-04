@@ -3,13 +3,8 @@ defineProps({
   childPages: {type: Array, required: true, default: []},
 })
 const mobileMenu = defineModel('mobileMenu', {type: Boolean, default: false})
-
-function name(item) {
-  return item.properties.title.title[0].text.content
-}
-
 function generateLink(item) {
-  return `/services/${slugify(name(item))}/${item.id}`
+  return `/services/${item.slug}/${item.id}`
 }
 </script>
 <template>
@@ -19,7 +14,7 @@ function generateLink(item) {
             @click="mobileMenu = !mobileMenu"
             class="animateText flex flex-col items-center justify-center w-full p-4 hover:text-esquare-blue border-t-2 border-esquare-grey-lighter uppercase"
             aria-current="page">
-    {{ name(item) }}
+    {{ item.name }}
     <!-- todo Current: "bg-gray-100 text-gray-900", Default: "text-gray-900 hover:bg-gray-50 hover:text-gray-900" -->
   </NuxtLink>
 </template>

@@ -1,24 +1,15 @@
 <script setup>
-const propos = defineProps({
-  block: {
+const props = defineProps({
+  column: {
     type: Object,
     required: true
   }
 })
-const {
-  status,
-  data,
-  error
-} = childrenComposeGet(propos.block.id)
 </script>
 <template>
   <div class="min-h-20 prose lg:prose-xl flex flex-row items-center">
-    <WidgetsError :error v-if="error"/>
-    <WidgetsLoader v-if="status === 'pending'"/>
-    <div class="" v-else>
-      <div v-for="block in data" :key="block.id">
-        <ArticleBlockNotion :block/>
-      </div>
+    <div v-for="block in column.blocks" :key="block.id">
+      <ArticleBlockNotion :block/>
     </div>
   </div>
 </template>

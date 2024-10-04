@@ -12,7 +12,7 @@ function getColor(text) {
 }
 
 function hasLink(text) {
-  return text.text.link !== null
+  return text.href !== null
 }
 </script>
 <template>

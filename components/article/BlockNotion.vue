@@ -2,15 +2,16 @@
 defineProps({
   block: {
     type: Object,
-    required: true
+    required: true,
+    default:null
   }
 })
 </script>
 <template>
-  <div>
+  <div v-if="block">
     <BlockParagraph :block v-if="block.type === 'paragraph'"/>
     <BlockImage :block v-else-if="block.type === 'image'"/>
-    <BlockHeading :block v-else-if="block.type.includes('heading')"/>
+    <BlockHeading :block v-else-if="block.type?.includes('heading')"/>
     <BlockFile :block v-else-if="block.type === 'file'"/>
     <BlockVideo :block v-else-if="block.type === 'video'"/>
     <BlockBulletedListItem :block v-else-if="block.type === 'bulleted_list_item'"/>

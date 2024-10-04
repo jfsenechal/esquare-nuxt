@@ -1,11 +1,11 @@
 <script setup>
-const propos = defineProps({
+const props = defineProps({
   block: {
     type: Object
   }
 })
 const color = computed(() => {
-  return propos.block.callout.color
+  return props.block.callout.color
 })
 </script>
 <template>

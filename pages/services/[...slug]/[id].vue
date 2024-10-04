@@ -6,10 +6,11 @@ const {
   data,
   error
 } = pageComposeGet(route.params.id)
-const name = computed(() => getNamePage(data.value))
-const cover = computed(() => getCoverPage(data.value))
-const emoji = computed(() => getEmojiPage(data.value))
-const icon = computed(() => getIconPage(data.value))
+const name = computed(() => data.value?.title ?? null)
+const cover = computed(() => data.value?.cover?.file?.url ?? null)
+const emoji = computed(() => null)
+const icon = computed(() => data.value?.icon?.file?.url ?? null)
+const breadcrumb = computed(() => data.value?.breadcrumb ?? [])
 useHead({
   title: () => status.value
       ? 'Loading'
@@ -17,20 +18,17 @@ useHead({
           ? name.value.id
           : 'Page not found',
 })
-const isMachinePage = computed(() => data.value.id === config.public.NOTION_MACHINES_PAGE_ID)
 </script>
 <template>
-  <BaseLayout :page-title="name ?? ''" :cover :icon :emoji :status :error>
+  <BaseLayout :page-title="name ?? ''" :breadcrumb :cover :emoji :icon>
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
       <ArticleChildPages :childPages="data.child_pages" v-if="data.child_pages.length > 0"/>
       <div v-for="block in data.blocks" :key="block.id">
+        {{ block.type }}
         <ArticleBlockNotion :block/>
       </div>
-      <DatabasesMachines v-if="isMachinePage"/>
-      liste des databases ?p
-      {{ data.databases.length }}
     </div>
   </BaseLayout>
 </template>

@@ -1,5 +1,5 @@
 <script setup>
-const propos = defineProps({
+defineProps({
   block: {
     type: Object
   }

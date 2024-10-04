@@ -7,9 +7,8 @@ defineProps({
 })
 const route = useRoute()
 const slugs = route.params.slug
-
 function link(childPage) {
-  const path = [...slugs, slugify(getNamePage(childPage))]
+  const path = [...slugs, childPage.slug]
   return {
     to: '/services',
     params: {
@@ -27,7 +26,7 @@ function link(childPage) {
           <NuxtLink :to="link(childPage)"
                     class="block mt-2 text-xl font-semibold font-roboto text-esquare-black transition-colors duration-300 transform hover:text-esquare-green-dark hover:underline"
                     tabindex="0" role="link">
-            {{ getNamePage(childPage) }}
+            {{ childPage.name }}
           </NuxtLink>
         </div>
       </li>

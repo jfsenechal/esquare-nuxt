@@ -5,13 +5,8 @@ const {
   data,
   error
 } = pageComposeGet(config.public.NOTION_SERVICES_ID)
-
-function name(item) {
-  return item.properties.title.title[0].text.content
-}
-
 function generateLink(item) {
-  return `/services/${slugify(name(item))}/${item.id}`
+  return `/services/${item.slug}/${item.id}`
 }
 </script>
 <template>
@@ -24,7 +19,7 @@ function generateLink(item) {
         <WidgetsLoader v-if="status === 'pending'"/>
         <div class="pb-6" v-for="item in data.child_pages" :key="item.id" v-else>
           <NuxtLink :to="generateLink(item)" class="text-sm leading-6 text-gray-600 hover:text-gray-900">
-            {{ name(item) }}
+            {{ item.name }}
           </NuxtLink>
         </div>
       </nav>

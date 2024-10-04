@@ -1,11 +1,11 @@
 <script setup>
-const propos = defineProps({
+const props = defineProps({
   block: {
     type: Object
   }
 })
-const url = computed(() => propos.block.video.external.url)
-const caption = computed(() => propos.block.video.caption[0].text.content)
+const url = computed(() => props.block.video.external.url)
+const caption = computed(() => props.block.video.caption[0].text.content)
 </script>
 <template>
   {{ caption }}
