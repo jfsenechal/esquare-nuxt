@@ -1,15 +1,10 @@
-import {getCachedData} from "~/composables/cacheUtil.js";
-
-export default (pageId = null) => {
-    const nuxtApp = useNuxtApp()
+export default (id = null) => {
     const config = useRuntimeConfig()
+    console.log(`http://localhost/notion-php/getDatabase.php?id=${id}`)
     const {status, data, error, refresh} =
-        useFetch(`${config.public.API_URL_SERVER}/api/database`, {
-            query: {id: pageId},
-            key: 'database-' + pageId,
-            getCachedData: (key) => {
-                return getCachedData(nuxtApp, key)
-            },
+        useFetch(`http://localhost/notion-php/getDatabase.php`, {
+            query: {id: id},
+            key: 'database-' + id,
         })
     return {
         status,

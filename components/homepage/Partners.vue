@@ -16,8 +16,8 @@ const breadcrumb = [
     <WidgetsTitle>Nos partenaires</WidgetsTitle>
     <WidgetsError :error v-if="error"/>
     <WidgetsLoader v-if="status === 'pending'"/>
-    <div class="grid grid-auto-fit gap-2" v-else>
-      <NuxtLink v-for="(item, index) in data.results"
+    <div class="grid grid-auto-fit gap-2" v-else-if="data">
+      <NuxtLink v-for="(item, index) in data.pages"
                 :to="item.properties.Url.url"
                 :key="item.id"
                 target="_blank"

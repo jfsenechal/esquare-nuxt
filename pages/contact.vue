@@ -5,7 +5,7 @@ const {
   data,
   error
 } = pageComposeGet(config.public.NOTION_CONTACT_ID)
-const name = computed(() => getNamePage(data.value))
+const name = computed(() => data.value?.title ?? null)
 const cover = computed(() => getCoverPage(data.value))
 const emoji = computed(() => getEmojiPage(data.value))
 const icon = computed(() => getIconPage(data.value))

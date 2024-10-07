@@ -1,14 +1,17 @@
 <script setup>
 const config = useRuntimeConfig()
-const contact = defineModel({default: {name: 'jf', email: 'jf@marche', message: ''}})
+const contact = defineModel({default: {name: 'jf', email: 'jf@marche', message: 'coucou'}})
 const {status, data, execute, error} =
-    useFetch(`${config.public.API_URL_SERVER}/api/contact`, {
+    useFetch(`http://localhost:3000/api/contact`, {
       immediate: false,
-      watch: false, body: {hello: 'world '}
+      method: 'post',
+      watch: false,
+      body: {contact: contact}
     })
 
 async function handleSubmit() {
   await execute()
+  console.log(data?.value,error?.value)
   if (!error.value) {
 
   }

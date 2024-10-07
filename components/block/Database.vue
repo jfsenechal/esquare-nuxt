@@ -4,6 +4,12 @@ const props = defineProps({
     type: Object
   }
 })
+
+const {
+  status,
+  data,
+  error
+} = databaseComposeGet(props.block.id)
 onMounted(() => {
 
 })
@@ -14,6 +20,11 @@ const items = computed(() => {
 </script>
 <template>
   <section>
-    {{block}}
+    <WidgetsLoader v-if="status === 'pending'"/>
+    <WidgetsError v-else-if="error" :error/>
+    <div v-else>
+      <DatabasesViewsContact :data v-if="data.database.title[0].plain_text==='Contact'"/>
+      <DatabasesViewsGeneric :data v-else/>
+    </div>
   </section>
 </template>
