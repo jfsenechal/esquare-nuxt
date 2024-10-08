@@ -20,7 +20,7 @@ const coverComputed = computed(() => cover ?? 'https://images.unsplash.com/photo
 </script>
 <template>
   <header class="bg-gray-200" style="height: 30vh">
-    <NuxtImg class="w-full object-center-44 block"
+    <NuxtImg class="w-full object-center-50 block"
              style="height: 30vh;"
              :src="coverComputed"
              alt=""/>

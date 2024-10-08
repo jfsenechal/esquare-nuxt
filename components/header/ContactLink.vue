@@ -7,8 +7,8 @@ const mobileMenu = defineModel('mobileMenu', {type: Boolean, default: false})
       <div class="absolute inset-y-0 left-0 flex items-center pl-3">
         <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"
              aria-hidden="true">
-          <defs fill="#C14C8A"/>
-          <path d="m56,12v10l-24,12-24-12v-10h48ZM8,26.47v25.53h48v-25.53l-24,12-24-12Z" fill="#C14C8A"/>
+          <defs fill="#0067a1"/>
+          <path d="m56,12v10l-24,12-24-12v-10h48ZM8,26.47v25.53h48v-25.53l-24,12-24-12Z" fill="#0067a1"/>
         </svg>
       </div>
       <NuxtLink to="/contact"
