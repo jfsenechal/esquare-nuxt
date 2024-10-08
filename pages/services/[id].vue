@@ -9,7 +9,7 @@ useSeoMeta({
   title: 'Nos services',
 })
 const breadcrumb = [{label: "Accueil", to: "/"}]
-const name = computed(() => getNamePage(data.value))
+const name = computed(() => data.value?.title ?? null)
 const cover = computed(() => getCoverPage(data.value))
 const emoji = computed(() => getEmojiPage(data.value))
 const icon = computed(() => getIconPage(data.value))

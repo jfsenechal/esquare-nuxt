@@ -27,7 +27,7 @@ function dataByDay(day) {
 <template>
   <section class="mt-12 mb-12 md:mb-0 md:mt-0 md:pl-5">
     <span class="text-esquare-blue prose md:prose-xl">
-      Sélectionner les dates pour vérifier les disponibilités et réserver
+      Sélectionner vos dates pour vérifier les disponibilités et réserver
     </span>
     <div v-if="daysSelected.length > 0">
       <ul class="flex flex-row gap-2 items-center">

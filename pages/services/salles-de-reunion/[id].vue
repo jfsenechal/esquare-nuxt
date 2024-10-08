@@ -34,7 +34,7 @@ useSeoMeta({
     <WidgetsLoader v-if="roomStatus === 'pending'"/>
     <WidgetsError v-else-if="roomError" :error/>
     <div v-else class="overflow-hidden">
-      <RoomInline :room="room" v-for="room in rooms.results" :key="room.id"/>
+      <RoomInline :room="room" v-for="room in rooms.pages" :key="room.id"/>
     </div>
   </BaseLayout>
 </template>

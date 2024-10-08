@@ -1,9 +1,8 @@
 <script setup>
 const config = useRuntimeConfig()
 const id = useRoute().params.id
-console.log(useRoute().params)
 const breadcrumb = [
-  {label: "Nos salles à louer", to: "/services/salles-de-reunion"}
+  {label: "Nos salles à louer", to: `/services/salles-de-reunion/${config.public.NOTION_ROOMS_PAGE_ID}`}
 ]
 const {
   status,
@@ -12,8 +11,8 @@ const {
 } = databaseComposeGet(config.public.NOTION_ROOMS_DATABASE_ID)
 
 const room = computed(() => {
-  if (data.value.results.length > 0) {
-    const result = data.value.results.filter((item) => item.id == id)
+  if (data.value.pages.length > 0) {
+    const result = data.value.pages.filter((item) => item.id == id)
     if (result !== null && result.length > 0) {
       return result[0]
     }
@@ -43,7 +42,7 @@ useSeoMeta({
 })
 </script>
 <template>
-  <BaseLayout :page-title="name ?? ''" :breadcrumb  :cover :icon :emoji :status :error>
+  <BaseLayout :page-title="name ?? ''" :breadcrumb :cover :icon :emoji :status :error>
     <template #title>
       <ArticleTitle>
         <span class="hidden md:block">Détails et réservation de la</span>
