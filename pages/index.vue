@@ -21,8 +21,8 @@ const cookiesOpen = useCookie('cookiesOpen', {
     <HomepageCarousel/>
     <HomepageServices/>
     <section class="container mx-auto">
-      <WidgetsTitle>Actualités</WidgetsTitle>
-      <NuxtLink to="nos-evenements" class="block my-3 px-3">
+      <WidgetsTitle>Nos évènements</WidgetsTitle>
+      <NuxtLink to="nos-evenements" class="flex my-3 mx-auto text-xl">
         Tous nos évènements
       </NuxtLink>
       <HomepageNews/>

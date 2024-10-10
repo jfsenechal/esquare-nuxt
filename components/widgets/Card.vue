@@ -7,7 +7,15 @@ const {page} = defineProps({
   }
 })
 const texts = computed(() => page['properties']['Nom']['title'])
-const descriptions = computed(() => page['properties']['Nom']['title'])
+const dates = computed(() => {
+  const dateObject = page['properties']['Date']
+  const startDate = new Date(dateObject.date.start)
+  let endDate = null
+  if (dateObject.date.end) {
+    endDate = new Date(dateObject.date.end)
+  }
+  return eventDate(startDate, endDate)
+})
 const image = '/images/news/book.jpg'
 </script>
 <template>
@@ -19,6 +27,8 @@ const image = '/images/news/book.jpg'
         <div class="h-full flex">
           <div class="leading-none p-6 rounded-2xl mt-auto mb-2 text-3xl font-semibold drop-shadow-sm tracking-tight"
                style="color: rgb(254, 253, 232);">
+            {{ dates }}
+            <br/>
             <BlockRichText :texts="texts"/>
           </div>
         </div>

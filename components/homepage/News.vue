@@ -1,14 +1,12 @@
 <script setup lang="ts">
 //https://play.tailwindcss.com/0MGqLZKhTK
-const config = useRuntimeConfig()
 const tagSelected = ref('Tout')
 const news = ref([])
 const {
   status,
   data,
   error
-} = databaseComposeGet(config.public.NOTION_ACTIVITIES_DATABASE_ID)
-
+} = databaseActivitiesComposeGet()
 watch(tagSelected, (newTag) => {
   if (newTag === 'Tout') {
     news.value = data.value.pages
@@ -24,11 +22,9 @@ watch(tagSelected, (newTag) => {
     news.value = t
   }
 })
-
 function onlyUnique(value, index, array) {
   return array.indexOf(value) === index;
 }
-
 const tags = computed(() => {
   const items = []
   data.value ? data.value.pages.forEach((page) => {
@@ -47,9 +43,8 @@ onMounted(() => {
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
-      <div class=" flex flex-col items-center">
+      <div class="flex flex-col items-center">
         <HomepageTags :tags="tags" v-model:tag-selected="tagSelected"/>
-        <p>Tag sélectionné: {{ tagSelected }}</p>
       </div>
       <div class="space-y-8 sm:space-y-0 sm:grid sm:grid-cols-2 md:grid-cols-3 gap-8 mt-4">
         <WidgetsCard v-for="page in news" :key="page.id" :page/>
