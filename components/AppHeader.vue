@@ -1,10 +1,9 @@
 <script setup>
-const config = useRuntimeConfig()
 const {
   status,
   data,
   error
-} = pageComposeGet(config.public.NOTION_SERVICES_ID)
+} = menuComposeGet()
 const mobileMenu = ref(false)
 </script>
 <template>
@@ -55,7 +54,7 @@ const mobileMenu = ref(false)
       <WidgetsError :error v-if="error"/>
       <WidgetsLoader v-if="status === 'pending'"/>
       <div class="px-2 pb-3 pt-2 flex flex-col text-lg h-screen z-[1000]" v-else>
-        <HeaderMenuItems :child-pages="data.child_pages" v-model:mobile-menu="mobileMenu"/>
+        <HeaderMenuItems :child-pages="data" v-model:mobile-menu="mobileMenu"/>
       </div>
     </nav>
   </header>

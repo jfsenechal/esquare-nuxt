@@ -33,7 +33,7 @@ export default defineNuxtConfig({
             NOTION_MACHINES_DATABASE_ID: process.env.NOTION_MACHINES_DATABASE_ID,
             NOTION_MACHINES_PAGE_ID: process.env.NOTION_MACHINES_PAGE_ID,
             NOTION_CONTACT_ID: process.env.NOTION_CONTACT_ID,
-            NOTION_ACTIVIES_ID: process.env.NOTION_ACTIVIES_ID,
+            NOTION_ACTIVITIES_DATABASE_ID: process.env.NOTION_ACTIVITIES_DATABASE_ID,
             NUXT_APP_BASE_URL: process.env.NUXT_APP_BASE_URL || '/',
         },
     },

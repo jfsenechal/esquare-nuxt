@@ -3,14 +3,11 @@ defineProps({
   childPages: {type: Array, required: true, default: []},
 })
 const mobileMenu = defineModel('mobileMenu', {type: Boolean, default: false})
-function generateLink(item) {
-  return `/services/${item.slug}/${item.id}`
-}
 </script>
 <template>
   <NuxtLink v-for="item in childPages"
             :key="item.id"
-            :to="generateLink(item)"
+            :to="item.link"
             @click="mobileMenu = !mobileMenu"
             class="animateText flex flex-col items-center justify-center w-full p-4 hover:text-esquare-blue border-t-2 border-esquare-grey-lighter uppercase"
             aria-current="page">

@@ -19,7 +19,7 @@ useHead({
     }
   ]
 })
-const breadcrumb = [{label: "Services", to: "/services"}]
+const breadcrumb = [{name: "Services", link: "/services"}]
 const name = 'Salles de réunion'
 const cover = computed(() => data.value ? getCoverPage(data.value) : null)
 const emoji = computed(() => data.value ? getEmojiPage(data.value) : null)

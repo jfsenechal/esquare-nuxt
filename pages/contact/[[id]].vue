@@ -13,7 +13,7 @@ const description = computed(() => '')
 useSeoMeta({
   title: 'Contact et accès',
 })
-const breadcrumb = [{label: 'Contact', to: "/contact"}]
+const breadcrumb = [{name: 'Contact', link: "/contact"}]
 </script>
 <template>
   <BaseLayout :page-title="name" :breadcrumb :cover :emoji :icon>

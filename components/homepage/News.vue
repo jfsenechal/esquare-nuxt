@@ -1,24 +1,59 @@
 <script setup lang="ts">
 //https://play.tailwindcss.com/0MGqLZKhTK
+const config = useRuntimeConfig()
 const tagSelected = ref('Tout')
-const newsRef = ref(news)
+const news = ref([])
+const {
+  status,
+  data,
+  error
+} = databaseComposeGet(config.public.NOTION_ACTIVITIES_DATABASE_ID)
+
 watch(tagSelected, (newTag) => {
-  if (newTag) {
-    newsRef.value = news.filter((item) => item.tag === tagSelected.value)
-  }
   if (newTag === 'Tout') {
-    newsRef.value = news
+    news.value = data.value.pages
+  } else if (newTag) {
+    const t = []
+    data.value.pages.forEach((page) => {
+      page['properties']['Organisateur']['multi_select'].forEach((property) => {
+        if (property['name'] === newTag) {
+          t.push(page)
+        }
+      })
+    })
+    news.value = t
   }
+})
+
+function onlyUnique(value, index, array) {
+  return array.indexOf(value) === index;
+}
+
+const tags = computed(() => {
+  const items = []
+  data.value ? data.value.pages.forEach((page) => {
+    page['properties']['Organisateur']['multi_select'].forEach((property) => {
+      if (property['name']) items.push(property.name)
+    })
+  }) : []
+  return items.filter(onlyUnique)
+})
+onMounted(() => {
+  news.value = data.value?.pages ?? []
 })
 </script>
 <template>
-  <section class="container mx-auto">
-    <WidgetsTitle>Actualités</WidgetsTitle>
-    <div class=" flex flex-col items-center">
-      <HomepageTags v-model:tag-selected="tagSelected"/>
-    </div>
-    <div class="space-y-8 sm:space-y-0 sm:grid sm:grid-cols-2 md:grid-cols-3 gap-8 mt-4">
-      <WidgetsCard v-for="item in newsRef" :key="item.id" :item/>
+  <section class="">
+    <WidgetsLoader v-if="status === 'pending'"/>
+    <WidgetsError v-else-if="error" :error/>
+    <div v-else>
+      <div class=" flex flex-col items-center">
+        <HomepageTags :tags="tags" v-model:tag-selected="tagSelected"/>
+        <p>Tag sélectionné: {{ tagSelected }}</p>
+      </div>
+      <div class="space-y-8 sm:space-y-0 sm:grid sm:grid-cols-2 md:grid-cols-3 gap-8 mt-4">
+        <WidgetsCard v-for="page in news" :key="page.id" :page/>
+      </div>
     </div>
   </section>
 </template>

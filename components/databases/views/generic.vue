@@ -19,7 +19,7 @@ defineProps({
     <ul class="flex flex-row gap-3">
       <li v-for="(page) in data.pages" :key="page.id">
         <div v-for="(item) in page.properties">
-          <DatabasesBlockNotion :block="item"/>
+          <ArticleBlockNotion :block="item"/>
         </div>
       </li>
     </ul>

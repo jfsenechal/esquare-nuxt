@@ -4,6 +4,7 @@ const props = defineProps({
     type: Object
   }
 })
+
 const {
   status,
   data,
@@ -15,6 +16,7 @@ onMounted(() => {
 const items = computed(() => {
   props.block.database.results
 })
+
 </script>
 <template>
   <section>

@@ -26,7 +26,6 @@ useHead({
     <div v-else>
       <ArticleChildPages :childPages="data.child_pages" v-if="data.child_pages.length > 0"/>
       <div v-for="block in data.blocks" :key="block.id">
-        {{ block.type }}
         <ArticleBlockNotion :block/>
       </div>
     </div>

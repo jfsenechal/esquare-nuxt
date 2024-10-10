@@ -3,15 +3,15 @@ defineProps({
   block: {
     type: Object,
     required: true,
-    default:null
+    default: null
   }
 })
 </script>
 <template>
   <div v-if="block">
-    <DatabasesBlocksRichtText :block v-if="block.type === 'rich_text'"/>
-    <DatabasesBlocksFile :block v-else-if="block.type === 'files'"/>
-    <DatabasesBlocksTitle :block v-else-if="block.type === 'title'"/>
-    <DatabasesBlocksUnsupported :block v-else/>
+    <BlockRichText :texts="block.texts" v-if="block.type === 'rich_text'"/>
+    <BlockFiles :files="block.files" v-else-if="block.type === 'files'"/>
+    <BlockRichText :texts="block.title" v-else-if="block.type === 'title'"/>
+    <BlockUnsupported :block v-else/>
   </div>
 </template>

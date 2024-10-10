@@ -10,8 +10,8 @@ defineProps({
     <div class="flex flex-col gap-3">
       <div v-for="(page) in data.pages" :key="page.id" class="">
        <div class="grid grid-cols-2 items-center gap-2" >
-         <DatabasesBlockNotion :block="page.properties['Label']"/>
-         <DatabasesBlockNotion :block="page.properties['Valeur']"/>
+         <ArticleBlockNotion :block="page.properties['Label']"/>
+         <ArticleBlockNotion :block="page.properties['Valeur']"/>
        </div>
       </div>
     </div>

@@ -1,13 +1,9 @@
 <script setup>
-const config = useRuntimeConfig()
 const {
   status,
   data,
   error
-} = pageComposeGet(config.public.NOTION_SERVICES_ID)
-function generateLink(item) {
-  return `/services/${item.slug}/${item.id}`
-}
+} = menuComposeGet()
 </script>
 <template>
   <footer class="bg-white relative top-28">
@@ -17,8 +13,8 @@ function generateLink(item) {
       <nav class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
         <WidgetsError :error v-if="error"/>
         <WidgetsLoader v-if="status === 'pending'"/>
-        <div class="pb-6" v-for="item in data.child_pages" :key="item.id" v-else>
-          <NuxtLink :to="generateLink(item)" class="text-sm leading-6 text-gray-600 hover:text-gray-900">
+        <div class="pb-6" v-for="item in data" :key="item.id" v-else>
+          <NuxtLink :to="item.link" class="text-sm leading-6 text-gray-600 hover:text-gray-900">
             {{ item.name }}
           </NuxtLink>
         </div>
