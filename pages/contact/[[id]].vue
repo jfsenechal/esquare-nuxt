@@ -5,7 +5,7 @@ const {
   data,
   error
 } = pageComposeGet(config.public.NOTION_CONTACT_ID)
-const name = computed(() => data.value?.title ?? null)
+const name = computed(() => data.value?.title ?? '')
 const cover = computed(() => getCoverPage(data.value))
 const emoji = computed(() => getEmojiPage(data.value))
 const icon = computed(() => getIconPage(data.value))
@@ -20,6 +20,7 @@ const breadcrumb = [{name: 'Contact', link: "/contact"}]
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
+      <ArticleChildPages :childPages="data.child_pages" v-if="data.child_pages.length > 0"/>
       <div v-for="block in data.blocks" :key="block.id">
         <ArticleBlockNotion :block/>
       </div>

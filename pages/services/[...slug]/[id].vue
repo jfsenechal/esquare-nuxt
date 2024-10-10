@@ -6,7 +6,7 @@ const {
   data,
   error
 } = pageComposeGet(route.params.id)
-const name = computed(() => data.value?.title ?? null)
+const name = computed(() => data.value?.title ?? '')
 const cover = computed(() => data.value?.cover?.file?.url ?? null)
 const emoji = computed(() => null)
 const icon = computed(() => data.value?.icon?.file?.url ?? null)

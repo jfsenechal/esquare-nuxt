@@ -11,7 +11,7 @@ const descriptions = computed(() => page['properties']['Nom']['title'])
 const image = '/images/news/book.jpg'
 </script>
 <template>
-  <NuxtLink to="/" class="group">
+  <NuxtLink :to="`nos-evenements/details/${page.id}`" class="group">
     <div
         class="card-shadow rounded-2xl p-0 bg-cover bg-center h-96 relative overflow-hidden transition duration-300 ease-out will-change-transform group-hover:scale-110"
         :style="`background-image: url('${image}');`">
