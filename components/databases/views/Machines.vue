@@ -11,7 +11,7 @@ const {
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
-      Les machines
+      Les machines du FabLab
       <DatabasesViewsMachineItem v-for="machine in data.pages" :key="machine.id" :machine/>
     </div>
   </section>

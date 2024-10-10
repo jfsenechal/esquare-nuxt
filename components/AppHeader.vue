@@ -38,7 +38,7 @@ const mobileMenu = ref(false)
         </svg>
       </button>
     </div>
-    <NuxtLink to="/" @click.prevent="mobileMenu = !mobileMenu" class="flex items-center mt-2 mx-2 ">
+    <NuxtLink to="/" @click.prevent="mobileMenu = false" class="flex items-center mt-2 mx-2 ">
       <NuxtImg src="/images/EsquareLogoBlackWhite.png" alt="logo" id="logoEsquare"
                class="h-12 transition-all duration-500 tease-in-out animate-bouncejf md:h-16 w-auto"/>
     </NuxtLink>
