@@ -1,9 +1,10 @@
-export default () => {
+export default (id = null) => {
     const config = useRuntimeConfig()
     console.log(`http://localhost/notion-php/activitiesDatabase.php?id=${id}`)
     const {status, data, error, refresh} =
         useFetch(`http://localhost/notion-php/activitiesDatabase.php`, {
-            key: 'database-activities',
+            query: {id: id},
+            key: 'database-activities-' + id,
         })
     return {
         status,

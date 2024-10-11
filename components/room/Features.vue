@@ -14,9 +14,9 @@ defineProps({
     <span class="font-semibold">{{ properties.NbrPersonnes.rich_text[0].text.content }}</span>
     <IconCoinEuro class="mr-2"/>
     <span class="font-semibold text-esquare-green-light prose md:prose-xl">Prix la journée (HTVA)</span>
-    <span class="font-semibold">{{ properties.TarifHalfDay.number }} €</span>
+    <span class="font-semibold">{{ properties.TarifFullDay.number }} €</span>
     <IconCoinEuro class="mr-2"/>
     <span class="font-semibold text-esquare-green-light prose md:prose-xl">Prix la demi journée (HTVA)</span>
-    <span class="font-semibold">{{ properties.TarifFullDay.number }} €</span>
+    <span class="font-semibold">{{ properties.TarifHalfDay.number }} €</span>
   </section>
 </template>

@@ -1,5 +1,6 @@
 <script setup>
 const name = "Nos évènements"
+const config = useRuntimeConfig()
 useSeoMeta({
   title: name,
 })
@@ -9,47 +10,9 @@ const {
   error
 } = databaseActivitiesComposeGet()
 const breadcrumb = [{name: name, link: "/nos-evenements"}]
-const cover = computed(() => "https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=6000")
-const icon = computed(() => "https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f5de-fe0f.svg")
+const cover = computed(() => config.public.DEFAULT_COVER)
+const icon = computed(() => config.public.DEFAULT_ICON)
 const emoji = null
-const fields = [
-  'Description publique',
-  'Desc_pub',
-  'Catégorie',
-  'Planning comm',
-  'Identifiant',
-  'Participants',
-  'Cycle de formation',
-  'Collaborateur',
-  'Date de création',
-  'Nom',
-  'Salles',
-  'Public cible',
-  'Organisateur',
-  'Assignation',
-  'Date',
-  'Responsable',
-  'Statut',
-  'Livrables',
-  'Durée',
-  'Formateurs',
-]
-onMounted(async () => {
-})
-
-function onlyUnique(value, index, array) {
-  return array.indexOf(value) === index;
-}
-
-const tags = computed(() => {
-  const items = []
-  data.value ? data.value.pages.forEach((page) => {
-    page['properties']['Organisateur']['multi_select'].forEach((property) => {
-      if (property['name']) items.push(property.name)
-    })
-  }) : []
-  return items.filter(onlyUnique)
-})
 const tagSelected = ref('Tout')
 </script>
 <template>
@@ -58,7 +21,7 @@ const tagSelected = ref('Tout')
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
       <div class="flex flex-col items-center gap-2 mb-3">
-        <HomepageTags :tags v-model:tag-selected="tagSelected"/>
+        <HomepageTags :data v-model:tag-selected="tagSelected"/>
       </div>
       <div v-for="(page,index) in data.pages" :key="page.id">
         <div v-for="(property,index) in page.properties" :key="index" class="grid grid-cols-2">

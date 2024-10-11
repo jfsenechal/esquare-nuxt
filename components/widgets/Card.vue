@@ -16,7 +16,10 @@ const dates = computed(() => {
   }
   return eventDate(startDate, endDate)
 })
-const image = '/images/news/book.jpg'
+const image = computed(() => {
+  const files = page['properties']['ImageCouvertureCarre']['files']
+  return files.length > 0 ? files[0]['file']['url'] : '/images/news/book.jpg'
+})
 </script>
 <template>
   <NuxtLink :to="`nos-evenements/details/${page.id}`" class="group">

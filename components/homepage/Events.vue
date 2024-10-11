@@ -22,18 +22,6 @@ watch(tagSelected, (newTag) => {
     news.value = t
   }
 })
-function onlyUnique(value, index, array) {
-  return array.indexOf(value) === index;
-}
-const tags = computed(() => {
-  const items = []
-  data.value ? data.value.pages.forEach((page) => {
-    page['properties']['Organisateur']['multi_select'].forEach((property) => {
-      if (property['name']) items.push(property.name)
-    })
-  }) : []
-  return items.filter(onlyUnique)
-})
 onMounted(() => {
   news.value = data.value?.pages ?? []
 })
@@ -44,7 +32,7 @@ onMounted(() => {
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
       <div class="flex flex-col items-center">
-        <HomepageTags :tags="tags" v-model:tag-selected="tagSelected"/>
+        <HomepageTags :data v-model:tag-selected="tagSelected"/>
       </div>
       <div class="space-y-8 sm:space-y-0 sm:grid sm:grid-cols-2 md:grid-cols-3 gap-8 mt-4">
         <WidgetsCard v-for="page in news" :key="page.id" :page/>

@@ -34,7 +34,7 @@ const images = computed(() => {
 const cover = computed(() => {
   return properties.value.Image.files[0].file.url
 })
-const icon = computed(() => "https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f468-1f3ff-200d-1f4bc.svg")
+const icon = computed(() => config.public.DEFAULT_ICON)
 const emoji = null
 useSeoMeta({
   title: () => `Salle de réunion : ${name.value ?? ''}`,

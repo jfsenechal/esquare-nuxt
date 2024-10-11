@@ -25,7 +25,7 @@ const cookiesOpen = useCookie('cookiesOpen', {
       <NuxtLink to="nos-evenements" class="flex my-3 mx-auto text-xl">
         Tous nos évènements
       </NuxtLink>
-      <HomepageNews/>
+      <HomepageEvents/>
     </section>
     <HomepagePartners/>
   </section>

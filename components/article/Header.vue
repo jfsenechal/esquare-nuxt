@@ -1,4 +1,5 @@
 <script setup>
+const config = useRuntimeConfig()
 const {cover} = defineProps({
   icon: {
     type: String,
@@ -16,7 +17,7 @@ const {cover} = defineProps({
     default: null,
   },
 })
-const coverComputed = computed(() => cover ?? 'https://images.unsplash.com/photo-1596524430615-b46475ddff6e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=6000')
+const coverComputed = computed(() => cover ?? config.public.DEFAULT_COVER)
 </script>
 <template>
   <header class="bg-gray-200" style="height: 30vh">

@@ -51,10 +51,10 @@ export function getToday() {
     return new Date()
 }
 
-export function eventDate(startDate, endDate) {
+export function eventDate(startDate, endDate, addLe = false) {
     if (endDate && formatDate(startDate,'d MMMM yyyy') !== format(endDate,'d MMMM yyyy')) {
         return `Du ${startDate.getDate()}-${startDate.getMonth() + 1} au ${endDate.getDate()}-${endDate.getMonth() + 1} ${endDate.getFullYear()}`;
     } else {
-        return `${startDate.getDate()}-${startDate.getMonth() + 1}-${startDate.getFullYear()}`
+        return `${addLe? 'Le ': ''}${startDate.getDate()}-${startDate.getMonth() + 1}-${startDate.getFullYear()}`
     }
 }

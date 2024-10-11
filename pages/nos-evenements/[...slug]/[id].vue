@@ -1,19 +1,18 @@
 <script setup>
-const name = "Détails évènement"
+const config = useRuntimeConfig()
 const id = useRoute().params.id
-useSeoMeta({
-  title: name,
-})
 const {
   status,
   data,
   error
-} = databaseActivitiesComposeGet()
-const breadcrumb = [{name: name, link: "/nos-evenements"}]
-const cover = computed(() => "https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=6000")
-const icon = computed(() => "https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f5de-fe0f.svg")
+} = databaseActivitiesComposeGet(id)
+const name = computed(() => data.value ? data.value['pages'][0]['properties']['Nom']['title'][0]['plain_text'] : '')
+const breadcrumb = [{name: 'Nos évènements', link: "/nos-evenements"}]
+const cover = computed(() => config.public.DEFAULT_COVER)
+const icon = computed(() => config.public.DEFAULT_ICON)
 const emoji = null
-onMounted(async () => {
+useSeoMeta({
+  title: name,
 })
 </script>
 <template>
@@ -21,7 +20,9 @@ onMounted(async () => {
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
-      Détails de l'évènement
+      <div v-for="page in data.pages" :key="page.id">
+        <DatabasesEventShow :page/>
+      </div>
     </div>
   </BaseLayout>
 </template>

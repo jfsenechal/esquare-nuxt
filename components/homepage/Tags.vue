@@ -1,13 +1,24 @@
 <script setup>
 //https://play.tailwindcss.com/0MGqLZKhTK
-defineProps({
-  tags: {
-    type: Array,
+const {data} = defineProps({
+  data: {
+    type: Object,
     default: []
   }
 })
 const tagSelected = defineModel('tagSelected')
-
+function onlyUnique(value, index, array) {
+  return array.indexOf(value) === index;
+}
+const tags = computed(() => {
+  const items = []
+  data ? data.pages.forEach((page) => {
+    page['properties']['Organisateur']['multi_select'].forEach((property) => {
+      if (property['name']) items.push(property.name)
+    })
+  }) : []
+  return items.filter(onlyUnique)
+})
 function isTagSelected(tag) {
   return tag === tagSelected.value
 }
