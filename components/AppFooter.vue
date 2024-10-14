@@ -11,7 +11,7 @@ const {
     <hr class="border-gray-2 border-2 mx-auto w-1/3 mb-3" />
     <hr class="border-gray-2 border-2 mx-auto w-1/3" />
     <div class="mx-auto max-w-7xl overflow-hidden px-6 sm:py-8 lg:px-8">
-      <nav class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
+      <nav class="-mb-6 columns-2 sm:flex flex-wrap sm:justify-center sm:space-x-12" aria-label="Footer">
         <WidgetsError :error v-if="error"/>
         <WidgetsLoader v-if="status === 'pending'"/>
         <div class="pb-6" v-for="item in data ?? []" :key="item.id" v-else>
