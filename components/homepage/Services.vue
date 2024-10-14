@@ -4,7 +4,7 @@ const {
   status,
   data,
   error
-} = pageComposeGet(config.public.NOTION_SERVICES_ID)
+} = pageComposeGet(config.public.NOTION_SERVICES_PAGE_ID)
 const items = ref([])
 </script>
 <template>
