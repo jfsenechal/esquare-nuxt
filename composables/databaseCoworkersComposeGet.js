@@ -1,8 +1,8 @@
 export default (id = null) => {
     const config = useRuntimeConfig()
-    console.log(`http://localhost/notion-php/coworkersDatabase.php?id=${id}`)
+    console.log(`${config.public.API_URL}/notion-php/coworkersDatabase.php?id=${id}`)
     const {status, data, error, refresh} =
-        useFetch(`http://localhost/notion-php/coworkersDatabase.php`, {
+        useFetch(`${config.public.API_URL}/notion-php/coworkersDatabase.php`, {
             query: {id: id},
             key: 'database-activities-' + id,
         })
