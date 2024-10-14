@@ -12,7 +12,7 @@ const {
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
       Les machines du FabLab
-      <DatabasesViewsMachineItem v-for="machine in data.pages" :key="machine.id" :machine/>
+      <DatabasesViewsMachineItem v-for="machine in data?.pages ?? []" :key="machine.id" :machine/>
     </div>
   </section>
 </template>

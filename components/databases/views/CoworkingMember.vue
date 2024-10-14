@@ -41,7 +41,7 @@ const image = computed(() => 'https://images.unsplash.com/photo-1532417344469-36
       <h3 class="mt-6 text-sm font-medium text-gray-900">{{ lastName }}</h3>
       <dl class="mt-1 flex flex-grow flex-col justify-between">
         <dt class="sr-only">Title</dt>
-        <dd class="text-sm text-gray-500">{{ name }}</dd>
+        <dd class="text-sm text-gray-500">{{ firstName }}</dd>
         <dt class="sr-only">Role</dt>
         <dd class="mt-3">
                 <span

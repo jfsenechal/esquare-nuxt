@@ -12,11 +12,7 @@ const emoji = computed(() => null)
 const icon = computed(() => data.value?.icon?.file?.url ?? null)
 const breadcrumb = computed(() => data.value?.breadcrumb ?? [])
 useHead({
-  title: () => status.value
-      ? 'Loading'
-      : name.value
-          ? name.value.id
-          : 'Page not found',
+  title: () => name.value ?? ''
 })
 </script>
 <template>

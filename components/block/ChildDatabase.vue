@@ -23,7 +23,7 @@ const items = computed(() => {
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
-      <DatabasesViewsContact :data v-if="data.database.title[0].plain_text==='Contact'"/>
+      <DatabasesViewsContact :data v-if="data?.database?.title[0]?.plain_text==='Contact'"/>
       <DatabasesViewsGeneric :data v-else/>
     </div>
   </section>
