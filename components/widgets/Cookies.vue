@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const config = useRuntimeConfig()
 //https://merakiui.com/components/application-ui/cookies
 //https://masteringnuxt.com/blog/how-to-read-and-write-cookies-in-nuxt-3?s=03
 //https://akalfood.com/fr/
@@ -11,7 +12,10 @@ const cookiesOpen = defineModel('cookiesOpen')
 
     <p class="mt-4 text-sm text-gray-600 dark:text-gray-300">
       We use cookies to ensure that we give you the best
-      experience on our website. <a href="#" class="text-esquare-blue hover:underline">Read cookies policies</a>.
+      experience on our website.
+      <NuxtLink :to="`rgpd/${config.public.NOTION_RGPD_ID}`" class="text-esquare-blue hover:underline">
+        Read cookies policies.
+      </NuxtLink>
     </p>
 
     <div class="flex items-center justify-between mt-4 gap-x-4 shrink-0">

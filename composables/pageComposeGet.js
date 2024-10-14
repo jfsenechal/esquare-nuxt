@@ -6,6 +6,8 @@ export default (pageId = null) => {
             query: {page_id: pageId},
             key: 'page-' + pageId,
         })
+    console.log(status.value, data.value, error.value)
+
     return {
         status,
         data,

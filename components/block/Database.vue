@@ -4,25 +4,11 @@ const props = defineProps({
     type: Object
   }
 })
-const {
-  status,
-  data,
-  error
-} = databaseComposeGet(props.block.id)
-onMounted(() => {
-
-})
-const items = computed(() => {
-  props.block.database.results
-})
 </script>
 <template>
   <section>
-    <WidgetsLoader v-if="status === 'pending'"/>
-    <WidgetsError v-else-if="error" :error/>
-    <div v-else>
-      <DatabasesViewsContact :data v-if="data.database.title[0].plain_text==='Contact'"/>
-      <DatabasesViewsGeneric :data v-else/>
-    </div>
+    <DatabasesViewsContact :data v-if="block.id==='1064c8f5-1876-808e-a63b-d8a4db9c2c97'"/>
+    <DatabasesViewsCoworkingMembers :data v-else-if="block.id==='a5ee93f1-106d-4289-a071-66bea45bc83a'"/>
+    <div v-else>Base de données intégrée non trouvée</div>
   </section>
 </template>

@@ -1,22 +1,22 @@
 <script setup>
-const config = useRuntimeConfig()
 const id = useRoute().params.id
-const name = "L'actualités"
-useSeoMeta({
-  title: name,
-})
 const {
   status,
   data,
   error
 } = pageComposeGet(id)
-const breadcrumb = [{name: name, link: `/actualites/${id}`}]
-const cover = computed(() => config.public.DEFAULT_COVER)
-const icon = computed(() => config.public.DEFAULT_ICON)
-const emoji = null
+const name = computed(() => data.value?.title ?? '')
+const cover = computed(() => getCoverPage(data.value))
+const emoji = computed(() => getEmojiPage(data.value))
+const icon = computed(() => getIconPage(data.value))
+const description = computed(() => '')
+useSeoMeta({
+  title: name?.value ?? '',
+})
+const breadcrumb = [{name: 'Accueil', link: "/"}]
 </script>
 <template>
-  <BaseLayout :page-title="name" :breadcrumb :cover :emoji>
+  <BaseLayout :page-title="name" :breadcrumb :cover :emoji :icon>
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error" :error/>
     <div v-else>
@@ -25,5 +25,6 @@ const emoji = null
         <ArticleBlockNotion :block/>
       </div>
     </div>
+    <ContactForm/>
   </BaseLayout>
 </template>
